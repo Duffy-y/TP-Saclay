@@ -1,2 +1,2 @@
-# TP-Saclay
- Repo contenant le code source nécessaire à la réalisation des comptes rendus
+# Compte rendu des travaux pratiques à l'université Paris-Sud
+ Ce repo github servira à échanger, sauvegarder et garder une trace de l'évolution des comptes rendus au fil des changements, et de simplifier la rédaction de ceux-ci. 
