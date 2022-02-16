@@ -1,5 +1,5 @@
-\documentclass[12pt]{article}
-\usepackage[left=3cm, top=3cm, right=3cm, bottom=3cm]{geometry}
+\documentclass[10pt]{article}
+\usepackage[left=2cm, top=3cm, right=2cm, bottom=3cm]{geometry}
 \usepackage[utf8]{inputenc}      % accents dans le source
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
@@ -7,28 +7,176 @@
 \usepackage{graphics}
 \usepackage{amsmath}
 \usepackage{tikz}
+\usepackage{graphicx}
 \usepackage{xcolor}
-\usepackage{mathtools}
 \usepackage{parskip}
 
-\title{\textbf{Instrumentation} \\ TP1 :Diviseur de tension}
+
+\title{\textbf{Instrumentation} \\ TP 1: Diviseur de tension}
 \author{MENARD Alexandre \\ VIEILLEDENT Florent}
+
+\setlength{\parindent}{1cm}
 
 \begin{document}
 \maketitle
 
 \section*{Introduction}
-\section{Première expérience: Résistances de $1k\Omega$ }
+Dans ce travail pratique, on s'intéressera à mesurer la tension aux bornes d'une résistance à l'aide de différents appareils 
+comme un voltmètre numérique, un voltmètre analogique ainsi qu'un oscilloscope. En sachant que chacun de ses appareils de mesure
+disposent d'une résistance interne, la mise en dérivation d'un tel appareil sur un circuit de deux résistances en séries reliées à 
+un générateur constitue une montage de type diviseur de tension. On cherche donc à montrer la formule du pont diviseur de tension 
+donnée par:
+\begin{equation}
+    U = \frac{R_2}{R_2 + R_1} * E
+    \label{eqn:diviseur_tension}
+\end{equation}
+
+On notera $R_i$, la résistance interne de l'appareil de mesure, $R_2$, la résistance où l'on mesure la tension et $E$, la tension du 
+générateur.
+
+\section{Première expérience: résistances de $1k \Omega$}
 \subsection{Montage}
-On réalise le montage suivant avec $E=5V$ et $R_{1}=R_{2}=1k\Omega$.
+
+On réalise le montage suivant qu'on alimente avec un générateur de tension $E=5V$ et deux résistances $R_1$ et $R_2$ avec $R_1=R_2=1k\Omega$.
+
 \begin{figure}[!htbp]
-\begin{center}
+    \begin{center}
+        \rotatebox[origin=c]{-90}{\includegraphics[scale=0.2]{Schéma1.png}}
+        \label{fig:schema1}
+        \caption{Schéma de l'expérience 1}
+    \end{center}
+\end{figure}
 
+\newpage
 
-\includegraphics[width=10cm]{Schéma1.png}
-\label{Schéma1}
-\caption{Schéma de l'expérience 1}
-\end{center}
-\end{figure}\\
-On mesure la tension $U$ au borne de $R_{2}$. On utilise différend voltmètre: un voltmètre analogique, un voltmètre numérique et un oscilloscope. 
+On souhaite mesurer le potentiel $V_A$, pour cela, on branche en dérivation l'appareil sur les bornes de $R_2$. Ainsi, 
+le branchement commun (COM) est du même potentiel que la masse, que l'on note $V_B$, et la borne V sera de même potentiel 
+que $V_A$. On a donc $U = V_A - V_B = V_A$. De cette manière, en mesurant $U$, on obtient $V_A$.
+
+On mesure la tension $U$ au borne de $R_{2}$ à l'aide de différents appareils afin de mettre en évidence de potentielles différences
+: un voltmètre analogique, un voltmètre numérique et un oscilloscope. On compile donc l'ensemble des tensions que l'on a mesuré dans
+le tableau suivant:
+
+\begin{table}[h!]
+    \begin{center}
+        \begin{tabular}{|c|c||c|c||c|}
+            \hline
+            Calibre & Voltmètre analogique & Calibre & Voltmère numérique & Oscilloscope \\
+            \hline
+            $3V$ & $2.5 \pm 0.25V$ & $20V$ & $2.504 \pm 0.03V$ & $2.56 \pm 0.04V$ \\
+            $10V$ & $2.5 \pm 0.5V$ & $200V$ & $2.50 \pm 0.02V$ &  \\
+            $30V$ & $2.5 \pm 0.25V$ & $2000V$ & $2.5 \pm 1V$ &  \\
+            $100V$ & $3 \pm 0.5V$ & & & \\
+            \hline
+        \end{tabular}
+        \caption{Tension mesurée avec chaque appareil}
+        \label{table:table1}
+    \end{center}
+\end{table}
+
+\subsection{Théorie}
+On s'intéresse ici à developper une formule permettant de présenter les résultats théoriques auquels on doit s'attendre par l'expérience
+et de comparer le modèle à la théorie. On a l'expression de la tension $U$ qui est:
+
+\begin{equation}
+    U = V_A - V_B = V_A
+\end{equation}
+
+Cette égalité vient du fait que $V_B$ est au même potentiel que la masse, c'est à dire $V_B = 0V$. D'où $U = V_A$. On peut
+désormais déterminer une expression de $V_A$ en utilisant la formule (\ref{eqn:diviseur_tension}):
+
+\begin{equation}
+    V_A = U = \frac{R_2}{R_2 + R_1} * E
+\end{equation}
+
+On peut enfin en déduire une valeur théorique en faisant une application numérique en prenant $R_1 = R_2 = 1 k\Omega$ et $E = 5V$.
+
+\begin{equation}
+    V_A = \frac{1 \times 10^3}{1 \times 10^3 + 1 \times 10^3} * 5 = 2.5V
+\end{equation}
+
+On peut également se questionner sur les couples de résistances à choisir si l'on souhaite diviser la tension du générateur par $n$
+On réutilise donc la formule (\ref{eqn:diviseur_tension}) et avec $R_2 = 1k\Omega$, $E = 5V$ et l'on cherche $R_1$ tel que:
+
+\begin{equation}
+    \begin{split}
+        V_A = \frac{E}{n} & \Rightarrow \frac{R_2}{R_2 + R_1} * E = \frac{E}{n} \\
+        & \Rightarrow \frac{R_2 + R_1}{R_2} = n \\
+        & \Rightarrow R_1 = (n-1)R_2 \\
+    \end{split}
+\end{equation}
+
+On fait l'application numérique pour diviser la tension du générateur par $n = 2, 10$ et $100$, en notant $R_1(n)$, la valeur de $R_2$
+pour diviser par $n$ la tension:
+\begin{equation}
+    R_1(2) = R_2 = 1k \Omega \quad R_1(10) = 9R_1 = 9k \Omega \quad R_1(100) = 99 R_1 = 99 k\Omega
+\end{equation}
+
+Comme l'on branche en dérivation le voltmètre avec sa résistance $R_i$, on peut considérer que $R_2$ et $R_i$ forment une seule résistance équivalente
+qu'on note $R_2^{'}$ avec $R_2^{'} = \frac{R_iR_2}{R_i + R_2}$. On a donc: 
+
+\begin{equation}
+    V_A = U = \frac{R_2^{'}}{R_2^{'} + R_1} E = \frac{R_iR_2}{R_i + R_2} \frac{1}{\frac{R_iR_2}{R_i + R_2} + R_1} E = \frac{R_iR_2}{R_iR_2 + R_1(R_i + R_2)} E 
+\end{equation}
+
+On en déduit que $R_i$ doit être très grande devant $R_2$ pour que la mesure par le voltmètre ne perturbe pas la valeur.
+
+\subsection{Comparaison entre théorie et expérience}
+Selon la théorie, la tension $U$ doit valoir $2.5V$. On remarque que dans le tableau (\ref{table:table1}), la valeur théorique se retrouve
+dans les valeurs mesurées expérimentalement en prenant en compte les incertitudes.
+
+\section{Première expérience: résistances de $1M \Omega$}
+On réalise le même montage que l'expérience n°1, mais on remplace les résistances par des résistances $R_1$ et $R_2$ de $1M\Omega$.
+
+\subsection{Mesures}
+On mesure la tension $U$ aux bornes de $R_2$ toujours avec les mêmes appareils, et l'on compile les valeurs dans le tableau suivant:
+
+\begin{table}[h!]
+    \begin{center}
+        \begin{tabular}{|c|c||c|c||c|}
+            \hline
+            Calibre & Voltmètre analogique & Calibre & Voltmère numérique & Oscilloscope \\
+            \hline
+            $3V$ & $0.27 \pm 0.25V$ & $20V$ & $2.39 \pm 0.01V$ & $1.74 \pm 0.06V$ \\
+            $10V$ & $0.75 \pm 0.5V$ & $200V$ & $2.40 \pm 0.01V$ &  \\
+            $30V$ & $1.5 \pm 0.25V$ & $2000V$ & $2.4 \pm 0.1V$ &  \\
+            $100V$ & $2 \pm 0.5V$ & & & \\
+            \hline
+        \end{tabular}
+        \caption{Tension mesurée avec chaque appareil}
+        \label{table:table2}
+    \end{center}
+
+    \subsection{Theorie}
+    On peut reprendre les résultats de la partie théorie de la première expérience, en modifiant $R_1$ et $R_2$. On fait donc 
+    l'application numérique:
+
+    \begin{equation}
+        V_A = U = \frac{R_2}{R_2 + R_1} * E = \frac{1 \times 10^6}{1 \times 10^6 + 1 \times 10^6} * 5 = 2.5V
+    \end{equation}
+
+    On peut également déterminer une expression de la résistance interne:
+    
+    \begin{equation}
+        \begin{split}
+            U = \frac{R_2^{'}}{R_2^{'} + R_1} * E & \Rightarrow U R_2^{'} + U R_1 = E R_2^{'} \\
+            & \Rightarrow U R_1 = R_2^{'} (E - U) \\
+            & \Rightarrow \frac{U R_1}{E - U} = R_2^{'} \\
+            & \Rightarrow \frac{E - U}{UR_1} = \frac{1}{R_2} + \frac{1}{R_i} \\
+            & \Rightarrow \frac{R_2 (E - U) - U R_1}{UR_1R_2} = \frac{1}{R_i} \\
+            & \Rightarrow R_i = \frac{U R_1 R_2}{R_2 E - U (R_1 + R_2)}
+        \end{split}
+        \label{eqn:ri}
+    \end{equation}
+
+    \subsection{Comparaison entre expérience et théorie}
+    On remarque que les valeurs mesurées en prenant en compte les incertitudes n'atteignent pas la valeur théorique que l'on a calculé.
+    Le paramètre que l'on a modifié depuis la première expérience est la valeur des résistances $R_1$ et $R_2$. 
+    Nous avons conclut précèdemment que la résistance interne $R_i$ doit être très grande devant $R_2$ pour que la mesure soit impactée,
+    et dans cette expérience, on remarque que les mesures sont éloignées de la valeur théorique. 
+    On peut donc se questionner sur la valeur des résistances internes des appareils de mesure, et si elles sont suffisamment grande
+    pour mesure la tension aux bornes de ces résistances avec une très grande valeur.
+
+\end{table}
+
 \end{document}
