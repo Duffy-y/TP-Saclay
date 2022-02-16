@@ -146,36 +146,32 @@ On mesure la tension $U$ aux bornes de $R_2$ toujours avec les mêmes appareils,
         \caption{Tension mesurée avec chaque appareil}
         \label{table:table2}
     \end{center}
-    \subsection{Theorie}
-    On peut reprendre les résultats de la partie théorie de la première expérience, en modifiant $R_1$ et $R_2$. On fait donc 
-    l'application numérique:
-
-    \begin{equation}
-        V_A = U = \frac{R_2}{R_2 + R_1} * E = \frac{1 \times 10^6}{1 \times 10^6 + 1 \times 10^6} * 5 = 2.5V
-    \end{equation}
-
-    On peut également déterminer une expression de la résistance interne:
-    
-    \begin{equation}
-        \begin{split}
-            U = \frac{R_2^{'}}{R_2^{'} + R_1} * E & \Rightarrow U R_2^{'} + U R_1 = E R_2^{'} \\
-            & \Rightarrow U R_1 = R_2^{'} (E - U) \\
-            & \Rightarrow \frac{U R_1}{E - U} = R_2^{'} \\
-            & \Rightarrow \frac{E - U}{UR_1} = \frac{1}{R_2} + \frac{1}{R_i} \\
-            & \Rightarrow \frac{R_2 (E - U) - U R_1}{UR_1R_2} = \frac{1}{R_i} \\
-            & \Rightarrow R_i = \frac{U R_1 R_2}{R_2 E - U (R_1 + R_2)}
-        \end{split}
-        \label{eqn:ri}
-    \end{equation}
-
-    \subsection{Comparaison entre expérience et théorie}
-    On remarque que les valeurs mesurées en prenant en compte les incertitudes n'atteignent pas la valeur théorique que l'on a calculé.
-    Le paramètre que l'on a modifié depuis la première expérience est la valeur des résistances $R_1$ et $R_2$. 
-    Nous avons conclut précèdemment que la résistance interne $R_i$ doit être très grande devant $R_2$ pour que la mesure soit impactée,
-    et dans cette expérience, on remarque que les mesures sont éloignées de la valeur théorique. 
-    On peut donc se questionner sur la valeur des résistances internes des appareils de mesure, et si elles sont suffisamment grande
-    pour mesure la tension aux bornes de ces résistances avec une très grande valeur.
-	
 \end{table}
+
+\subsection{Theorie}
+On peut reprendre les résultats de la partie théorie de la première expérience, en modifiant $R_1$ et $R_2$. On fait donc 
+l'application numérique:
+
+\begin{equation}
+    V_A = U = \frac{R_2}{R_2 + R_1} * E = \frac{1 \times 10^6}{1 \times 10^6 + 1 \times 10^6} * 5 = 2.5V
+\end{equation}
+
+En partant de l'équation suivante:
+\begin{equation}
+    U = \frac{R_2^{'}}{R_2^{'} + R_1} * E \text{ avec } R_2^{'} = \frac{R_iR_2}{R_i + R_2}
+\end{equation}
+
+On isole $R_i$ présent dans $R_2$ et il vient que:
+\begin{equation}
+    R_i = \frac{U R_1 R_2}{R_2 E - U (R_1 + R_2)}
+\end{equation}
+
+\subsection{Comparaison entre expérience et théorie}
+On remarque que les valeurs mesurées en prenant en compte les incertitudes n'atteignent pas la valeur théorique que l'on a calculé.
+Le paramètre que l'on a modifié depuis la première expérience est la valeur des résistances $R_1$ et $R_2$. 
+Nous avons conclut précèdemment que la résistance interne $R_i$ doit être très grande devant $R_2$ pour que la mesure soit impactée,
+et dans cette expérience, on remarque que les mesures sont éloignées de la valeur théorique. 
+On peut donc se questionner sur la valeur des résistances internes des appareils de mesure, et si elles sont suffisamment grande
+pour mesure la tension aux bornes de ces résistances avec une très grande valeur.
 
 \end{document}
