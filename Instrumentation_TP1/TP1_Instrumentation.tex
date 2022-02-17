@@ -48,8 +48,8 @@ On réalise le montage suivant qu'on alimente avec un générateur de tension $E
 \end{figure}
 
 \newpage
-
-On souhaite mesurer le potentiel $V_A$, pour cela, on branche en dérivation l'appareil sur les bornes de $R_2$. Ainsi, 
+\subsection{Mesures}
+On souhaite mesurer le potentiel $V_A$, pour cela, on branche en dérivation l'appareil de mesure sur les bornes de $R_2$. Ainsi, 
 le branchement commun (COM) est du même potentiel que la masse, que l'on note $V_B$, et la borne V sera de même potentiel 
 que $V_A$. On a donc $U = V_A - V_B = V_A$. De cette manière, en mesurant $U$, on obtient $V_A$.
 
@@ -161,17 +161,33 @@ En partant de l'équation suivante:
     U = \frac{R_2^{'}}{R_2^{'} + R_1} * E \text{ avec } R_2^{'} = \frac{R_iR_2}{R_i + R_2}
 \end{equation}
 
-On isole $R_i$ présent dans $R_2$ et il vient que:
+On isole $R_i$ présent dans $R_2'$ et il vient que:
 \begin{equation}
     R_i = \frac{U R_1 R_2}{R_2 E - U (R_1 + R_2)}
 \end{equation}
 
 \subsection{Comparaison entre expérience et théorie}
-On remarque que les valeurs mesurées en prenant en compte les incertitudes n'atteignent pas la valeur théorique que l'on a calculé.
+
+
+	On remarque que les valeurs mesurées en prenant en compte les incertitudes ne sont pas en accord avec la valeur théorique calculée.
 Le paramètre que l'on a modifié depuis la première expérience est la valeur des résistances $R_1$ et $R_2$. 
-Nous avons conclut précèdemment que la résistance interne $R_i$ doit être très grande devant $R_2$ pour que la mesure soit impactée,
+Nous avons conclut précédemment que la résistance interne $R_i$ doit être très grande devant $R_2$ pour que la mesure ne soit pas impactée,
 et dans cette expérience, on remarque que les mesures sont éloignées de la valeur théorique. 
 On peut donc se questionner sur la valeur des résistances internes des appareils de mesure, et si elles sont suffisamment grande
-pour mesure la tension aux bornes de ces résistances avec une très grande valeur.
+pour mesuré la tension aux bornes de ces résistances de très grande valeur.
+
+
+On peut faire l'application numérique avec les valeurs de tension trouvé précédemment. Pour l'oscilloscope et le voltmètre numérique, on trouve respectivement $R_i = 1.1*10^{6} k\Omega$ et $R_i = 1.2*10^{7} k\Omega$, ce qui est en accord avec les valeurs données par les manuels des appareils. Pour le voltmètre analogique, les valeurs de tension varient beaucoup, ce qui rend difficile de calculer une valeur de résistance. Si on prend une valeur moyenne de $1.13V$, on obtient $R_i= 4.1*10^{5} k\Omega$. Cette valeur est en réalité sûrement inférieur, la documentation nous donnant un ordre de grandeur de quelques $k\Omega$ pour un voltmètre analogique. 
+\section{Calcul de courant}
+
+
+	On pourrait calculer le courant qui circule dans le circuit avec les différents appareils de mesure à notre disposition. Le multimètre numérique peut calculer de manière directe le courant. Il faut brancher le multimètre en série n'importe où dans le circuit, avec la borne COM reliée  à la borne - du générateur et la borne A ou mA à la borne +. Dans cette configuration, nous n'avons pas besoin de nous soucier de la résistance interne du multimètre.
+
+
+	Si nous voulons nous servir de l'oscilloscope ou du voltmètre analogique, nous sommes obligés de faire une mesure indirecte du courant. Ces appareils ne pouvant mesurer qu'une tension, il faut se servir de la loi d'Ohm $I=U/R$ pour déterminer le courant. Le montage est alors quasiment que pour la première expérience; le voltmètre ou l'oscilloscope doivent être branchés en dérivation. Si on veut que notre mesure soit précise, il faut donc que la résistance interne de l'appareil de mesure soit très grande comparée à la résistance où l'on mesure la tension(plusieurs ordres de grandeur). 
+
+\section{Conclusion}
+
+
 
 \end{document}
