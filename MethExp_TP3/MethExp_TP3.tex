@@ -1,4 +1,4 @@
-\documentclass[10pt]{article}
+\documentclass[12pt]{article}
 \usepackage[left=2cm, top=3cm, right=2cm, bottom=3cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -21,5 +21,104 @@
 \maketitle
 
 \section*{Introduction}
+
+
+\newpage
+
+\section{Première expérience : Détermination de la capacité thermique de l'eau et du vase calorimétrique}
+
+Le but de cette expérience est de déterminer la capacité thermique de l'eau. On va pour cela utiliser principalement un calorimètre et une résistance chauffante, pour pouvoir établir une relation entre la température de l'eau et le temps passé à chauffé à l'eau. On va pouvoir en même temps estimer la capacité thermique du vase calorimétrique. 
+
+\subsection{Expérimentation}
+
+Nous allons effectuer la même expérience pour différentes masses d'eau et pour différents voltages. Pour la première série de mesure, on utilise $450g$ d'eau et une tension de $12V$. On remplit la cuve interne du calorimètre avec la masse d'eau souhaitée, qu'on a pesé avec une balance. On agite l'eau pour que cela soit homogène et on relève la température grâce au thermomètre. On met ensuite en place la résistance chauffante dans l'eau. La résistance est branché à l'alimentation qui est elle même réglée sur $12V$. On lance le chronomètre et on relève la température toutes les minutes et ceci pendant 15 minutes. On mélange l'eau pendant 15 secondes avant la mesure pour s'assurer que la température soit homogène. 
+
+On recommence ensuite l'expérience avec la même masse d'eau mais une tension de $6V$. Pour la dernière série de mesure, on utilise une tension de $12V$ et une masse d'eau de $800g$.
+
+\subsection{Données}
+
+L'incertitude sur la température nous est donnée par le thermomètre et est de $\pm 0.5^\circ C$. L'incertitude sur la masse est de $\pm 0.1g$(donnée fourni par la balance). On estime l'incertitude sur le temps à $\pm 1s$, car c'est le temps que nous mettons pour lire le chronomètre puis le thermomètre. L'incertitude sur la tension nous est donnée par la dernière décimale affichée par le générateur, donc $\pm 0.1V$.
+
+	Données pour la première expérience, avec $m_{eau}=450.0\pm 0.1g$ et $U=12.0\pm 0.1V$ :
+
+
+	Données pour la deuxième expérience, avec $m_{eau}=450.0\pm 0.1g$ et $U=6.0\pm 0.1V$ :
+	
+	
+	Données pour la troisième expérience, avec $m_{eau}=800.0\pm 0.1g$ et $U=12.0\pm 0.1V$ :
+
+\subsection{Exploitation des données}
+
+On peut tracer un graphique de la température en fonction du temps.
+
+On trouve une droite dont on peut calculer le coefficient directeur qu'on note a et son incertitude grâce à la méthode des pentes extrêmes.
+
+Il faut maintenant relier ce coefficient directeur à la capacité thermique $C_V$ du système étudié, ici {eau+vase calorimétrique}.
+Le système étudié étant un liquide, il a un volume constant et une pression constante et on a :
+
+\begin{equation}
+\delta Q=C_VdT
+\end{equation}
+
+avec $\delta Q$ la chaleur fourni et $C_V$ la capacité thermique. On suppose ici que $C_V$ est constant sur la gamme de température utilisé, on a donc:
+
+\begin{equation}
+Q=C_V\Delta T
+\end{equation}
+
+De même on a :
+
+\begin{equation}
+Q=P\Delta t
+\end{equation}
+
+avec P la puissance fourni et $\Delta t$ la durée pendant laquelle on a injecté du courant dans la résistance. Or $P=UI=\frac{U^2}{R}$ donc:
+
+	\begin{equation}
+Q=\frac{U^2}{R}\Delta t = C_V \Delta T 
+\Rightarrow \Delta T =\frac{U^2}{RC_V}\Delta t
+	\end{equation}
+
+On reconnait ici notre coefficient directeur a, d'où:
+
+\begin{equation}
+a=\frac{U^2}{RC_V} \Rightarrow C_V=\frac{U^2}{Ra}
+\end{equation}	
+
+Pour calculer notre incertitude on utilise les des dérivés partielles:
+\begin{align}
+\Delta C_V &=\displaystyle\left\lvert \frac{\partial C_V}{\partial a}\right\rvert \Delta a + \displaystyle\left\lvert  \frac{\partial C_V}{\partial U}\right\rvert \Delta U \\
+&=\frac{U^2}{Ra^2}\Delta a +\frac{2U}{Ra}\Delta U
+\end{align}
+
+On peut maintenant calculer la capacité thermique massique qu'on note $c_V$:
+\begin{equation}
+c_V=\frac{C_V}{m_{eau}}
+\end{equation}
+
+Calcule de l'incertitude:
+\begin{align}
+\Delta c_V=&=\displaystyle\left\lvert \frac{\partial c_V}{\partial C_V}\right\rvert \Delta C_V + \displaystyle\left\lvert  \frac{\partial c_V}{\partial m_{eau}}\right\rvert \Delta m_{eau} \\
+&=\frac{1}{m_{eau}}\Delta C_V + \frac{C_V}{m_{eau}^2}\Delta m_{eau}
+\end{align}
+
+\subsection{Interprétation}
+
+La valeur théorique de la capacité thermique massique de l'eau est $c_{vth }=4185 ~ J.kg^{-1}.K^{-1}$
+
+\section{Deuxième expérience : Capacités thermiques massiques de quelque solides}
+
+Le but de cette expérience est de déterminer la capacité massique du duralumin, du laiton, du téflon et du plexiglas. On n'utilisera pour cela la relation suivante:
+\begin{equation}
+T_f=\frac{C_0T_0+C_1T_1}{C_0+C_1}
+\label{EquationTf}
+\end{equation}
+avec $C_0$ la capacité thermique du système {eau+vase}, $C_1$ la capacité thermique du métal, $T_0$ la température initial de l'eau, $T_1$ la température initial du métal et $T_F$ la température final de l'eau.
+
+\subsection{Expérimentation}
+On place $450g$ d'eau dans le calorimètre et on mesure sa température après avoir agité. On place un morceau du solide qu'on souhaite étudié dans de l'eau bouillante, dont on mesure aussi la température. Après quelques minutes, on retire le solide de l'eau bouillante et on le met dans le calorimètre. On agite en continue l'eau tout en surveillant la température. On note cette dernière lorsqu'elle atteint un maximum. On retire ensuite le solide et on le pèse après l'avoir séché.
+
+\subsection{Données}
+
 
 \end{document}
