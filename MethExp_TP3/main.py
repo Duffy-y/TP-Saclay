@@ -66,5 +66,7 @@ duralumin_temp_final = 24.0 + 273.15 # K
 plt.errorbar(time_1, temperature_1, xerr=1, yerr=0.5, fmt='go', label="12V 450gr")
 plt.errorbar(time_2, temperature_2, xerr=1, yerr=0.5, fmt='bo', label="6V 450gr")
 plt.errorbar(time_3, temperature_3, xerr=1, yerr=0.5, fmt='ro', label="12V 800gr")
+plt.xlabel("Temps [s]")
+plt.ylabel("Température [K]")
 plt.legend()
 plt.show()
