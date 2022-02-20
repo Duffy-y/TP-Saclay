@@ -181,6 +181,16 @@ T_f=\frac{C_0T_0+C_1T_1}{C_0+C_1} &\Rightarrow T_FC_0+T_FC_1=C_OT_0+C_1T_1 \\
 &\Rightarrow C_1(T_F-T_1)=C_0(T_0-T_F) \\
 &\Rightarrow C_1=\frac{C_0(T_0-T_F)}{T_F-T_1}
 \end{align*}
+
+On calcule l'incertitude associée:
+\begin{align*}
+\Delta C_1 &= \displaystyle\left\lvert \frac{\partial C_1}{\partial C_0}\right\rvert \Delta C_0 + \displaystyle\left\lvert \frac{\partial C_1}{\partial T_0}\right\rvert \Delta T_0 + \displaystyle\left\lvert \frac{\partial C_1}{\partial T_1}\right\rvert \Delta T_1 + \displaystyle\left\lvert \frac{\partial C_1}{\partial T_F}\right\rvert \Delta T_F
+&= 
+\end{align*}
+
+
+
+
 On peut maintenant calculer la capacité thermique massique pour chaque solide:
 \begin{equation}
 c_{solide}=\frac{C_1}{m_{solide}}
@@ -191,6 +201,41 @@ M_{plexiglas}&=5M_C+8M_H+2M_O & M_{teflon}&=2M_C+4M_F  \\
 &=5\times 12+8+2\times 16 & &=2\times 12+4\times 19 \\
 &=100\, g.mol^{-1} & &=100\, g.mol^{-1}
 \end{align*}
+
+Pour le laiton et le duralumin, il faut calculer la masse molaire du matériaux à partir des proportions massique qu'on note $w_{i}$. On a :
+\begin{gather}
+M_{solide}=\frac{m_{solide}}{n_{solide}} \quad \quad w_{i}= \frac{m_i}{m_{solide}}
+\label{Msol}
+\end{gather}
+Or la quantité de matière du solide est égale à la somme des quantités de matière de chaque élément:
+\begin{align*}
+n_{solide}&=\sum_{i}n_i \\
+&=\sum_{i}\frac{m_i}{M_i} \\
+&=m_{solide}\sum_{i}\frac{w_i}{M_i}
+\end{align*}
+On injecte dans l'équation (\ref{Msol}) et on obtient:
+\begin{equation}
+M_{solide}=\frac{1}{\sum_{i}\frac{w_i}{M_i}}
+\end{equation}
+On fait l'application numérique pour le laiton et le duralumin,avec:
+
+	-les fraction massiques pour le laiton: $w_{zinc}=0.4$, $w_{plomb}=0.02$, $w_{cuivre}=0.58$
+	
+	-les fractions massiques pour le duralumin: $w_{silicium}=0.005$, $w_{fer}=0.0035$, $w_{cuivre}=0.04$, $w_{manganese}=0.007$, $w_{magnesium}=0.007$, $w_{zinc}=0.0025$, $w_{aluminium}=0.935$
+	
+	
+On obtient :
+\begin{equation}
+M_{laiton}=65.2\, g.mol^{-1} \quad \quad M_{duralumin}=27.8\, g.mol^{-1}
+\end{equation}
+
+On utilise maintenant la relation : $c_{molaire}=c_{solide}M_{solide}$ et on regroupe nos résultats dans un tableau.
+\begin{table}[h!]
+	\begin{tabular}{|c|c|c|c|c|}
+	
+	\end{tabular}
+
+\end{table}
 
 
 \end{document}
