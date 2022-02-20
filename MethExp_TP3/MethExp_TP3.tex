@@ -85,22 +85,61 @@ On reconnait ici notre coefficient directeur a, d'où:
 a=\frac{U^2}{RC_V} \Rightarrow C_V=\frac{U^2}{Ra}
 \end{equation}	
 
-Pour calculer notre incertitude on utilise les des dérivés partielles:
-\begin{align}
+Pour calculer notre incertitude on utilise la méthode des dérivés partielles:
+\begin{align*}
 \Delta C_V &=\displaystyle\left\lvert \frac{\partial C_V}{\partial a}\right\rvert \Delta a + \displaystyle\left\lvert  \frac{\partial C_V}{\partial U}\right\rvert \Delta U \\
 &=\frac{U^2}{Ra^2}\Delta a +\frac{2U}{Ra}\Delta U
-\end{align}
+\end{align*}
 
-On peut maintenant calculer la capacité thermique massique qu'on note $c_V$:
+Le système étudié est {eau+vase}, on a donc:
 \begin{equation}
-c_V=\frac{C_V}{m_{eau}}
+C_V=C_{eau}+C_{vase}
 \end{equation}
 
-Calcule de l'incertitude:
-\begin{align}
-\Delta c_V=&=\displaystyle\left\lvert \frac{\partial c_V}{\partial C_V}\right\rvert \Delta C_V + \displaystyle\left\lvert  \frac{\partial c_V}{\partial m_{eau}}\right\rvert \Delta m_{eau} \\
-&=\frac{1}{m_{eau}}\Delta C_V + \frac{C_V}{m_{eau}^2}\Delta m_{eau}
-\end{align}
+On a calculé $C_V$ pour différentes masses d'eau, on peut donc écrire ce système:
+
+\begin{equation}
+	\begin{split}
+		\begin{cases}
+			C_{V1}=C_{eau1}+C_{vase} \\
+			C_{V3}=C_{eau3}+C_{vase}
+		\end{cases} 
+&\Rightarrow 
+		\begin{cases}
+			C_{vase}=C_{V1}-c_{eau}m_{eau1} \\
+			c_{eau}m_{eau3}=C_{V3}-C_{vase}
+		\end{cases} \\
+&\Rightarrow 
+		\begin{cases}
+			C_{vase}=C_{V1}-\frac{(C_{V3}-C_{Vase})}{m_{eau3}} \\
+			c_{eau}=\frac{C_{V3}-C_{vase}}{m_{eau3}}
+		\end{cases} \\
+&\Rightarrow 
+		\begin{cases}
+			C_{vase}(m_{eau3}-m_{eau1})=C_{V1}m_{eau3}-C_{V3}m_{eau1} \\
+			c_{eau}=\frac{C_{V3}-C_{vase}}{m_{eau3}}
+		\end{cases} \\
+&\Rightarrow 		
+		\begin{cases}
+			C_{vase}=\frac{C_{V1}m_{eau3}-C_{V3}m_{eau1}}{m_{eau3}-m_{eau1}}  \\
+			c_{eau}=\frac{C_{V3}-C_{vase}}{m_{eau3}}
+		\end{cases}
+	\end{split}	
+\end{equation}
+Calcules des incertitudes:
+
+\begin{align*}
+\Delta C_{vase} &= \displaystyle\left\lvert \frac{\partial C_{vase}}{\partial C_{V1}}\right\rvert \Delta C_{V1}+ \displaystyle\left\lvert \frac{\partial C_{vase}}{\partial C_{V3}}\right\rvert \Delta C_{V3} +\displaystyle\left\lvert \frac{\partial C_{vase}}{\partial m_{eau3}}\right\rvert \Delta m_{eau3} + \displaystyle\left\lvert \frac{\partial C_{vase}}{\partial m_{eau1}}\right\rvert \Delta m_{eau1} \\
+&= \frac{\displaystyle\left\lvert m_{eau3}-C_{V3}m_{eau1}\right\rvert \Delta C_{V1} + \displaystyle\left\lvert m_{eau3}C_{V1}-m_{eau1}\right\rvert \Delta C_{V3}}{m_{eau3}-m_{eau1}}\\
+&+ \frac{\displaystyle\left\lvert m_{eau1}(C_{V3}-C_{V1})\right\rvert \Delta m_{eau1}+\displaystyle\left\lvert m_{eau1}(2C_{V3}-C_{V1})-m_{eau3}(C_{V3}+C_{V1})\right\rvert \Delta m_{eau3} }{(m_{eau3}-m_{eau1})^2} \\
+&=
+\end{align*}
+
+\begin{align*}
+\Delta c_{eau} &= \displaystyle\left\lvert \frac{\partial c_{eau}}{\partial C_{V}}\right\rvert \Delta C_{V} + \displaystyle\left\lvert \frac{\partial c_{eau}}{\partial C_{vase}}\right\rvert \Delta C_{vase} + \displaystyle\left\lvert  \frac{\partial c_{Veau}}{\partial m_{eau}}\right\rvert \Delta m_{eau} \\
+	&=	\frac{C_{vase}}{m_{eau}}\Delta C_{V} + \frac{C_{V}}{m_{eau}}\Delta C_{vase} + \frac{C_{V}-C_{vase}}{m_{eau}^2}\Delta m_{eau}
+\end{align*}
+
 
 \subsection{Interprétation}
 
@@ -119,6 +158,39 @@ avec $C_0$ la capacité thermique du système {eau+vase}, $C_1$ la capacité the
 On place $450g$ d'eau dans le calorimètre et on mesure sa température après avoir agité. On place un morceau du solide qu'on souhaite étudié dans de l'eau bouillante, dont on mesure aussi la température. Après quelques minutes, on retire le solide de l'eau bouillante et on le met dans le calorimètre. On agite en continue l'eau tout en surveillant la température. On note cette dernière lorsqu'elle atteint un maximum. On retire ensuite le solide et on le pèse après l'avoir séché.
 
 \subsection{Données}
+On reprend les notations de l'équation (\ref{EquationTf}). Les incertitudes sont données par la balance et le thermomètre. Pour tous les solides, on a $T_1=94.6\pm 0.5^{\circ}C$
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		Solide & $m_{eau} \pm 0.1g$ & $m_{solide}\pm 0.1g$ & $T_0\pm 0.5^{\circ}C$ & $T_f\pm 0.5^{\circ}C$\\ \hline
+		Laiton & $451.1$ & $82.7$ & $21.1$ & $22.4$ \\
+		Téflon & $451.1$ & $32.5$ & $22.3$ & $23.4$ \\
+		Plexiglas & $450.0$ & $47.8$ & $22.3$ & $23.4$ \\
+		Duralumin & $452.5$ & $77.2$ & $21.1$ & $24.0$ \\ \hline
+		\end{tabular}
+		\caption{Mesures pour les différents solides de l'expérience 2}
+		\label{table:mesureexp2}
+	\end{center}
+\end{table}
+
+\subsection{Exploitation des données}
+On cherche la capacité thermique molaire des matériaux. On va commencer par déterminer la capacité thermique  à l'équation (\ref{EquationTf}):
+\begin{align*}
+T_f=\frac{C_0T_0+C_1T_1}{C_0+C_1} &\Rightarrow T_FC_0+T_FC_1=C_OT_0+C_1T_1 \\
+&\Rightarrow C_1(T_F-T_1)=C_0(T_0-T_F) \\
+&\Rightarrow C_1=\frac{C_0(T_0-T_F)}{T_F-T_1}
+\end{align*}
+On peut maintenant calculer la capacité thermique massique pour chaque solide:
+\begin{equation}
+c_{solide}=\frac{C_1}{m_{solide}}
+\end{equation}
+Il faut maintenant calculer la masse molaire de chaque matériaux. On a déjà la formule brute du plexiglas ($C_5H_8O_2$) et du téflon ($C_2F_4$). On peut donc facilement calculer leur masse molaire:
+\begin{align*}
+M_{plexiglas}&=5M_C+8M_H+2M_O & M_{teflon}&=2M_C+4M_F  \\
+&=5\times 12+8+2\times 16 & &=2\times 12+4\times 19 \\
+&=100\, g.mol^{-1} & &=100\, g.mol^{-1}
+\end{align*}
 
 
 \end{document}
