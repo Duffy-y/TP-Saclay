@@ -1,9 +1,21 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from uncertainties import *
+from scipy.stats import linregress
+
+from typing import Any, List, Tuple
 
 d_temp = 0.5
 dt = 1
+
+def pente_extreme(x, y, dy) -> Any:
+    A_max = (y[-1] + dy - (y[0] - dy)) / (x[-1] - x[0])
+    A_min = (y[-1] - dy - (y[0] + dy)) / (x[-1] - x[0])
+
+    A = (A_max + A_min) / 2
+    dA = (A_max - A_min) / 2
+    
+    return A, dA, A_max * x + y[0] - dy, A_min * x + y[0] + dy
 
 # Expérience 1.1 données
 intensity_12V = 2.62 # A
@@ -25,20 +37,13 @@ data_3 = np.genfromtxt('data/exp1.3.csv', delimiter=',', skip_header=1)
 time_3 = data_3[:,1]
 temperature_3 = data_3[:,2] + 273.15 # K
 
-A_max = (temperature_2[-1] + d_temp - (temperature_2[0] - d_temp)) / (time_2[-1] - time_2[0])
-A_min = (temperature_2[-1] - d_temp - (temperature_2[0] + d_temp)) / (time_2[-1] - time_2[0])
+A1, dA1, pente_max_1, pente_min_1 = pente_extreme(time_1, temperature_1, d_temp)
+A2, dA2, pente_max_2, pente_min_2= pente_extreme(time_2, temperature_2, d_temp)
+A3, dA3, pente_max_3, pente_min_3 = pente_extreme(time_3, temperature_3, d_temp)
 
-A = (A_max + A_min) / 2
-dA = (A_max - A_min) / 2
-
-uA = ufloat(A, dA)
-
-print(uA)
-
-cV = (intensity_6V * current_6V) / (uA * 450.0 * 10**(-3))
-
-print(cV)
-
+print(A1, dA1)
+print(A2, dA2)
+print(A3, dA3)
 
 # Expérience 2 données
 boiling_water_temp = 94.6 + 273.15 # K
@@ -63,10 +68,37 @@ duralumin_mass_metal = 77.2 * 10**(-3) # gr
 duralumin_temp_initial = 21.6 + 273.15 # K
 duralumin_temp_final = 24.0 + 273.15 # K
 
-plt.errorbar(time_1, temperature_1, xerr=1, yerr=0.5, fmt='go', label="12V 450gr")
-plt.errorbar(time_2, temperature_2, xerr=1, yerr=0.5, fmt='bo', label="6V 450gr")
-plt.errorbar(time_3, temperature_3, xerr=1, yerr=0.5, fmt='ro', label="12V 800gr")
-plt.xlabel("Temps [s]")
-plt.ylabel("Température [K]")
-plt.legend()
-plt.show()
+temp1_regress = linregress(time_1, temperature_1)
+temp2_regress = linregress(time_2, temperature_2)
+temp3_regress = linregress(time_3, temperature_3)
+
+temp1 = temp1_regress[0] * time_1 + temp1_regress[1]
+temp2 = temp2_regress[0] * time_2 + temp2_regress[1]
+temp3 = temp3_regress[0] * time_3 + temp3_regress[1]
+
+fig = plt.figure()
+ax1 = fig.add_subplot(131)
+ax2 = fig.add_subplot(132)
+ax3 = fig.add_subplot(133)
+
+ax1.set_ylabel('Température (K)')
+ax1.set_xlabel("Temps [s]")
+ax2.set_xlabel("Temps [s]")
+ax3.set_xlabel("Temps [s]")
+
+ax1.errorbar(time_1, temperature_1, xerr=1, yerr=0.5, fmt='go', label="12V 450gr")
+ax1.plot(time_1, pente_max_1, 'g-')
+ax1.plot(time_1, pente_min_1, 'g-')
+
+ax2.errorbar(time_2, temperature_2, xerr=1, yerr=0.5, fmt='bo', label="6V 450gr")
+ax2.plot(time_2, pente_max_2, 'b-')
+ax2.plot(time_2, pente_min_2, 'b-')
+
+ax3.errorbar(time_3, temperature_3, xerr=1, yerr=0.5, fmt='ro', label="12V 800gr")
+ax3.plot(time_3, pente_max_3, 'r-')
+ax3.plot(time_3, pente_min_3, 'r-')
+
+ax1.legend()
+ax2.legend()
+ax3.legend()
+# plt.show()
