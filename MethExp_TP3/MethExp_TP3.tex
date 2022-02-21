@@ -175,7 +175,19 @@ On reprend les notations de l'équation (\ref{EquationTf}). Les incertitudes son
 \end{table}
 
 \subsection{Exploitation des données}
-On cherche la capacité thermique molaire des matériaux. On va commencer par déterminer la capacité thermique  à l'équation (\ref{EquationTf}):
+On calcule d'abord la capacité thermique $C_0$ du système eau+vase:
+\begin{equation}
+C_0=c_{eau}m_{eau}+C_{vase}
+\end{equation}
+On utilise la capacité thermique massique théorique de l'eau et la capacité du vase que nous avons calculé précédemment. Calcul des incertitudes
+\begin{align*}
+\Delta C_0&=\displaystyle\left\lvert \frac{\partial C_0}{\partial m_{eau}}\right\rvert \Delta m_{eau} + \displaystyle\left\lvert \frac{\partial C_0}{\partial C_{vase}}\right\rvert \Delta C_{vase}\\
+&=c_{eau}\Delta m_{eau}+\Delta C_{vase}
+\end{align*}
+
+
+
+On cherche la capacité thermique molaire des matériaux. On va déterminé la capacité thermique du solide grâce à l'équation (\ref{EquationTf}):
 \begin{align*}
 T_f=\frac{C_0T_0+C_1T_1}{C_0+C_1} &\Rightarrow T_FC_0+T_FC_1=C_OT_0+C_1T_1 \\
 &\Rightarrow C_1(T_F-T_1)=C_0(T_0-T_F) \\
@@ -184,8 +196,8 @@ T_f=\frac{C_0T_0+C_1T_1}{C_0+C_1} &\Rightarrow T_FC_0+T_FC_1=C_OT_0+C_1T_1 \\
 
 On calcule l'incertitude associée:
 \begin{align*}
-\Delta C_1 &= \displaystyle\left\lvert \frac{\partial C_1}{\partial C_0}\right\rvert \Delta C_0 + \displaystyle\left\lvert \frac{\partial C_1}{\partial T_0}\right\rvert \Delta T_0 + \displaystyle\left\lvert \frac{\partial C_1}{\partial T_1}\right\rvert \Delta T_1 + \displaystyle\left\lvert \frac{\partial C_1}{\partial T_F}\right\rvert \Delta T_F
-&= 
+\Delta C_1 &= \displaystyle\left\lvert \frac{\partial C_1}{\partial C_0}\right\rvert \Delta C_0 + \displaystyle\left\lvert \frac{\partial C_1}{\partial T_0}\right\rvert \Delta T_0 + \displaystyle\left\lvert \frac{\partial C_1}{\partial T_1}\right\rvert \Delta T_1 + \displaystyle\left\lvert \frac{\partial C_1}{\partial T_F}\right\rvert \Delta T_F \\
+&= \frac{T_0-T_F}{T_F-T_1}\Delta C_0 + \frac{C_0T_F}{T_1-T_F}\Delta T_0 + \frac{\displaystyle\left\lvert C_0T_F(T_0-T_F)  \right\rvert}{(T_F-T_1)^2}\Delta T_1 + \frac{\displaystyle\left\lvert C_0((T_F-T_1)-T_1(T_0-T_F))   \right\rvert}{(T_F-T_1)^2}\Delta T_F
 \end{align*}
 
 
@@ -202,21 +214,8 @@ M_{plexiglas}&=5M_C+8M_H+2M_O & M_{teflon}&=2M_C+4M_F  \\
 &=100\, g.mol^{-1} & &=100\, g.mol^{-1}
 \end{align*}
 
-Pour le laiton et le duralumin, il faut calculer la masse molaire du matériaux à partir des proportions massique qu'on note $w_{i}$. On a :
-\begin{gather}
-M_{solide}=\frac{m_{solide}}{n_{solide}} \quad \quad w_{i}= \frac{m_i}{m_{solide}}
-\label{Msol}
-\end{gather}
-Or la quantité de matière du solide est égale à la somme des quantités de matière de chaque élément:
-\begin{align*}
-n_{solide}&=\sum_{i}n_i \\
-&=\sum_{i}\frac{m_i}{M_i} \\
-&=m_{solide}\sum_{i}\frac{w_i}{M_i}
-\end{align*}
-On injecte dans l'équation (\ref{Msol}) et on obtient:
-\begin{equation}
-M_{solide}=\frac{1}{\sum_{i}\frac{w_i}{M_i}}
-\end{equation}
+Pour le laiton et le duralumin, il faut calculer la masse molaire du matériaux à partir des proportions massique qu'on note $w_{i}$. 
+
 On fait l'application numérique pour le laiton et le duralumin,avec:
 
 	-les fraction massiques pour le laiton: $w_{zinc}=0.4$, $w_{plomb}=0.02$, $w_{cuivre}=0.58$
@@ -224,17 +223,19 @@ On fait l'application numérique pour le laiton et le duralumin,avec:
 	-les fractions massiques pour le duralumin: $w_{silicium}=0.005$, $w_{fer}=0.0035$, $w_{cuivre}=0.04$, $w_{manganese}=0.007$, $w_{magnesium}=0.007$, $w_{zinc}=0.0025$, $w_{aluminium}=0.935$
 	
 	
-On obtient :
-\begin{equation}
-M_{laiton}=65.2\, g.mol^{-1} \quad \quad M_{duralumin}=27.8\, g.mol^{-1}
-\end{equation}
+
 
 On utilise maintenant la relation : $c_{molaire}=c_{solide}M_{solide}$ et on regroupe nos résultats dans un tableau.
 \begin{table}[h!]
-	\begin{tabular}{|c|c|c|c|c|}
-	
-	\end{tabular}
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+		\hline
+		Solide & $C_0(J.K^{-1})$ & $C_1(J.K^{-1})$ & $c_{solide}(J.kg^{-1}.K^{-1})$ & $M_{solide}(g.mol^{-1})$ & $c_{molaire}(J.mol^{-1}.K^{-1})$ \\
+		\hline
 
+	
+		\end{tabular}
+	\end{center}		
 \end{table}
 
 
