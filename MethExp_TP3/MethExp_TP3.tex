@@ -1,5 +1,5 @@
 \documentclass[12pt]{article}
-\usepackage[left=2cm, top=3cm, right=2cm, bottom=3cm]{geometry}
+\usepackage[left=2cm, top=2cm, right=2cm, bottom=2cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
@@ -10,6 +10,7 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{parskip}
+\usepackage{physics}
 
 
 \title{\textbf{Méthodes expérimentales} \\ TP 3: Chaleur spécifique, calorimétrie}
@@ -21,10 +22,10 @@
 \maketitle
 
 \section*{Introduction}
-Dans ce travail pratique, on s'intéressera à déterminer les coefficients thermiques, ainsi que les coefficients thermiques
-massiques et molaire de l'eau, du vase et de plusieurs métaux. On évaluera également les fuites thermiques du calorimètre pour mettre
+Dans ce travail pratique, on déterminera les coefficients thermiques, ainsi que les coefficients thermiques
+massiques et molaires de l'eau, du vase et de plusieurs métaux. On évaluera également les fuites thermiques du calorimètre pour mettre
 en avant de potentielles erreurs dans nos expériences précédentes. \\
-On s'appuiera sur des modèles théoriques pour comparer nos mesures à la théorie, et pour effectuer nos comparaisons, on utilisera
+On s'appuiera sur des modèles théoriques pour comparer nos mesures à la théorie. Pour effectuer nos comparaisons, on utilisera
 les outils numériques adéquats.
 
 
@@ -32,42 +33,48 @@ les outils numériques adéquats.
 
 \section{Première expérience : Détermination de la capacité thermique de l'eau et du vase calorimétrique}
 
-Le but de cette expérience est de déterminer la capacité thermique de l'eau. On va pour cela utiliser principalement un calorimètre et une résistance chauffante de $5 \Omega$, pour pouvoir établir une relation entre la température de l'eau et le temps passé à chauffer de l'eau. On va pouvoir en même temps estimer la capacité thermique du vase calorimétrique. 
+Le but de cette expérience est de déterminer la capacité thermique de l'eau. On utilisera principalement un calorimètre et une résistance chauffante de $5 \Omega$, 
+pour pouvoir établir une relation entre la température de l'eau et le temps passé à chauffer de l'eau. 
+On pourra en même temps estimer la capacité thermique du vase calorimétrique. 
 
 \subsection{Expérimentation}
 
-Nous allons effectuer la même expérience pour différentes masses d'eau et pour différents voltages. Pour la première série de mesure, on utilise $450g$ d'eau et une tension de $12V$. On remplit la cuve interne du calorimètre avec la masse d'eau souhaitée, qu'on a pesé avec une balance. On agite l'eau pour que cela soit homogène et on relève la température grâce au thermomètre. On met ensuite en place la résistance chauffante dans l'eau. La résistance est branchée à l'alimentation qui est elle même réglée sur $12V$. On lance le chronomètre et on relève la température toutes les minutes et ceci pendant 15 minutes. On mélange l'eau pendant 15 secondes avant la mesure pour s'assurer que la température soit homogène. 
+Nous effectuerons la même expérience pour différentes masses d'eau et pour différents voltages. Pour la première série de mesure, on utilise $450g$ d'eau et une tension de $12V$. On remplit la cuve interne du calorimètre avec la masse d'eau souhaitée, qu'on a pesé avec une balance. On agite l'eau pour que cela soit homogène et on relève la température grâce au thermomètre. On met ensuite en place la résistance chauffante dans l'eau. La résistance est branchée à l'alimentation qui est elle même réglée sur $12V$. On lance le chronomètre et on relève la température toutes les minutes et ceci pendant 15 minutes. On mélange l'eau pendant 15 secondes avant la mesure pour s'assurer que la température soit homogène. 
 
 On recommence ensuite l'expérience avec la même masse d'eau mais une tension de $6V$. Pour la dernière série de mesure, on utilise une tension de $12V$ et une masse d'eau de $800g$.
 
 \subsection{Données}
 
-L'incertitude sur la température nous est donnée par le thermomètre et est de $\pm 0.5^\circ C$, on note donc $\delta T = 0.5^\circ C$. L'incertitude sur la masse est de $\pm 0.1g$ (donnée fourni par la balance). On estime l'incertitude sur le temps à $\pm 1s$, car c'est le temps que nous mettons pour lire le chronomètre puis le thermomètre. L'incertitude sur la tension nous est donnée par la dernière décimale affichée par le générateur, donc $\pm 0.1V$.
+L'incertitude sur la température nous est donnée par le thermomètre et est de $\delta T = 0.5^\circ C$. 
+L'incertitude sur la masse est de $\delta m = 0.1g$ (donnée fournie par la balance). 
+On estime l'incertitude sur le temps à $\pm 1s$, car c'est le temps que nous mettons pour lire le chronomètre puis le thermomètre. 
+L'incertitude sur la tension nous est donnée par la dernière décimale affichée par le générateur, donc $\delta U = \pm 0.1V$.
 
-	Données pour la première expérience, avec $m_{eau}=450.0\pm 0.1g$ et $U=12.0\pm 0.1V$ :
+	Données pour la première expérience, avec $m_{eau1}=450.0\pm 0.1g$ et $U_1=12.0\pm 0.1V$ :
 
 
-	Données pour la deuxième expérience, avec $m_{eau}=450.0\pm 0.1g$ et $U=6.0\pm 0.1V$ :
+	Données pour la deuxième expérience, avec $m_{eau2}=450.0\pm 0.1g$ et $U_2=6.0\pm 0.1V$ :
 	
 	
-	Données pour la troisième expérience, avec $m_{eau}=800.0\pm 0.1g$ et $U=12.0\pm 0.1V$ :
+	Données pour la troisième expérience, avec $m_{eau3}=800.0\pm 0.1g$ et $U_3=12.0\pm 0.1V$ :
 
 \newpage
 \subsection{Exploitation des données}
 
-On peut tracer un graphique de la température en fonction du temps.
+On trace le graphique de la température en fonction de la température:
 
 \begin{figure}[h!]
 	\begin{center}
 		\includegraphics[scale=0.64]{img/Figure_1.png}
 	\end{center}
 	\label{fig:graph1}
-	\caption{Température (en Kelvin) en fonction du temps}
+	\caption{Température (en Kelvin) en fonction du temps pour les 3 expériences}
 \end{figure}
 
-On trouve une droite dont on peut calculer le coefficient directeur qu'on note a et son incertitude grâce à la méthode des pentes extrêmes.
+% Ici, on répond à "Comment évolue la température ? Que cela signifie-t-il ?"
+On remarque que la température évolue linéairement, ainsi, la température est fonction du temps, et qu'il existe un coefficient directeur que l'on peut déterminer à l'aide de la méthode des pentes extrêmes.
 
-Soit $t_i, t_f, T_i, T_f$, respectivement le temps initial, final et la température initiale et finale. On applique la formule suivante afin d'obtenir le coefficient directeur $a$ ainsi que l'incertitude associée $\delta a$:
+Soient $t_i, t_f, T_i, T_f$, respectivement le temps initial, final et la température initiale et finale. On applique la formule suivante afin d'obtenir le coefficient directeur $a$ ainsi que l'incertitude associée $\delta a$:
 
 \begin{gather*}
 	a_{max} = \frac{(T_f + \delta T) - (T_i - \delta T)}{(t_f - \delta t) - (t_i + dt)} \\
@@ -79,20 +86,24 @@ Soit $t_i, t_f, T_i, T_f$, respectivement le temps initial, final et la tempéra
 
 On obtient donc les valeurs suivantes grâce à cette méthode pour les trois expériences:
 \begin{itemize}
-	\item Expérience 1: $a = 0.015 K.s^{-1}$ et $\delta a = 0.001 K.s^{-1}$
-	\item Expérience 2: $a = 0.004 K.s^{-1}$ et $\delta a = 0.001 K.s^{-1}$
-	\item Expérience 3: $a = 0.087 K.s^{-1}$ et $\delta a = 0.001 K.s^{-1}$
+	\item Expérience 1: $a_1 = 0.015 K.s^{-1}$ et $\delta a_1 = 0.001 K.s^{-1}$
+	\item Expérience 2: $a_2 = 0.004 K.s^{-1}$ et $\delta a_2 = 0.001 K.s^{-1}$
+	\item Expérience 3: $a_2 = 0.087 K.s^{-1}$ et $\delta a_3 = 0.001 K.s^{-1}$
 \end{itemize}
+
+De façon plus générale, on posera $\delta a = 0.001 K.s^{-1}$ pour les trois expériences.
 
 \newpage
 Il faut maintenant relier ce coefficient directeur à la capacité thermique $C_V$ du système étudié, ici \{eau+vase calorimétrique\}.
-Le système étudié étant un liquide, il a un volume constant et une pression constante et on a :
+Le système étudié étant un liquide, il a un volume constant et une pression constante, ainsi:
 
 \begin{equation}
 \delta Q=C_VdT
 \end{equation}
 
-avec $\delta Q$ la chaleur fourni et $C_V$ la capacité thermique. On suppose ici que $C_V$ est constant sur la gamme de température utilisé, on a donc:
+avec $\delta Q$ la chaleur fournie et $C_V$ la capacité thermique. 
+
+On suppose ici que $C_V$ est constant sur la gamme de température utilisée, on a donc:
 
 \begin{equation}
 Q=C_V\Delta T
@@ -104,7 +115,7 @@ De même on a :
 Q=P\Delta t
 \end{equation}
 
-avec P la puissance fourni et $\Delta t$ la durée pendant laquelle on a injecté du courant dans la résistance. Or $P=UI=\frac{U^2}{R}$ donc:
+avec P la puissance fournie et $\Delta t$ la durée pendant laquelle on a injecté du courant dans la résistance. Or $P=UI=\frac{U^2}{R}$ donc:
 
 	\begin{equation}
 Q=\frac{U^2}{R}\Delta t = C_V \Delta T 
@@ -117,10 +128,10 @@ On reconnait ici notre coefficient directeur a, d'où:
 a=\frac{U^2}{RC_V} \Rightarrow C_V=\frac{U^2}{Ra}
 \end{equation}	
 
-Pour calculer notre incertitude on utilise la méthode des dérivés partielles:
+Pour calculer notre incertitude on utilise la méthode des dérivées partielles:
 \begin{align*}
-\Delta C_V &=\displaystyle\left\lvert \frac{\partial C_V}{\partial a}\right\rvert \Delta a + \displaystyle\left\lvert  \frac{\partial C_V}{\partial U}\right\rvert \Delta U \\
-&=\frac{U^2}{Ra^2}\Delta a +\frac{2U}{Ra}\Delta U
+\delta C_V & = \abs{\frac{\partial C_V}{\partial a}} \delta a + \abs{\frac{\partial C_V}{\partial U}} \delta U \\
+&=\frac{U^2}{Ra^2}\delta a +\frac{2U}{Ra}\delta U
 \end{align*}
 
 Le système étudié est \{eau+vase\}, ainsi, en supposant que les capacités thermiques s'additionnent, on a:
@@ -159,27 +170,35 @@ On a calculé $C_V$ pour différentes masses d'eau, on peut donc écrire ce syst
 		\end{cases}
 	\end{split}	
 \end{equation}
-Calculs des incertitudes:
+
+On détermine ensuite les incertitudes associées à $C_{vase}$ et $c_{eau}$ en utilisant la méthode de la dérivée:
 
 \begin{align*}
-\Delta C_{vase} &= \displaystyle\left\lvert \frac{\partial C_{vase}}{\partial C_{V1}}\right\rvert \Delta C_{V1}+ \displaystyle\left\lvert \frac{\partial C_{vase}}{\partial C_{V3}}\right\rvert \Delta C_{V3} +\displaystyle\left\lvert \frac{\partial C_{vase}}{\partial m_{eau3}}\right\rvert \Delta m_{eau3} + \displaystyle\left\lvert \frac{\partial C_{vase}}{\partial m_{eau1}}\right\rvert \Delta m_{eau1} \\
-&= \frac{\displaystyle\left\lvert m_{eau3}-C_{V3}m_{eau1}\right\rvert \Delta C_{V1} + \displaystyle\left\lvert m_{eau3}C_{V1}-m_{eau1}\right\rvert \Delta C_{V3}}{m_{eau3}-m_{eau1}}\\
-&+ \frac{\displaystyle\left\lvert m_{eau1}(C_{V3}-C_{V1})\right\rvert \Delta m_{eau1}+\displaystyle\left\lvert m_{eau1}(2C_{V3}-C_{V1})-m_{eau3}(C_{V3}+C_{V1})\right\rvert \Delta m_{eau3} }{(m_{eau3}-m_{eau1})^2} \\
-&=
+	\delta C_{vase} & = \abs{\frac{\partial C_{vase}}{\partial C_{V1}}} \delta C_{V1} + \abs{\frac{\partial C_{vase}}{\partial C_{V3}}} \delta C_{V3} + \abs{\frac{\partial C_{vase}}{\partial m_{eau3}}} \delta m_{eau3} + \abs{\frac{\partial C_{vase}}{\partial m_{eau1}}} \delta m_{eau1} \\ 
+	& = \abs{\frac{m_{eau3}}{-m_{eau1} + m_{eau3}}} \delta C_{V1}
+	+ \abs{-\frac{m_{eau1}}{-m_{eau1} + m_{eau3}}} \delta C_{V3} \\
+	& + \abs{\frac{C_{V1}}{-m_{eau1} + m_{eau3}} - \frac{C_{V1} m_{eau3} - C_{V3} m_{eau1}}{(-m_{eau1} + m_{eau3})^2}} \delta m_{eau3} \\
+	& + \abs{-\frac{C_{V3}}{-m_{eau1} + m_{eau3}} + \frac{C_{V1} m_{eau3} - C_{V3} m_{eau1}}{(-m_{eau1} + m_{eau3})^2}} \delta m_{eau1} \\
 \end{align*}
 
 \begin{align*}
-\Delta c_{eau} &= \displaystyle\left\lvert \frac{\partial c_{eau}}{\partial C_{V}}\right\rvert \Delta C_{V} + \displaystyle\left\lvert \frac{\partial c_{eau}}{\partial C_{vase}}\right\rvert \Delta C_{vase} + \displaystyle\left\lvert  \frac{\partial c_{Veau}}{\partial m_{eau}}\right\rvert \Delta m_{eau} \\
-	&=	\frac{C_{vase}}{m_{eau}}\Delta C_{V} + \frac{C_{V}}{m_{eau}}\Delta C_{vase} + \frac{C_{V}-C_{vase}}{m_{eau}^2}\Delta m_{eau}
+	\delta c_{eau} & = \abs{\frac{\partial c_{eau}}{\partial C_{V3}}} \delta C_{V3} + \abs{\frac{\partial c_{eau}}{\partial C_{vase}}} \delta C_{vase} + \abs{\frac{\partial c_{eau}}{\partial m_{eau3}}} \delta m_{eau3} \\
+	& = \frac{1}{m_{eau3}} \delta C_{V3} + \frac{1}{m_{eau3}} \delta C_{vase} + \abs{-\frac{C_{V3} - C_{vase}}{m_{eau3}^2}} \delta m_{eau3} \\
 \end{align*}
 
+On peut enfin réaliser les applications numériques pour déterminer la valeur de nos incertitudes:
+
+\begin{gather*}
+	\delta C_{vase} = 379 SI \\
+	\delta c_{eau} = 486 SI
+\end{gather*}
 
 \subsection{Interprétation}
 
 La valeur théorique de la capacité thermique massique de l'eau est $c_{vth }=4185 ~ J.kg^{-1}.K^{-1}$
 
 \newpage
-\section{Deuxième expérience : Capacités thermiques massiques de quelque solides}
+\section{Deuxième expérience : Capacités thermiques massiques de quelques solides}
 
 Le but de cette expérience est de déterminer la capacité massique du duralumin, du laiton, du téflon et du plexiglas. On utilisera pour cela la relation suivante:
 
@@ -187,10 +206,14 @@ Le but de cette expérience est de déterminer la capacité massique du duralumi
 	T_f=\frac{C_0T_0+C_1T_1}{C_0+C_1}
 \label{EquationTf}
 \end{equation}
-avec $C_0$ la capacité thermique du système \{eau+vase\}, $C_1$ la capacité thermique du métal, $T_0$ la température initial de l'eau, $T_1$ la température initial du métal et $T_F$ la température final de l'eau.
+avec $C_0$ la capacité thermique du système \{eau+vase\}, $C_1$ la capacité thermique du métal, $T_0$ la température initiale de l'eau, $T_1$ la température initiale du métal et $T_F$ la température finale de l'eau.
 
 \subsection{Expérimentation}
-On place $450g$ d'eau dans le calorimètre et on mesure sa température après avoir agité. On place un morceau du solide qu'on souhaite étudié dans de l'eau bouillante, dont on mesure aussi la température. Après quelques minutes, on retire le solide de l'eau bouillante et on le met dans le calorimètre. On agite en continue l'eau tout en surveillant la température. On note cette dernière lorsqu'elle atteint un maximum. On retire ensuite le solide et on le pèse après l'avoir séché.
+
+On place $450g$ d'eau dans le calorimètre et on mesure sa température après avoir agité. On place un morceau du solide qu'on souhaite étudier dans de l'eau bouillante, dont on mesure aussi la température. 
+Après quelques minutes, on retire le solide de l'eau bouillante et on le met dans le calorimètre. 
+On agite en continu l'eau tout en surveillant la température. On note cette dernière lorsqu'elle atteint un maximum. 
+On retire ensuite le solide et on le pèse après l'avoir séché.
 
 \subsection{Données}
 On reprend les notations de l'équation (\ref{EquationTf}). Les incertitudes sont données par la balance et le thermomètre. Pour tous les solides, on a $T_1=94.6\pm 0.5^{\circ}C$
@@ -214,15 +237,15 @@ On calcule d'abord la capacité thermique $C_0$ du système \{eau+vase\}:
 \begin{equation}
 C_0=c_{eau}m_{eau}+C_{vase}
 \end{equation}
-On utilise la capacité thermique massique théorique de l'eau et la capacité du vase que nous avons calculé précédemment. Calcul des incertitudes
+On utilise la capacité thermique massique théorique de l'eau et la capacité du vase que nous avons calculé précédemment. On exprime l'incertitude sur la capacité thermique $C_0$ du système:
 \begin{align*}
-\Delta C_0&=\displaystyle\left\lvert \frac{\partial C_0}{\partial m_{eau}}\right\rvert \Delta m_{eau} + \displaystyle\left\lvert \frac{\partial C_0}{\partial C_{vase}}\right\rvert \Delta C_{vase}\\
-&=c_{eau}\Delta m_{eau}+\Delta C_{vase}
+\delta C_0&=\left\lvert \frac{\partial C_0}{\partial m_{eau}}\right\rvert \delta m_{eau} + \left\lvert \frac{\partial C_0}{\partial C_{vase}}\right\rvert \delta C_{vase}\\
+&=c_{eau}\delta m_{eau}+\delta C_{vase}
 \end{align*}
 
 
 
-On cherche la capacité thermique molaire des matériaux. On va déterminé la capacité thermique du solide grâce à l'équation (\ref{EquationTf}):
+On cherche la capacité thermique molaire des matériaux. On va déterminer la capacité thermique du solide grâce à l'équation (\ref{EquationTf}):
 \begin{align*}
 T_f=\frac{C_0T_0+C_1T_1}{C_0+C_1} &\Rightarrow T_FC_0+T_FC_1=C_OT_0+C_1T_1 \\
 &\Rightarrow C_1(T_F-T_1)=C_0(T_0-T_F) \\
@@ -231,27 +254,27 @@ T_f=\frac{C_0T_0+C_1T_1}{C_0+C_1} &\Rightarrow T_FC_0+T_FC_1=C_OT_0+C_1T_1 \\
 
 On calcule l'incertitude associée:
 \begin{align*}
-\Delta C_1 &= \displaystyle\left\lvert \frac{\partial C_1}{\partial C_0}\right\rvert \Delta C_0 + \displaystyle\left\lvert \frac{\partial C_1}{\partial T_0}\right\rvert \Delta T_0 + \displaystyle\left\lvert \frac{\partial C_1}{\partial T_1}\right\rvert \Delta T_1 + \displaystyle\left\lvert \frac{\partial C_1}{\partial T_F}\right\rvert \Delta T_F \\
-&= \frac{T_0-T_F}{T_F-T_1}\Delta C_0 + \frac{C_0T_F}{T_1-T_F}\Delta T_0 + \frac{\displaystyle\left\lvert C_0T_F(T_0-T_F)  \right\rvert}{(T_F-T_1)^2}\Delta T_1 + \frac{\displaystyle\left\lvert C_0((T_F-T_1)-T_1(T_0-T_F))   \right\rvert}{(T_F-T_1)^2}\Delta T_F
+\Delta C_1 &= \left\lvert \frac{\partial C_1}{\partial C_0}\right\rvert \Delta C_0 + \left\lvert \frac{\partial C_1}{\partial T_0}\right\rvert \Delta T_0 + \left\lvert \frac{\partial C_1}{\partial T_1}\right\rvert \Delta T_1 + \left\lvert \frac{\partial C_1}{\partial T_F}\right\rvert \Delta T_F \\
+&= \frac{T_0-T_F}{T_F-T_1}\Delta C_0 + \frac{C_0T_F}{T_1-T_F}\Delta T_0 + \frac{\left\lvert C_0T_F(T_0-T_F)  \right\rvert}{(T_F-T_1)^2}\Delta T_1 + \frac{\left\lvert C_0((T_F-T_1)-T_1(T_0-T_F))   \right\rvert}{(T_F-T_1)^2}\Delta T_F
 \end{align*}
 
 
 
 
-On peut maintenant calculer la capacité thermique massique pour chaque solide:
+On peut calculer la capacité thermique massique pour chaque solide:
 \begin{equation}
 c_{solide}=\frac{C_1}{m_{solide}}
 \end{equation}
-Il faut maintenant calculer la masse molaire de chaque matériaux. On a déjà la formule brute du plexiglas ($C_5H_8O_2$) et du téflon ($C_2F_4$). On peut donc facilement calculer leur masse molaire:
+Il faut maintenant calculer la masse molaire de chaque matériau. On a déjà la formule brute du plexiglas ($C_5H_8O_2$) et du téflon ($C_2F_4$). On a les masses molaires suivantes:
 \begin{align*}
 M_{plexiglas}&=5M_C+8M_H+2M_O & M_{teflon}&=2M_C+4M_F  \\
 &=5\times 12+8+2\times 16 & &=2\times 12+4\times 19 \\
 &=100\, g.mol^{-1} & &=100\, g.mol^{-1}
 \end{align*}
 
-Pour le laiton et le duralumin, il faut calculer la masse molaire du matériaux à partir des proportions massique qu'on note $w_{i}$. 
+Pour le laiton et le duralumin, il faut calculer la masse molaire du matériau à partir des proportions massique qu'on note $w_{i}$. 
 
-On fait l'application numérique pour le laiton et le duralumin,avec:
+On fait l'application numérique pour le laiton et le duralumin avec:
 
 	-les fraction massiques pour le laiton: $w_{zinc}=0.4$, $w_{plomb}=0.02$, $w_{cuivre}=0.58$
 	

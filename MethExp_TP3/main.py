@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from uncertainties import *
 from scipy.stats import linregress
+from sympy import *
 
 from typing import Any, List, Tuple
 
@@ -16,6 +17,50 @@ def pente_extreme(x, y, dy) -> Any:
     dA = (A_max - A_min) / 2
     
     return A, dA, A_max * x + y[0] - dy, A_min * x + y[0] + dy
+
+dU = 0.1
+
+U1 = 12
+R1 = 5
+a1 = 0.015
+da1 = 0.001
+C_V1 = U1**2 / (R1 * a1)
+dCV1 = U1**2 / (R1 * a1 **2) * da1 + (2 * U1)/(R1 * a1) * dU
+
+U3 = 12
+R3 = 5
+a3 = 0.087
+da3 = 0.001
+C_V3 = U3**2 / (R3 * a3)
+dCV3 = U3**2 / (R3 * a3 **2) * da3 + (2 * U3)/(R3 * a3) * dU
+
+
+m_eau3 = 0.8
+m_eau1 = 0.45
+dme3 = 0.0001
+dme1 = 0.0001
+
+cvase = C_V3
+
+vase_partial_cv1 = abs(m_eau3/(-m_eau1 + m_eau3)) * dCV1
+vase_partial_cv3 = abs(-m_eau1/(-m_eau1 + m_eau3)) * dCV3
+vase_partial_me3 = abs(C_V1/(-m_eau1 + m_eau3) - (C_V1*m_eau3 - C_V3*m_eau1)/(-m_eau1 + m_eau3)**2) * dme3
+vase_partial_me1 = abs(-C_V3/(-m_eau1 + m_eau3) + (C_V1*m_eau3 - C_V3*m_eau1)/(-m_eau1 + m_eau3)**2) * dme1
+
+delta_vase = vase_partial_cv1 + vase_partial_cv3 + vase_partial_me3 + vase_partial_me1
+
+eau_partial_cv3 = abs(1/m_eau3) * dCV3
+eau_partial_cvase = abs(-1/m_eau3) * delta_vase
+eau_partial_me3 = abs(-(C_V3 - cvase)/m_eau3**2) * dme3
+
+delta_ceau = eau_partial_cv3 + eau_partial_cvase + eau_partial_me3
+
+print()
+
+print(delta_vase)
+print(delta_ceau)
+
+exit()
 
 # Expérience 1.1 données
 intensity_12V = 2.62 # A
