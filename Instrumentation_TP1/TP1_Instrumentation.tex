@@ -10,6 +10,7 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{parskip}
+\usepackage{hyperref}
 
 
 \title{\textbf{Instrumentation} \\ TP 1: Diviseur de tension}
@@ -54,8 +55,9 @@ le branchement commun (COM) est du même potentiel que la masse, que l'on note $
 que $V_A$. On a donc $U = V_A - V_B = V_A$. De cette manière, en mesurant $U$, on obtient $V_A$.
 
 On mesure la tension $U$ au borne de $R_{2}$ à l'aide de différents appareils afin de mettre en évidence de potentielles différences
-: un voltmètre analogique, un voltmètre numérique et un oscilloscope. On estime les incertitudes en fonction de l'appareil: pour le voltmètre analogique, l'incertitude correspond à la moitié de la graduation, pour le voltmètre numérique, on regarde la dernière décimal stable et l'oscilloscope nous donne directement l'incertitude. On compile donc l'ensemble des tensions que l'on a mesuré dans
-le tableau suivant:
+: un voltmètre analogique, un voltmètre numérique et un oscilloscope. On estime les incertitudes en fonction de l'appareil: pour le voltmètre analogique, 
+l'incertitude correspond à la moitié de la graduation, pour le voltmètre numérique, on regarde la dernière décimal stable et l'oscilloscope nous donne directement l'incertitude. 
+On compile donc l'ensemble des tensions que l'on a mesuré dans le tableau suivant:
 
 \begin{table}[h!]
     \begin{center}
@@ -179,14 +181,28 @@ On peut donc se questionner sur la valeur des résistances internes des appareil
 pour mesurer avec précision la tension aux bornes de ces résistances de très grande valeur.
 
 
-On peut faire l'application numérique avec les valeurs de tension trouvé précédemment. Pour l'oscilloscope et le voltmètre numérique, on trouve respectivement $R_i = 1.1*10^{6} k\Omega$ et $R_i = 1.2*10^{7} k\Omega$, ce qui est en accord avec les valeurs données par les manuels des appareils. Pour le voltmètre analogique, les valeurs de tension varient beaucoup, ce qui rend difficile de calculer une valeur de résistance. Si on prend une valeur moyenne de $1.13V$, on obtient $R_i= 4.1*10^{5} k\Omega$. Cette valeur est en réalité sûrement inférieur, la documentation nous donnant un ordre de grandeur de quelques $k\Omega$ pour un voltmètre analogique. 
+On peut faire l'application numérique avec les valeurs de tension trouvé précédemment. Pour l'oscilloscope et le voltmètre numérique, on trouve respectivement $R_i = 1.1*10^{6} k\Omega$ 
+et $R_i = 1.2*10^{7} k\Omega$, ce qui est en accord avec les valeurs données par les manuels des appareils. Pour le voltmètre analogique, les valeurs de tension varient beaucoup, 
+ce qui rend difficile de calculer une valeur de résistance. Si on prend une valeur moyenne de $1.13V$, on obtient $R_i= 4.1*10^{5} k\Omega$. 
+Cette valeur est en réalité sûrement inférieur, la documentation nous donnant un ordre de grandeur de quelques $k\Omega$ pour un voltmètre analogique. 
+
+\textbf{Remarque: } Dans notre cas, le voltmètre numérique du manuel fournit en TP n'était pas celui que nous avions à notre place. On s'est donc référé au manuel présent sur internet pour obtenir la résistance interne 
+de notre voltmètre que l'on a obtenu via ce \href{https://cdn.rohde-schwarz.com/hameg-archive/HM8011-3.pdf}{lien}. Le manuel indique une impédance d'entrée de $10 M \Omega$.
+
 \section{Calcul de courant}
 
 
-	On pourrait calculer le courant qui circule dans le circuit avec les différents appareils de mesure à notre disposition. Le multimètre numérique peut calculer de manière directe le courant. Il faut brancher le multimètre en série n'importe où dans le circuit, avec la borne COM reliée  à la borne - du générateur et la borne A ou mA à la borne +. Dans cette configuration, nous n'avons pas besoin de nous soucier de la résistance interne du multimètre.
+	On pourrait calculer le courant qui circule dans le circuit avec les différents appareils de mesure à notre disposition. 
+    Le multimètre numérique peut calculer de manière directe le courant. Il faut brancher le multimètre en série n'importe où dans le circuit, 
+    avec la borne COM reliée  à la borne - du générateur et la borne A ou mA à la borne +. Dans cette configuration, nous n'avons pas besoin de nous soucier de la résistance interne 
+    du multimètre.
 
 
-	Si nous voulons nous servir de l'oscilloscope ou du voltmètre analogique, nous sommes obligés de faire une mesure indirecte du courant. Ces appareils ne pouvant mesurer qu'une tension, il faut se servir de la loi d'Ohm $I=U/R$ pour déterminer le courant. Le montage est alors quasiment que pour la première expérience; le voltmètre ou l'oscilloscope doivent être branchés en dérivation. Si on veut que notre mesure soit précise, il faut donc que la résistance interne de l'appareil de mesure soit très grande comparée à la résistance où l'on mesure la tension(plusieurs ordres de grandeur). 
+	Si nous voulons nous servir de l'oscilloscope ou du voltmètre analogique, nous sommes obligés de faire une mesure indirecte du courant. 
+    Ces appareils ne pouvant mesurer qu'une tension, il faut se servir de la loi d'Ohm $I=U/R$ pour déterminer le courant. 
+    Le montage est alors quasiment identique à la première expérience; le voltmètre ou l'oscilloscope doivent être branchés en dérivation. 
+    Si on veut que notre mesure soit précise, il faut donc que la résistance interne de l'appareil de mesure soit très grande comparée à la résistance où l'on mesure la tension 
+    (plusieurs ordres de grandeur). 
 
 \section{Conclusion}
 Dans ce travail pratique nous avons mesuré une tension dans un pont diviseur pour différentes valeurs de résistance. Nous avons notamment vu l'importance de prendre en compte la résistance interne des appareils de mesure lorsque nous utilisions des résistances avec de grande valeur. Il faudrait refaire les mesures de l'expérience 2 pour le voltmètre analogique,avec éventuellement un autre modèle de voltmètre analogique pour voir si la grande variation de tension est encore mesurée. 
