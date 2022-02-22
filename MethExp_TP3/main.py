@@ -9,14 +9,26 @@ from typing import Any, List, Tuple
 d_temp = 0.5
 dt = 1
 
-def pente_extreme(x, y, dy) -> Any:
-    A_max = (y[-1] + dy - (y[0] - dy)) / (x[-1] - x[0])
-    A_min = (y[-1] - dy - (y[0] + dy)) / (x[-1] - x[0])
 
-    A = (A_max + A_min) / 2
-    dA = (A_max - A_min) / 2
+def pente_extreme(x: np.ndarray, y: np.ndarray, dy: float = 0) -> Tuple[float, float, np.ndarray, np.ndarray]:
+    """
+    Calcul de la pente d'une fonction avec une erreur sur la pente.
+    Retourne le coefficient directeur de la pente et son incertitude, ainsi que les points de la pente avec coefficient
+    max et min.
+    :param x: Abscisses de la fonction
+    :param y: Ordonnees de la fonction
+    :param dy: Erreur sur les ordonnees de la fonction
+    :param dx: Erreur sur les abscisses de la fonction
+    :return: Coefficient directeur de la pente, incertitude sur le coefficient directeur, points de la pente avec
+    coefficient
+    """
+    a_max = (y[-1] + dy - (y[0] - dy)) / (x[-1] - x[0])
+    a_min = (y[-1] - dy - (y[0] + dy)) / (x[-1] - x[0])
+
+    a = (a_max + a_min) / 2
+    delta_a = (a_max - a_min) / 2
     
-    return A, dA, A_max * x + y[0] - dy, A_min * x + y[0] + dy
+    return a, delta_a, a_max * x + y[0] - dy, a_min * x + y[0] + dy
 
 dU = 0.1
 
@@ -40,7 +52,7 @@ m_eau1 = 0.45
 dme3 = 0.0001
 dme1 = 0.0001
 
-cvase = C_V3
+cvase = (C_V1 * m_eau3 - C_V3 * m_eau1)/(m_eau3 - m_eau1)
 
 vase_partial_cv1 = abs(m_eau3/(-m_eau1 + m_eau3)) * dCV1
 vase_partial_cv3 = abs(-m_eau1/(-m_eau1 + m_eau3)) * dCV3
