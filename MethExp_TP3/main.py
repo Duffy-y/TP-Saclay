@@ -2,6 +2,38 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import linregress
 from tp_lib import pente_extreme, incertitude_derivee_partielle
+from sympy import *
+
+
+# U, R, a = symbols("U, R, a")
+# lst_symbols = [U, R, a]
+# lst_symbols_value = [12, 5, 0.009]
+# lst_uncertainties = [0.1, 0, 0.001]
+#
+# value, incertitude = incertitude_derivee_partielle(lst_symbols, lst_symbols_value, lst_uncertainties, U**2 / (R * a))
+# print(value, incertitude)
+
+CV1, CV3, me1, me3 = symbols("CV1, CV3, me1, me3")
+lst_symbols = [CV1, CV3, me1, me3]
+lst_symbols_value = [1920, 3200, 0.45, 0.8]
+lst_uncertainties = [160, 408, 0.1, 0.1]
+
+expr_cvase = (CV1 * me3 - CV3 * me1)/(me3 - me1)
+
+val_cvase, d_cvase = incertitude_derivee_partielle(lst_symbols, lst_symbols_value, lst_uncertainties, expr_cvase)
+
+print(val_cvase, d_cvase)
+
+CVase = Symbol("CVase")
+lst_symbols = [CV3, CVase, me3]
+lst_symbols_value = [3200, val_cvase, 0.8]
+lst_uncertainties = [408, d_cvase, 0.1]
+
+expr_ceau = (CV3 - CVase) / me3
+
+val_ceau, d_ceau = incertitude_derivee_partielle(lst_symbols, lst_symbols_value, lst_uncertainties, expr_ceau)
+print(val_ceau, d_ceau)
+exit()
 
 
 d_temp = 0.5
@@ -27,9 +59,9 @@ data_3 = np.genfromtxt('data/exp1.3.csv', delimiter=',', skip_header=1)
 time_3 = data_3[:,1]
 temperature_3 = data_3[:,2] + 273.15 # K
 
-A1, dA1, pente_max_1, pente_min_1 = pente_extreme(time_1, temperature_1, d_temp)
-A2, dA2, pente_max_2, pente_min_2 = pente_extreme(time_2, temperature_2, d_temp)
-A3, dA3, pente_max_3, pente_min_3 = pente_extreme(time_3, temperature_3, d_temp)
+A1, dA1, pente_max_1, pente_min_1 = pente_extreme(time_1, temperature_1, d_temp, dt)
+A2, dA2, pente_max_2, pente_min_2 = pente_extreme(time_2, temperature_2, d_temp, dt)
+A3, dA3, pente_max_3, pente_min_3 = pente_extreme(time_3, temperature_3, d_temp, dt)
 
 print(A1, dA1)
 print(A2, dA2)
