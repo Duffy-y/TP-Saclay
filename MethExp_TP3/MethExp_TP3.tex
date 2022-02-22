@@ -265,6 +265,10 @@ On peut calculer la capacité thermique massique pour chaque solide:
 \begin{equation}
 c_{solide}=\frac{C_1}{m_{solide}}
 \end{equation}
+\begin{align*}
+\delta c_{solide}&=\abs{\frac{\partial c_{solide}}{\partial C_1}}\delta C_1 + \abs{\frac{\partial c_{solide}}{m_{solide}}}\delta m_{solide} \\
+&=\frac{\delta C_1}{m_{solide}}+ \frac{C_1}{(m_{solide})^2}\delta m_{solide}
+\end{align*}
 Il faut maintenant calculer la masse molaire de chaque matériau. On a déjà la formule brute du plexiglas ($C_5H_8O_2$) et du téflon ($C_2F_4$). On a les masses molaires suivantes:
 \begin{align*}
 M_{plexiglas}&=5M_C+8M_H+2M_O & M_{teflon}&=2M_C+4M_F  \\
@@ -272,7 +276,20 @@ M_{plexiglas}&=5M_C+8M_H+2M_O & M_{teflon}&=2M_C+4M_F  \\
 &=100\, g.mol^{-1} & &=100\, g.mol^{-1}
 \end{align*}
 
-Pour le laiton et le duralumin, il faut calculer la masse molaire du matériau à partir des proportions massique qu'on note $w_{i}$. 
+Pour le laiton et le duralumin, il faut calculer la masse molaire du matériau à partir des proportions massique qu'on note $w_{i}$. On a :
+\begin{align*}
+M_{solide}&=\frac{m_{totale}}{n_{totale}0} & w_i=\frac{m_i}{m_{totale}}
+\end{align*} 
+Pour un alliage de métaux, on a :
+\begin{align*}
+n_{totale}&=\sum_{i}n_i
+=\sum_i \frac{m_i}{M_i}
+=\sum_i \frac{m_{totale}w_i}{M_i}
+\end{align*}
+
+\begin{equation}
+M_{solide}=\frac{1}{\sum_i \frac{w_i}{M_i}}
+\end{equation}
 
 On fait l'application numérique pour le laiton et le duralumin avec:
 
@@ -280,18 +297,29 @@ On fait l'application numérique pour le laiton et le duralumin avec:
 	
 	-les fractions massiques pour le duralumin: $w_{silicium}=0.005$, $w_{fer}=0.0035$, $w_{cuivre}=0.04$, $w_{manganese}=0.007$, $w_{magnesium}=0.007$, $w_{zinc}=0.0025$, $w_{aluminium}=0.935$
 
-On utilise maintenant la relation : $c_{molaire}=c_{solide}M_{solide}$ et on regroupe nos résultats dans un tableau.
+On obtient:
+\begin{align*}
+M_{lation}&=65.2\, g.mol^{-1} & M_{duralumin}&=27.8\, g.mol^{-1}
+\end{align*}
+ 
+On utilise maintenant les relations $c_{molaire}=c_{solide}M_{solide}$ et $\delta c_{molaire}=c_{solide}\delta M_{solide} + M_{solide}\delta c_{solide }$ puis on regroupe nos résultats dans un tableau.
 \begin{table}[h!]
 	\begin{center}
-		\begin{tabular}{|c|c|c|c|c|c|}
+		\begin{tabular}{|c|c|c|c|c|}
 		\hline
-		Solide & $C_0(J.K^{-1})$ & $C_1(J.K^{-1})$ & $c_{solide}(J.kg^{-1}.K^{-1})$ & $M_{solide}(g.mol^{-1})$ & $c_{molaire}(J.mol^{-1}.K^{-1})$ \\
+		Solide & $C_0(J.K^{-1})$ & $C_1(J.K^{-1})$ & $c_{solide}(J.kg^{-1}.K^{-1})$ & $c_{molaire}(J.mol^{-1}.K^{-1})$ \\
 		\hline
-
+plexiglas & \\
+téflon    & \\
+laiton    & \\
+duralumin & \\
 	
 		\end{tabular}
 	\end{center}		
 \end{table}
 
+\section{Troisième expérience : Évaluation des fuites thermiques du calorimètre}
+Le but de cette expérience est d'évaluer les fuites thermiques du calorimètre. On va pour cela reproduire les paramètres d'expérimentations de la première expérience mais sans faire chauffer l'eau (sans brancher la résistance).
+\subsection{Expérimentation}
 
 \end{document}
