@@ -239,7 +239,7 @@ C_0=c_{eau}m_{eau}+C_{vase}
 \end{equation}
 On utilise la capacité thermique massique théorique de l'eau et la capacité du vase que nous avons calculé précédemment. On exprime l'incertitude sur la capacité thermique $C_0$ du système:
 \begin{align*}
-\delta C_0&=\left\lvert \frac{\partial C_0}{\partial m_{eau}}\right\rvert \delta m_{eau} + \left\lvert \frac{\partial C_0}{\partial C_{vase}}\right\rvert \delta C_{vase}\\
+\delta C_0&= \abs{\frac{\partial C_0}{\partial m_{eau}}} \delta m_{eau} + \abs{\frac{\partial C_0}{\partial C_{vase}}} \delta C_{vase}\\
 &=c_{eau}\delta m_{eau}+\delta C_{vase}
 \end{align*}
 
@@ -254,8 +254,8 @@ T_f=\frac{C_0T_0+C_1T_1}{C_0+C_1} &\Rightarrow T_FC_0+T_FC_1=C_OT_0+C_1T_1 \\
 
 On calcule l'incertitude associée:
 \begin{align*}
-\Delta C_1 &= \left\lvert \frac{\partial C_1}{\partial C_0}\right\rvert \Delta C_0 + \left\lvert \frac{\partial C_1}{\partial T_0}\right\rvert \Delta T_0 + \left\lvert \frac{\partial C_1}{\partial T_1}\right\rvert \Delta T_1 + \left\lvert \frac{\partial C_1}{\partial T_F}\right\rvert \Delta T_F \\
-&= \frac{T_0-T_F}{T_F-T_1}\Delta C_0 + \frac{C_0T_F}{T_1-T_F}\Delta T_0 + \frac{\left\lvert C_0T_F(T_0-T_F)  \right\rvert}{(T_F-T_1)^2}\Delta T_1 + \frac{\left\lvert C_0((T_F-T_1)-T_1(T_0-T_F))   \right\rvert}{(T_F-T_1)^2}\Delta T_F
+\Delta C_1 &= \abs{\frac{\partial C_1}{\partial C_0}} \Delta C_0 + \abs{\frac{\partial C_1}{\partial T_0}} \Delta T_0 + \abs{\frac{\partial C_1}{\partial T_1}} \Delta T_1 + \abs{\frac{\partial C_1}{\partial T_F}} \Delta T_F \\
+&= \frac{T_0-T_F}{T_F-T_1}\Delta C_0 + \frac{C_0T_F}{T_1-T_F}\Delta T_0 + \frac{\abs{C_0T_F(T_0-T_F)}}{(T_F-T_1)^2}\Delta T_1 + \frac{\abs{C_0((T_F-T_1)-T_1(T_0-T_F))}}{(T_F-T_1)^2}\Delta T_F
 \end{align*}
 
 
@@ -279,9 +279,6 @@ On fait l'application numérique pour le laiton et le duralumin avec:
 	-les fraction massiques pour le laiton: $w_{zinc}=0.4$, $w_{plomb}=0.02$, $w_{cuivre}=0.58$
 	
 	-les fractions massiques pour le duralumin: $w_{silicium}=0.005$, $w_{fer}=0.0035$, $w_{cuivre}=0.04$, $w_{manganese}=0.007$, $w_{magnesium}=0.007$, $w_{zinc}=0.0025$, $w_{aluminium}=0.935$
-	
-	
-
 
 On utilise maintenant la relation : $c_{molaire}=c_{solide}M_{solide}$ et on regroupe nos résultats dans un tableau.
 \begin{table}[h!]
