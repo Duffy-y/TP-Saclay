@@ -5,18 +5,20 @@ from tp_lib import pente_extreme, incertitude_derivee_partielle
 from sympy import *
 
 
-# U, R, a = symbols("U, R, a")
-# lst_symbols = [U, R, a]
-# lst_symbols_value = [12, 5, 0.009]
-# lst_uncertainties = [0.1, 0, 0.001]
-#
-# value, incertitude = incertitude_derivee_partielle(lst_symbols, lst_symbols_value, lst_uncertainties, U**2 / (R * a))
-# print(value, incertitude)
+U, R, a = symbols("U, R, a")
+lst_symbols = [U, R, a]
+lst_symbols_value = [12, 5, 0.009]
+lst_uncertainties = [0.1, 0, 0.001]
+
+value, incertitude = incertitude_derivee_partielle(lst_symbols, lst_symbols_value, lst_uncertainties, U**2 / (R * a))
+print(value, incertitude)
+
+exit()
 
 CV1, CV3, me1, me3 = symbols("CV1, CV3, me1, me3")
 lst_symbols = [CV1, CV3, me1, me3]
 lst_symbols_value = [1920, 3200, 0.45, 0.8]
-lst_uncertainties = [160, 408, 0.1, 0.1]
+lst_uncertainties = [160, 408, 0.0001, 0.0001]
 
 expr_cvase = (CV1 * me3 - CV3 * me1)/(me3 - me1)
 
@@ -27,12 +29,13 @@ print(val_cvase, d_cvase)
 CVase = Symbol("CVase")
 lst_symbols = [CV3, CVase, me3]
 lst_symbols_value = [3200, val_cvase, 0.8]
-lst_uncertainties = [408, d_cvase, 0.1]
+lst_uncertainties = [408, d_cvase, 0.0001]
 
 expr_ceau = (CV3 - CVase) / me3
 
 val_ceau, d_ceau = incertitude_derivee_partielle(lst_symbols, lst_symbols_value, lst_uncertainties, expr_ceau)
 print(val_ceau, d_ceau)
+
 exit()
 
 
