@@ -1,78 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from uncertainties import *
 from scipy.stats import linregress
-from sympy import *
+from tp_lib import pente_extreme, incertitude_derivee_partielle
 
-from typing import Any, List, Tuple
 
 d_temp = 0.5
 dt = 1
-
-
-def pente_extreme(x: np.ndarray, y: np.ndarray, dy: float = 0) -> Tuple[float, float, np.ndarray, np.ndarray]:
-    """
-    Calcul de la pente d'une fonction avec une erreur sur la pente.
-    Retourne le coefficient directeur de la pente et son incertitude, ainsi que les points de la pente avec coefficient
-    max et min.
-    :param x: Abscisses de la fonction
-    :param y: Ordonnees de la fonction
-    :param dy: Erreur sur les ordonnees de la fonction
-    :param dx: Erreur sur les abscisses de la fonction
-    :return: Coefficient directeur de la pente, incertitude sur le coefficient directeur, points de la pente avec
-    coefficient
-    """
-    a_max = (y[-1] + dy - (y[0] - dy)) / (x[-1] - x[0])
-    a_min = (y[-1] - dy - (y[0] + dy)) / (x[-1] - x[0])
-
-    a = (a_max + a_min) / 2
-    delta_a = (a_max - a_min) / 2
-    
-    return a, delta_a, a_max * x + y[0] - dy, a_min * x + y[0] + dy
-
-dU = 0.1
-
-U1 = 12
-R1 = 5
-a1 = 0.015
-da1 = 0.001
-C_V1 = U1**2 / (R1 * a1)
-dCV1 = U1**2 / (R1 * a1 **2) * da1 + (2 * U1)/(R1 * a1) * dU
-
-U3 = 12
-R3 = 5
-a3 = 0.087
-da3 = 0.001
-C_V3 = U3**2 / (R3 * a3)
-dCV3 = U3**2 / (R3 * a3 **2) * da3 + (2 * U3)/(R3 * a3) * dU
-
-
-m_eau3 = 0.8
-m_eau1 = 0.45
-dme3 = 0.0001
-dme1 = 0.0001
-
-cvase = (C_V1 * m_eau3 - C_V3 * m_eau1)/(m_eau3 - m_eau1)
-
-vase_partial_cv1 = abs(m_eau3/(-m_eau1 + m_eau3)) * dCV1
-vase_partial_cv3 = abs(-m_eau1/(-m_eau1 + m_eau3)) * dCV3
-vase_partial_me3 = abs(C_V1/(-m_eau1 + m_eau3) - (C_V1*m_eau3 - C_V3*m_eau1)/(-m_eau1 + m_eau3)**2) * dme3
-vase_partial_me1 = abs(-C_V3/(-m_eau1 + m_eau3) + (C_V1*m_eau3 - C_V3*m_eau1)/(-m_eau1 + m_eau3)**2) * dme1
-
-delta_vase = vase_partial_cv1 + vase_partial_cv3 + vase_partial_me3 + vase_partial_me1
-
-eau_partial_cv3 = abs(1/m_eau3) * dCV3
-eau_partial_cvase = abs(-1/m_eau3) * delta_vase
-eau_partial_me3 = abs(-(C_V3 - cvase)/m_eau3**2) * dme3
-
-delta_ceau = eau_partial_cv3 + eau_partial_cvase + eau_partial_me3
-
-print()
-
-print(delta_vase)
-print(delta_ceau)
-
-exit()
 
 # Expérience 1.1 données
 intensity_12V = 2.62 # A
@@ -95,7 +28,7 @@ time_3 = data_3[:,1]
 temperature_3 = data_3[:,2] + 273.15 # K
 
 A1, dA1, pente_max_1, pente_min_1 = pente_extreme(time_1, temperature_1, d_temp)
-A2, dA2, pente_max_2, pente_min_2= pente_extreme(time_2, temperature_2, d_temp)
+A2, dA2, pente_max_2, pente_min_2 = pente_extreme(time_2, temperature_2, d_temp)
 A3, dA3, pente_max_3, pente_min_3 = pente_extreme(time_3, temperature_3, d_temp)
 
 print(A1, dA1)
