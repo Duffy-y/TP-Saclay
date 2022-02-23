@@ -88,7 +88,7 @@ On obtient donc les valeurs suivantes grâce à cette méthode pour les trois ex
 \begin{itemize}
 	\item Expérience 1: $a_1 = 0.015 K.s^{-1}$ et $\delta a_1 = 0.001 K.s^{-1}$
 	\item Expérience 2: $a_2 = 0.004 K.s^{-1}$ et $\delta a_2 = 0.001 K.s^{-1}$
-	\item Expérience 3: $a_2 = 0.0087 K.s^{-1}$ et $\delta a_3 = 0.001 K.s^{-1}$
+	\item Expérience 3: $a_2 = 0.009 K.s^{-1}$ et $\delta a_3 = 0.001 K.s^{-1}$
 \end{itemize}
 
 De façon plus générale, on posera $\delta a = 0.001 K.s^{-1}$ pour les trois expériences.
@@ -106,13 +106,7 @@ avec $\delta Q$ la chaleur fournie et $C_V$ la capacité thermique.
 On suppose ici que $C_V$ est constant sur la gamme de température utilisée, on a donc:
 
 \begin{equation}
-Q=C_V\Delta T
-\end{equation}
-
-De même on a :
-
-\begin{equation}
-Q=P\Delta t
+Q = C_V\Delta T = P\Delta t
 \end{equation}
 
 avec P la puissance fournie et $\Delta t$ la durée pendant laquelle on a injecté du courant dans la résistance. Or $P=UI=\frac{U^2}{R}$ donc:
@@ -122,11 +116,16 @@ Q=\frac{U^2}{R}\Delta t = C_V \Delta T
 \Rightarrow \Delta T =\frac{U^2}{RC_V}\Delta t
 	\end{equation}
 
-On reconnait ici notre coefficient directeur a, d'où:
+On reconnait ici notre coefficient directeur a que l'on a déterminé plus tôt, d'où:
 
 \begin{equation}
 a=\frac{U^2}{RC_V} \Rightarrow C_V=\frac{U^2}{Ra}
 \end{equation}	
+
+En sachant que les capacités thermiques sont extensives, que l'on mesure la capacité thermique $C_V$ du système \{eau + vase\}, on en déduit l'égalité suivante:
+\begin{equation}
+C_V=C_{eau}+C_{vase} \Rightarrow C_V = m_{eau} c_{eau} + C_{vase}
+\end{equation}
 
 Pour calculer notre incertitude on utilise la méthode des dérivées partielles:
 \begin{align*}
@@ -134,68 +133,44 @@ Pour calculer notre incertitude on utilise la méthode des dérivées partielles
 &=\frac{U^2}{Ra^2}\delta a +\frac{2U}{Ra}\delta U
 \end{align*}
 
-Le système étudié est \{eau+vase\}, ainsi, en supposant que les capacités thermiques s'additionnent, on a:
-\begin{equation}
-C_V=C_{eau}+C_{vase}
-\end{equation}
+Pour les 3 expériences, on obtient les capacités thermiques du système:
+\begin{itemize}
+	\item Expérience 1: $C_{V1} = 1920 \pm 160 J.K^{-1}$
+	\item Expérience 2: $C_{V2} = 1800 \pm 510 J.K^{-1}$
+	\item Expérience 3: $C_{V3} = 3200 \pm 409 J.K^{-1}$
+\end{itemize}
+
+En négligeant la présence du vase, on peut déterminer la capacité thermique massique de l'eau avec $c_{eau} = C_V/m_{eau}$:
+\begin{itemize}
+	\item Expérience 1: $c_{eau1} = 4300 \pm 400 J.K^{-1}.kg^{-1}$
+	\item Expérience 2: $c_{eau2} = 4000 \pm 1100 J.K^{-1}.kg^{-1}$
+	\item Expérience 3: $c_{eau3} = 4000 \pm 500 J.K^{-1}.kg^{-1}$
+\end{itemize}
 
 \newpage
-On a calculé $C_V$ pour différentes masses d'eau, on peut donc écrire ce système:
+On peut réaliser une moyenne de nos valeurs pour obtenir la valeur de la capacité thermique massique de l'eau:
 
 \begin{equation}
-	\begin{split}
-		\begin{cases}
-			C_{V1}=C_{eau1}+C_{vase} \\
-			C_{V3}=C_{eau3}+C_{vase}
-		\end{cases} 
-&\Rightarrow 
-		\begin{cases}
-			C_{vase}=C_{V1}-c_{eau}m_{eau1} \\
-			c_{eau}m_{eau3}=C_{V3}-C_{vase}
-		\end{cases} \\
-&\Rightarrow 
-		\begin{cases}
-			C_{vase}=C_{V1}-\frac{(C_{V3}-C_{Vase})}{m_{eau3}} \\
-			c_{eau}=\frac{C_{V3}-C_{vase}}{m_{eau3}}
-		\end{cases} \\
-&\Rightarrow 
-		\begin{cases}
-			C_{vase}(m_{eau3}-m_{eau1})=C_{V1}m_{eau3}-C_{V3}m_{eau1} \\
-			c_{eau}=\frac{C_{V3}-C_{vase}}{m_{eau3}}
-		\end{cases} \\
-&\Rightarrow 		
-		\begin{cases}
-			C_{vase}=\frac{C_{V1}m_{eau3}-C_{V3}m_{eau1}}{m_{eau3}-m_{eau1}}  \\
-			c_{eau}=\frac{C_{V3}-C_{vase}}{m_{eau3}}
-		\end{cases}
-	\end{split}	
+c_{eau} = \frac{\left(c_{eau1} + c_{eau2} + c_{eau3}\right)}{3} = \frac{\left(4300 + 4000 + 4000\right)}{3} \approx 4100 \pm 400 J.K^{-1}.kg^{-1}
 \end{equation}
-
-On détermine ensuite les incertitudes associées à $C_{vase}$ et $c_{eau}$ en utilisant la méthode de la dérivée:
-
-\begin{align*}
-	\delta C_{vase} & = \abs{\frac{\partial C_{vase}}{\partial C_{V1}}} \delta C_{V1} + \abs{\frac{\partial C_{vase}}{\partial C_{V3}}} \delta C_{V3} + \abs{\frac{\partial C_{vase}}{\partial m_{eau3}}} \delta m_{eau3} + \abs{\frac{\partial C_{vase}}{\partial m_{eau1}}} \delta m_{eau1} \\ 
-	& = \abs{\frac{m_{eau3}}{-m_{eau1} + m_{eau3}}} \delta C_{V1}
-	+ \abs{-\frac{m_{eau1}}{-m_{eau1} + m_{eau3}}} \delta C_{V3} \\
-	& + \abs{\frac{C_{V1}}{-m_{eau1} + m_{eau3}} - \frac{C_{V1} m_{eau3} - C_{V3} m_{eau1}}{(-m_{eau1} + m_{eau3})^2}} \delta m_{eau3} \\
-	& + \abs{-\frac{C_{V3}}{-m_{eau1} + m_{eau3}} + \frac{C_{V1} m_{eau3} - C_{V3} m_{eau1}}{(-m_{eau1} + m_{eau3})^2}} \delta m_{eau1} \\
-\end{align*}
-
-\begin{align*}
-	\delta c_{eau} & = \abs{\frac{\partial c_{eau}}{\partial C_{V3}}} \delta C_{V3} + \abs{\frac{\partial c_{eau}}{\partial C_{vase}}} \delta C_{vase} + \abs{\frac{\partial c_{eau}}{\partial m_{eau3}}} \delta m_{eau3} \\
-	& = \frac{1}{m_{eau3}} \delta C_{V3} + \frac{1}{m_{eau3}} \delta C_{vase} + \abs{-\frac{C_{V3} - C_{vase}}{m_{eau3}^2}} \delta m_{eau3} \\
-\end{align*}
-
-On peut enfin réaliser les applications numériques pour déterminer la valeur de nos incertitudes:
-
-\begin{gather*}
-	\delta C_{vase} = 379 SI \\
-	\delta c_{eau} = 486 SI
-\end{gather*}
 
 \subsection{Interprétation}
 
 La valeur théorique de la capacité thermique massique de l'eau est $c_{vth }=4185 ~ J.kg^{-1}.K^{-1}$
+
+La capacité thermique massique expérimentale que nous avons obtenue est $c_{eau} = 4100 \pm 400 J.K^{-1}.kg^{-1}$. Ainsi, en 
+prenant en compte les incertitudes, la valeur théorique se trouve bien dans l'intervalle. 
+
+On peut donc conclure que la capacité thermique massique du vase est négligeable devant celle de l'eau.
+
+Cependant, on remarque que pour l'expérience 2 l'incertitude est très grande et représente environ 25\% de la valeur. Cela est dû
+à l'incertitude sur la température de $0.5^\circ C$. On pourrait donc obtenir des mesures plus précises en utilisant un thermomètre
+plus précis.
+
+\subsection{Remarque}
+Les résultats ne sont pas en accord avec les résultats théoriques, car la capacité thermique massique du vase ne devrai pas être négligeable
+devant celle de l'eau. Il serait donc intéressant de refaire des mesures et des expériences plus précises afin de comparer les résultats.
+
 
 \newpage
 \section{Deuxième expérience : Capacités thermiques massiques de quelques solides}
@@ -233,11 +208,7 @@ On reprend les notations de l'équation (\ref{EquationTf}). Les incertitudes son
 \end{table}
 
 \subsection{Exploitation des données}
-On calcule d'abord la capacité thermique $C_0$ du système \{eau+vase\}:
-\begin{equation}
-C_0=c_{eau}m_{eau}+C_{vase}
-\end{equation}
-On utilise la capacité thermique massique théorique de l'eau et la capacité du vase que nous avons calculé précédemment. On exprime l'incertitude sur la capacité thermique $C_0$ du système:
+On utilise la capacité thermique $C_0$ du système et on exprime l'incertitude sur la capacité thermique $C_0$ du système:
 \begin{align*}
 \delta C_0&= \abs{\frac{\partial C_0}{\partial m_{eau}}} \delta m_{eau} + \abs{\frac{\partial C_0}{\partial C_{vase}}} \delta C_{vase}\\
 &=c_{eau}\delta m_{eau}+\delta C_{vase}

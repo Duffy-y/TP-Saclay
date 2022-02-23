@@ -3,40 +3,42 @@ import matplotlib.pyplot as plt
 from scipy.stats import linregress
 from tp_lib import pente_extreme, incertitude_derivee_partielle
 from sympy import *
+from uncertainties import *
 
+U, R, a1, a2, a3 = symbols("U, R, a1, a2, a3")
+symbol1 = [U, R, a1]
+symbol1_val = [12, 5, 0.015]
+symbol1_incertitude = [0.1, 0, 0.001]
 
-U, R, a = symbols("U, R, a")
-lst_symbols = [U, R, a]
-lst_symbols_value = [12, 5, 0.009]
-lst_uncertainties = [0.1, 0, 0.001]
+symbol2 = [U, R, a2]
+symbol2_val = [6, 5, 0.004]
+symbol2_incertitude = [0.1, 0, 0.001]
 
-value, incertitude = incertitude_derivee_partielle(lst_symbols, lst_symbols_value, lst_uncertainties, U**2 / (R * a))
-print(value, incertitude)
+symbol3 = [U, R, a3]
+symbol3_val = [12, 5, 0.009]
+symbol3_incertitude = [0.1, 0, 0.001]
 
-exit()
+expr1 = U**2 / (R * a1)
+expr2 = U**2 / (R * a2)
+expr3 = U**2 / (R * a3)
 
-CV1, CV3, me1, me3 = symbols("CV1, CV3, me1, me3")
-lst_symbols = [CV1, CV3, me1, me3]
-lst_symbols_value = [1920, 3200, 0.45, 0.8]
-lst_uncertainties = [160, 408, 0.0001, 0.0001]
+CV1, dCV1 = incertitude_derivee_partielle(symbol1, symbol1_val, symbol1_incertitude, expr1)
+CV2, dCV2 = incertitude_derivee_partielle(symbol2, symbol2_val, symbol2_incertitude, expr2)
+CV3, dCV3 = incertitude_derivee_partielle(symbol3, symbol3_val, symbol3_incertitude, expr3)
 
-expr_cvase = (CV1 * me3 - CV3 * me1)/(me3 - me1)
+c1 = ufloat(CV1, dCV1)
+c2 = ufloat(CV2, dCV2)
+c3 = ufloat(CV3, dCV3)
 
-val_cvase, d_cvase = incertitude_derivee_partielle(lst_symbols, lst_symbols_value, lst_uncertainties, expr_cvase)
+m1 = ufloat(0.45, 0.0001)
+m3 = ufloat(0.8, 0.0001)
 
-print(val_cvase, d_cvase)
+print(c1/m1)
+print(c2/m1)
+print(c3/m3)
 
-CVase = Symbol("CVase")
-lst_symbols = [CV3, CVase, me3]
-lst_symbols_value = [3200, val_cvase, 0.8]
-lst_uncertainties = [408, d_cvase, 0.0001]
+print((c1/m1 + c2/m1 + c3/m3) / 3)
 
-expr_ceau = (CV3 - CVase) / me3
-
-val_ceau, d_ceau = incertitude_derivee_partielle(lst_symbols, lst_symbols_value, lst_uncertainties, expr_ceau)
-print(val_ceau, d_ceau)
-
-exit()
 
 
 d_temp = 0.5
@@ -48,19 +50,19 @@ current_12V = 12.0 # V
 
 data_1 = np.genfromtxt('data/exp1.1.csv', delimiter=',', skip_header=1)
 time_1 = data_1[:,1]
-temperature_1 = data_1[:,2] + 273.15 # K
+temperature_1 = data_1[:,2] - data_1[0,2]# K
 
 # Expérience 1.2 données
 intensity_6V = 1.32 # A
 current_6V = 6.0 # V
 data_2 = np.genfromtxt('data/exp1.2.csv', delimiter=',', skip_header=1)
 time_2 = data_2[:,1]
-temperature_2 = data_2[:,2] + 273.15 # K
+temperature_2 = data_2[:,2] - data_2[0,2]# K
 
 # Expérience 1.3 données
 data_3 = np.genfromtxt('data/exp1.3.csv', delimiter=',', skip_header=1)
 time_3 = data_3[:,1]
-temperature_3 = data_3[:,2] + 273.15 # K
+temperature_3 = data_3[:,2] - data_3[0,2]# K
 
 A1, dA1, pente_max_1, pente_min_1 = pente_extreme(time_1, temperature_1, d_temp, dt)
 A2, dA2, pente_max_2, pente_min_2 = pente_extreme(time_2, temperature_2, d_temp, dt)
@@ -106,7 +108,7 @@ ax1 = fig.add_subplot(131)
 ax2 = fig.add_subplot(132)
 ax3 = fig.add_subplot(133)
 
-ax1.set_ylabel('Température (K)')
+ax1.set_ylabel('Différence de température (°C ou K)')
 ax1.set_xlabel("Temps [s]")
 ax2.set_xlabel("Temps [s]")
 ax3.set_xlabel("Temps [s]")
@@ -126,4 +128,4 @@ ax3.plot(time_3, pente_min_3, 'r-')
 ax1.legend()
 ax2.legend()
 ax3.legend()
-# plt.show()
+#plt.show()
