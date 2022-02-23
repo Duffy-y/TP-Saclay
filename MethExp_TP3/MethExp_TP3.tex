@@ -191,12 +191,12 @@ On agite en continu l'eau tout en surveillant la température. On note cette der
 On retire ensuite le solide et on le pèse après l'avoir séché.
 
 \subsection{Données}
-On reprend les notations de l'équation (\ref{EquationTf}). Les incertitudes sont données par la balance et le thermomètre. Pour tous les solides, on a $T_1=94.6\pm 0.5^{\circ}C$
+On reprend les notations de l'équation (\ref{EquationTf}). Les incertitudes sont données par la balance et le thermomètre. Pour tous les solides, on a $T_1=94.6\pm 0.2^{\circ}C$
 \begin{table}[h!]
 	\begin{center}
 		\begin{tabular}{|c|c|c|c|c|}
 		\hline
-		Solide & $m_{eau} \pm 0.1g$ & $m_{solide}\pm 0.1g$ & $T_0\pm 0.5^{\circ}C$ & $T_f\pm 0.5^{\circ}C$\\ \hline
+		Solide & $m_{eau} \pm 0.1g$ & $m_{solide}\pm 0.1g$ & $T_0\pm 0.2^{\circ}C$ & $T_f\pm 0.2^{\circ}C$\\ \hline
 		Laiton & $451.1$ & $82.7$ & $21.1$ & $22.4$ \\
 		Téflon & $451.1$ & $32.5$ & $22.3$ & $23.4$ \\
 		Plexiglas & $450.0$ & $47.8$ & $22.3$ & $23.4$ \\
@@ -208,10 +208,15 @@ On reprend les notations de l'équation (\ref{EquationTf}). Les incertitudes son
 \end{table}
 
 \subsection{Exploitation des données}
-On utilise la capacité thermique $C_0$ du système et on exprime l'incertitude sur la capacité thermique $C_0$ du système:
+On détermine la capacité thermique $C_0$ du système en utilisant les valeurs théoriques des capacités thermiques $c_eau=4185\, J.kg^{-1}.K^{-1}$ et $c_aluminium=900 J.kg^{-1}.K^{-1}$. On a mesuré$m_{vase}=96.9\pm 0.1g$
+\begin{equation}
+C_0=c_{eau}m_{eau}+c_{aluminium}m_{vase}
+\end{equation}
+
+Calcul des incertitudes:
 \begin{align*}
-\delta C_0&= \abs{\frac{\partial C_0}{\partial m_{eau}}} \delta m_{eau} + \abs{\frac{\partial C_0}{\partial C_{vase}}} \delta C_{vase}\\
-&=c_{eau}\delta m_{eau}+\delta C_{vase}
+\delta C_0&= \abs{\frac{\partial C_0}{\partial m_{eau}}} \delta m_{eau} + \abs{\frac{\partial C_0}{\partial m_{vase}}} \delta m_{vase}\\
+&=c_{eau}\delta m_{eau}+c_{aluminium}\delta m_{vase}
 \end{align*}
 
 
@@ -258,8 +263,9 @@ n_{totale}&=\sum_{i}n_i
 =\sum_i \frac{m_{totale}w_i}{M_i}
 \end{align*}
 
+On injecte dans la précédente équation et on obtient:
 \begin{equation}
-M_{solide}=\frac{1}{\sum_i \frac{w_i}{M_i}}
+M_{solide}=\frac{1}{\sum_{i} \frac{w_i}{M_i}}
 \end{equation}
 
 On fait l'application numérique pour le laiton et le duralumin avec:
@@ -278,16 +284,20 @@ On utilise maintenant les relations $c_{molaire}=c_{solide}M_{solide}$ et $\delt
 	\begin{center}
 		\begin{tabular}{|c|c|c|c|c|}
 		\hline
-		Solide & $C_0(J.K^{-1})$ & $C_1(J.K^{-1})$ & $c_{solide}(J.kg^{-1}.K^{-1})$ & $c_{molaire}(J.mol^{-1}.K^{-1})$ \\
+		Solide & $C_0\pm 0.5(J.K^{-1})$ & $C_1(J.K^{-1})$ & $c_{solide}(J.kg^{-1}.K^{-1})$ & $c_{molaire}(J.mol^{-1}.K^{-1})$ \\
 		\hline
-plexiglas & \\
-téflon    & \\
-laiton    & \\
-duralumin & \\
-	
+laiton    & $1977.1$ & $35.60$ & $430$  & $13.975$ \\
+téflon    & $1977.1$ & $30.55$ & $940$  & $93.9$ \\
+plexiglas & $1972.5$ & $30.47$ & $637$  & $63.7$ \\
+duralumin & $1983.0$ & $84.26$ & $1053$ & $29.27$ \\
+		\hline	 
 		\end{tabular}
 	\end{center}		
 \end{table}
+
+\subsection{Interprétation}
+
+
 
 \section{Troisième expérience : Évaluation des fuites thermiques du calorimètre}
 Le but de cette expérience est d'évaluer les fuites thermiques du calorimètre. On va pour cela reproduire les paramètres d'expérimentations de la première expérience mais sans faire chauffer l'eau (sans brancher la résistance).
