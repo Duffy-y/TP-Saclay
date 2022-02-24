@@ -44,9 +44,8 @@ def incertitude_derivee_partielle(symbols: List[Symbol], symbols_value: List[flo
     partial_derivative_expr = 0
     for symbol, uncertainty in zip(symbols, uncertainties):
         derivative = diff(expression, symbol)
-        partial_derivative_expr += derivative
+        print(f"Derivée selon {symbol} : {derivative}")
         derivative_value = derivative.subs(zip(symbols, symbols_value))
         expression_uncertainty += abs(derivative_value) * uncertainty
 
-    print("Derivative : ", partial_derivative_expr)
     return expression_value, expression_uncertainty
