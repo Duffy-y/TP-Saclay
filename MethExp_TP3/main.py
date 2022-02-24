@@ -67,11 +67,13 @@ time_4 = data_4[:,1]
 temperature_4 = data_4[:, 2] # °C
 
 log_temp = np.log(temperature_4)
-log_t = np.log(time_4)
-print(log_t)
+error = np.mean(0.5 / temperature_4)
+
+pente, err_pente, pente_haute, pente_basse = pente_extreme(time_4, log_temp, error, dt)
+print(pente, err_pente)
 
 # plt.errorbar(time_4, temperature_4, yerr=0.2, fmt='o', label="Température de l'eau")
-plt.plot(log_t, log_temp, 'o', label="Température de l'eau")
+plt.errorbar(time_4, log_temp, yerr=error, fmt='o', label="Température de l'eau")
 plt.xlabel("Temps (s)")
 plt.ylabel("Température (°C)")
 plt.show()
