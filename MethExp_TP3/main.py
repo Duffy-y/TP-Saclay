@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import linregress
+from scipy.odr import *
 from tp_lib import pente_extreme, incertitude_derivee_partielle
 from sympy import *
 from uncertainties import unumpy, ufloat
@@ -69,11 +70,19 @@ temperature_4 = data_4[:, 2] # °C
 log_temp = np.log(temperature_4)
 error = np.mean(0.5 / temperature_4)
 
-pente, err_pente, pente_haute, pente_basse = pente_extreme(time_4, log_temp, error, dt)
-print(pente, err_pente)
+def model_func(B, x):
+    return B[0] + B[1] * x
+
+linear_model = Model(model_func)
+data = RealData(time_4, log_temp, sy=error)
+odr = ODR(data, linear_model, beta0=[0., 1.])
+out = odr.run()
+
+fit = out.beta[0] + out.beta[1] * time_4
 
 # plt.errorbar(time_4, temperature_4, yerr=0.2, fmt='o', label="Température de l'eau")
 plt.errorbar(time_4, log_temp, yerr=error, fmt='o', label="Température de l'eau")
+plt.plot(time_4, fit, label="Régression linéaire avec incerititude")
 plt.xlabel("Temps (s)")
 plt.ylabel("Température (°C)")
 plt.show()
