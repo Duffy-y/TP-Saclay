@@ -11,6 +11,7 @@
 \usepackage{xcolor}
 \usepackage{parskip}
 \usepackage{physics}
+\usepackage{svg}
 
 
 \title{\textbf{Méthodes expérimentales} \\ TP 3: Chaleur spécifique, calorimétrie}
@@ -342,7 +343,13 @@ Le but de cette expérience est d'évaluer les fuites thermiques du calorimètre
 Pour réaliser notre série de mesure, on conserve la même configuration que les expériences précédentes, c'est-à-dire
 que l'on conserve la résistance, l'agitateur et le thermomètre pour ne pas fausser nos valeurs. 
 
-On place dans dans le vase du calorimètre 400gr d'eau à $40^\circ C$. On mesure ensuite la température de l'eau à $40^\circ C$ et on mesure la température du calorimètre toutes les 2 minutes pendant 20 minutes.
+On place dans dans le vase du calorimètre 400gr d'eau à $40^\circ C$. O a donc la capacité thermique du calorimètre qui est:
+
+\begin{equation}
+	C = m_{eau}c_{eau} + m_{vase}c_{vase} = 0.4 \times 4185 + 0.0969 \times 897 \approx 1761 J.K^{-1}
+\end{equation}
+
+On mesure ensuite la température de l'eau à $40^\circ C$ et on mesure la température du calorimètre toutes les 2 minutes pendant 20 minutes.
 Afin de simplifier la lecture et la visualisation de la température, on préfère remplacer le tableau par le graphique suivant:
 
 \begin{figure}[h!]
@@ -372,16 +379,36 @@ avec les grandeurs suivantes:
 Ainsi, on peut exprimer le logarithme de cette courbe pour obtenir une droite:
 
 \begin{align*}
-	T_{int} - T_{ext} = (T_{int, 0} - T_{ext}) e^{- \frac{t}{R_{th}C}} & \Rightarrow \ln(T_{int} - T_{ext}) = \ln(T_{int, 0} - T_{ext}) - \frac{t}{R_{th}C} \\
+	\ln(T_{int}) = \ln(T_{ext}) + \ln(T_{int, 0} - T_{ext}) - \frac{t}{R_{th}C} \\
 \end{align*}
 
 On trouve donc une expression de droite de la forme:
 
 \begin{equation}
-	y = at + b, \text{ avec } a = - \frac{1}{R_{th}C}, b = \ln(T_{int, 0} - T_{ext})
+	y = at + b, \text{ avec } a = - \frac{1}{R_{th}C}, b = \ln(T_{ext}) + \ln(T_{int, 0} - T_{ext})
 \end{equation}
 
-Pour vérifier que nos mesures correspondent donc à une décroissance exponentielle, on trace cette même courbe en prenant le logarithme. On obtient donc:
+Pour vérifier que nos mesures correspondent donc à une décroissance exponentielle, on trace notre température en prenant 
+son logarithme et l'on observe que l'on obtient bien une droite. Notre température suit donc bien une décroissance exponentielle.
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.7]{img/Figure_3.png}
+	\end{center}
+	\label{fig:graph3}
+	\caption{Logarithme de la température intérieur en fonction du temps}
+\end{figure}
+
+\newpage
+
+Afin de réaliser cette régression linéaire, on s'est appuyé sur les fonctions du module $scipy.odr$ 
+afin d'obtenir la régression linéaire la plus proche des valeurs en tenant compte des incertitudes. On obtient donc le coefficient directeur
+de la droite avec $a \approx -5.5 \times 10^{-5}s^{-1}$. Or, on a :
+
+\begin{align}
+	a = - \frac{1}{R_{th} C} & \Rightarrow R_{th} = - \frac{1}{aC} 
+\end{align}
+
+Finalement, il vient que $R_{th} \approx 10.3 K.s.J^{-1}$.
 
 \subsection{Conclusion et interprétation}
 On a montré que le flux de chaleur n'était pas négligeable. Cette perte d'énergie se traduit donc par des erreurs dans les mesures réalisées, car une partie de la chaleur s'échappe et fait donc baisser la température qu'on lit
@@ -415,6 +442,33 @@ Finalement, il vient que:
 	Q = C_V \Delta T - \frac{\Delta T}{R_{th}} \times \Delta t = \Delta T \left( C_V - \frac{\Delta t}{R_{th}} \right)
 \end{equation}
 
+\newpage
+Comme on a la valeur de $R_{th}$ déterminée précédemment, on peut calculer $Q$ dans une situation idéale dite adiabatique, ainsi que dans le cas où il y a une fuite de chaleur, et l'on pourra comparer les deux cas.
+
+On pose $Q_{adia}$, la chaleur dans la situation adiabatique que l'on a supposé pendant les premières expériences, et $Q_{r}$, la chaleur dans le cas réaliste.
+On prendra l'expérience 1 avec 450gr d'eau sous une tension de 12V avec une résistance de $5\Omega$ pour faire nos calculs. On aura donc $\Delta T = 13.1K$ et $\Delta t = 900s$.
+
+\begin{gather}
+	Q_{adia} = C_V \Delta T \approx 1761 * 13.1  \approx 23069 J \\
+	Q_{r} = \Delta T \left( C_V - \frac{\Delta t}{R_{th}} \right) \approx 13.1 \times (1761 - \frac{900}{10.3}) \approx 21924 J
+\end{gather}
+
+En réalité, nous avons perdu 1145J par fuite de chaleur dans notre expérience, ce qui n'est pas négligeable car nous avons basé l'ensemble de nos calculs
+sur l'hypothèse que notre calorimètre était adiabatique. Or, cela n'est pas le cas, et notre hypothèse de départ était donc fausse, introduisant des erreurs sur nos mesures
+ainsi que nos calculs qui suivaient. On compile les valeurs de la chaleur dans le cas idéal et dans le cas réaliste dans le tableau suivant en reprenant les mêmes notations:
+
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			Expérience n° & $Q_{adia}$ & $Q_{r}$ \\ \hline
+			1 (450gr 12V) & $23069J$ & $21924J$ \\
+			2 (450gr 6V) & $6164J$ & $5858J$ \\
+			3 (800gr 12V) & $26773J$ & $26091J$ \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
 \section{Conclusion}
 
 Dans ce travail pratique, nous avons d'abord estimé les valeurs les capacités thermiques de l'eau et du vase calorimétrique. Les grandes valeurs d'incertitudes ne nous ont pas permis de conclure sur des valeurs précises, il faudrait donc refaire le protocole expérimentale avec des appareils de mesure plus précis, notamment un thermomètre. Nous avons ensuite mesuré les capacités thermiques de différents matériaux. Nous avons obtenus des résultats cohérents pour trois des matériaux mais pas pour le plexiglas. Refaire le protocole expérimentale en laissant les matériaux chauffer plus longtemps pourrait nous permettre d'améliorer nos résultats. Enfin, nous avons évaluer les fuites thermiques de notre calorimètre. Nous avions mal mis le thermomètres pour certaines mesures, refaire notre expérience nous permettrait donc d'améliorer grandement nos calculs. 
@@ -427,7 +481,7 @@ On a pour la première expérience  $m_{eau1}=450.0\pm 0.1g$ et $U_1=12.0\pm 0.1
 
 
 
-\begin{table}
+\begin{table}[h!]
 	\begin{center}
 		\begin{tabular}{|c|c|c|c|}
 		\hline

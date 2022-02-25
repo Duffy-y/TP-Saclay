@@ -80,9 +80,13 @@ out = odr.run()
 
 fit = out.beta[0] + out.beta[1] * time_4
 
+print(out.beta)
+
+plt.figure(figsize=[6, 4])
 # plt.errorbar(time_4, temperature_4, yerr=0.2, fmt='o', label="Température de l'eau")
 plt.errorbar(time_4, log_temp, yerr=error, fmt='o', label="Température de l'eau")
-plt.plot(time_4, fit, label="Régression linéaire avec incerititude")
+plt.plot(time_4, fit, 'r', label="Régression linéaire")
 plt.xlabel("Temps (s)")
-plt.ylabel("Température (°C)")
-plt.show()
+plt.ylabel("Logarithme de la température")
+plt.legend()
+#splt.savefig("img/Figure_3.png")
