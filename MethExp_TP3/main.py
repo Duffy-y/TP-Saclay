@@ -70,6 +70,10 @@ temperature_4 = data_4[:, 2] # °C
 log_temp = np.log(temperature_4)
 error = np.mean(0.5 / temperature_4)
 
+a, b, c, d = pente_extreme(time_4, log_temp, error, dt)
+
+print(a)
+
 def model_func(B, x):
     return B[0] + B[1] * x
 
