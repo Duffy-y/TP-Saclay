@@ -70,6 +70,10 @@ temperature_4 = data_4[:, 2] # °C
 log_temp = np.log(temperature_4)
 error = np.mean(0.5 / temperature_4)
 
+a, b, c, d = pente_extreme(time_4, log_temp, error, dt)
+
+print(a)
+
 def model_func(B, x):
     return B[0] + B[1] * x
 
@@ -80,9 +84,13 @@ out = odr.run()
 
 fit = out.beta[0] + out.beta[1] * time_4
 
+print(out.beta)
+
+plt.figure(figsize=[6, 4])
 # plt.errorbar(time_4, temperature_4, yerr=0.2, fmt='o', label="Température de l'eau")
 plt.errorbar(time_4, log_temp, yerr=error, fmt='o', label="Température de l'eau")
-plt.plot(time_4, fit, label="Régression linéaire avec incerititude")
+plt.plot(time_4, fit, 'r', label="Régression linéaire")
 plt.xlabel("Temps (s)")
-plt.ylabel("Température (°C)")
-plt.show()
+plt.ylabel("Logarithme de la température")
+plt.legend()
+#splt.savefig("img/Figure_3.png")

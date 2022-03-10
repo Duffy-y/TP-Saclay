@@ -11,6 +11,7 @@
 \usepackage{xcolor}
 \usepackage{parskip}
 \usepackage{physics}
+\usepackage{svg}
 
 
 \title{\textbf{Méthodes expérimentales} \\ TP 3: Chaleur spécifique, calorimétrie}
@@ -191,8 +192,8 @@ En théorie, la valeur de $c_{eau}$ est de $4185$ $J.kg^{-1}.K^{-1}$ et la valeu
 Nos mesures permettent de voir que $c_{eau}$ ainsi que $C_{vase}$ avec des incertitudes sont dans les valeurs théoriques, cependant, nos incertitudes représentent environ 25\% pour $c_{eau}$
 et 300\% pour $C_{vase}$ ce qui rend nos résultats inutilisables pour interpréter une quelconque valeur de $c_{eau}$ ou $C_{vase}$. 
 
-Nous avons exploré la possibilité d'erreur dans nos calculs d'incertitudes et d'erreurs de calculs. Il reste la possibilité que nos mesures soient erronées, que nos appareils de mesures soient également pas suffisament précis 
-pour atteindre une précision satisfaisante pour détecter un écart de la capacité thermique à celle théorique et donc en déduire $C_{vase}$. En conclusion, il serait nécessaire de reproduire cette expérience afin de voir si l'on retrouve les mêmes résultats afin de déterminer le type d'erreurs que nous avons rencontré.
+Nous avons exploré la possibilité d'erreur dans nos calculs d'incertitudes et d'erreurs de calculs. Il reste la possibilité que nos mesures soient erronées, que nos appareils de mesure ne soient également pas suffisament précis.
+On ne peut donc pas atteindre une précision satisfaisante pour détecter un écart de la capacité thermique à celle théorique et donc en déduire $C_{vase}$. En conclusion, il serait nécessaire de reproduire cette expérience afin de voir si l'on retrouve les mêmes résultats afin de déterminer le type d'erreurs que nous avons rencontré.
 
 \newpage
 \section{Deuxième expérience : Capacités thermiques massiques de quelques solides}
@@ -316,33 +317,39 @@ Duralumin & $1983.0$ & $67 \pm 12$ & $872 \pm 152$ & $24 \pm 4$ \\
 \end{table}
 
 \subsection{Conclusion}
-Dans cette expérience, on a réussir à obtenir des résultats satisfaisant avec des capacités thermiques massiques proches des valeurs théoriques. Cependant, on notera un seul solide qui 
+Dans cette expérience, on a réussi à obtenir des résultats satisfaisants avec des capacités thermiques massiques proches des valeurs théoriques. Cependant, on notera un seul solide qui 
 n'a pas une capacité thermique massique correspondante à celle théorique. Selon nos mesures, on déduit que $c_{plexiglas} \in [400, 874]$, ce qui est environ la moitié de la valeur théorique avec $c_{plexiglas}^{th} \approx 1400 J.kg^{-1}.K^{-1}$.
 
-L'erreur viendrai de la manière dont nous avons réalisé l'expérience. De part la grande valeur de la capacité thermique massique du plexiglas, il faut presque 2 fois plus d'énergie pour élever d'un degré le plexiglas
+L'erreur viendrait de la manière dont nous avons réalisé l'expérience. Par la grande valeur de la capacité thermique massique du plexiglas, il faut presque 2 fois plus d'énergie pour élever d'un degré le plexiglas
 par rapport aux autres solides à masse égale. Or, nous avons laissé pendant le même laps de temps les solides dans l'eau bouillante. Le plexiglas n'a donc peut-être pas eu le temps suffisant pour s'élever à la température de l'eau bouillante.
-Bien que l'extérieur était bien à $94^\circ C$ en ayant mesuré avec le thermomètre, il nous était impossible de s'assurer que le centre ait atteint une telle température. Ainsi, reproduire l'expérience serait important pour effectuer de nouveau la mesure
+Bien que l'extérieur ait été à $94^\circ C$ en ayant mesuré avec le thermomètre, il nous était impossible de s'assurer que le centre ait atteint une telle température. Ainsi, reproduire l'expérience serait important pour effectuer de nouveau la mesure
 en laissant plus longtemps le plexiglas afin de s'assurer que le centre soit à température.
 
 
 Enfin, la loi de Dulong-Petit prévoit que la capacité calorifique molaire vaut $3R \approx 25 J.mol^{-1}.K^{-1}$. On remarque que pour le laiton et le duralumin, 
 la valeur expérimentale de $c_{laiton}$ et $c_{duralumin}$ sont proches de $3R$ avec $c_{laiton} = 28 \pm 9 J.mol^{-1}.K^{-1}$ et $c_{duralumin} = 24 \pm 4 J.mol^{-1}.K^{-1}$. 
 A l'inverse, le téflon et le plexiglas ont des valeurs très différentes de $3R$ avec $c_{teflon} = 94 \pm 35 J.mol^{-1}.K^{-1}$ et $c_{plexiglas} = 140 J.mol^{-1}.K^{-1}$ 
-(on utilise la valeur théorique mais le résultat reste le même avec notre valeur inexacte que l'on a déterminé expérimentalement). On a environ un facteur 4 pour le téflon et 6 pour le plexiglas. La loi de Dulong-Petit ne se vérifie donc pas pour le téflon et le plexiglas, mais est valide pour le laiton et le duralumin.
+(on utilise la valeur théorique mais le résultat reste le même avec la valeur inexacte que l'on a déterminé expérimentalement). On a environ un facteur 4 pour le téflon et 6 pour le plexiglas. La loi de Dulong-Petit ne se vérifie donc pas pour le téflon et le plexiglas, mais est valide pour le laiton et le duralumin.
 Cette loi approxime les vibrations moléculaires par un oscillateur harmonique, ce qui reste satisfaisant pour des molécules diatomiques. Or, le plexiglas et le téflon ne sont pas des molécules diatomiques. 
-Le laiton est quant à lui formé pour 98\% de cuivre et de zinc, et 2\% de plomb, on peut donc négliger les vibrations du plomb et considérer le laiton comme un alliage diatomique. On peut effecteur le même raisonnement pour le duralumin avec 97.5\% de ses atomes
+Le laiton est quant à lui formé pour 98\% de cuivre et de zinc, et 2\% de plomb, on peut donc négliger les vibrations du plomb et considérer le laiton comme un alliage diatomique. On peut effectuer le même raisonnement pour le duralumin avec 97.5\% de ses atomes
 étant du cuivre ou de l'aluminium. On comprend donc mieux pourquoi certains métaux respectent cette loi et d'autres non.
 
 
 \newpage
 \section{Troisième expérience : Évaluation des fuites thermiques du calorimètre}
-Le but de cette expérience est d'évaluer les fuites thermiques du calorimètre. On va pour cela reproduire les paramètres d'expérimentations de la première expérience mais sans faire chauffer l'eau (sans brancher la résistance).
+Le but de cette expérience est d'évaluer les fuites thermiques du calorimètre. On va pour cela reproduire les paramètres d'expérimentation de la première expérience mais sans faire chauffer l'eau (sans brancher la résistance).
 \subsection{Expérimentation}
 
 Pour réaliser notre série de mesure, on conserve la même configuration que les expériences précédentes, c'est-à-dire
 que l'on conserve la résistance, l'agitateur et le thermomètre pour ne pas fausser nos valeurs. 
 
-On place dans dans le vase du calorimètre 400gr d'eau à $40^\circ C$. On mesure ensuite la température de l'eau à $40^\circ C$ et on mesure la température du calorimètre toutes les 2 minutes pendant 20 minutes.
+On place dans le vase du calorimètre 400gr d'eau à $40^\circ C$. On a donc la capacité thermique du calorimètre qui est:
+
+\begin{equation}
+	C = m_{eau}c_{eau} + m_{vase}c_{vase} = 0.4 \times 4185 + 0.0969 \times 897 \approx 1761 J.K^{-1}
+\end{equation}
+
+On relève la température initiale de l'eau, puis l'on mesure celle-ci toutes les 2 minutes pendant 20 minutes.
 Afin de simplifier la lecture et la visualisation de la température, on préfère remplacer le tableau par le graphique suivant:
 
 \begin{figure}[h!]
@@ -350,7 +357,7 @@ Afin de simplifier la lecture et la visualisation de la température, on préfè
 		\includegraphics[scale=0.64]{img/Figure_2.png}
 	\end{center}
 	\label{fig:graph2}
-	\caption{Température (en degré celsius) en fonction du temps modélisant la perte de chaleur du calorimètre.}
+	\caption{Température (en Kelvin) en fonction du temps modélisant la perte de chaleur du calorimètre.}
 \end{figure}
 
 \newpage
@@ -364,7 +371,7 @@ Le modèle théorique prévoit une décroissance exponentielle de la températur
 avec les grandeurs suivantes:
 \begin{itemize}
 	\item $T_{int}$ : température interne du calorimètre
-	\item $T_{ext}$ : température extérieur
+	\item $T_{ext}$ : température extérieure
 	\item $T_{int, 0}$ : température interne du calorimètre à l'instant initial
 	\item $C$: capacité thermique du calorimètre
 \end{itemize}
@@ -372,16 +379,36 @@ avec les grandeurs suivantes:
 Ainsi, on peut exprimer le logarithme de cette courbe pour obtenir une droite:
 
 \begin{align*}
-	T_{int} - T_{ext} = (T_{int, 0} - T_{ext}) e^{- \frac{t}{R_{th}C}} & \Rightarrow \ln(T_{int} - T_{ext}) = \ln(T_{int, 0} - T_{ext}) - \frac{t}{R_{th}C} \\
+	\ln(T_{int}) = \ln(T_{ext}) + \ln(T_{int, 0} - T_{ext}) - \frac{t}{R_{th}C} \\
 \end{align*}
 
 On trouve donc une expression de droite de la forme:
 
 \begin{equation}
-	y = at + b, \text{ avec } a = - \frac{1}{R_{th}C}, b = \ln(T_{int, 0} - T_{ext})
+	y = at + b, \text{ avec } a = - \frac{1}{R_{th}C}, b = \ln(T_{ext}) + \ln(T_{int, 0} - T_{ext})
 \end{equation}
 
-Pour vérifier que nos mesures correspondent donc à une décroissance exponentielle, on trace cette même courbe en prenant le logarithme. On obtient donc:
+Pour vérifier que nos mesures correspondent donc à une décroissance exponentielle, on trace notre température en prenant 
+son logarithme et on constate que l'on a une droite. Notre température suit donc bien une décroissance exponentielle.
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.7]{img/Figure_3.png}
+	\end{center}
+	\label{fig:graph3}
+	\caption{Logarithme de la température intérieure en fonction du temps}
+\end{figure}
+
+\newpage
+
+Afin de réaliser cette régression linéaire, on s'est appuyé sur les fonctions du module $scipy.odr$ 
+afin d'obtenir la régression linéaire la plus proche des valeurs en tenant compte des incertitudes. On obtient donc le coefficient directeur
+de la droite avec $a \approx -5.5 \times 10^{-5}s^{-1}$. Or, on a :
+
+\begin{align}
+	a = - \frac{1}{R_{th} C} & \Rightarrow R_{th} = - \frac{1}{aC} 
+\end{align}
+
+Finalement, il vient que $R_{th} \approx 10.3 K.s.J^{-1}$.
 
 \subsection{Conclusion et interprétation}
 On a montré que le flux de chaleur n'était pas négligeable. Cette perte d'énergie se traduit donc par des erreurs dans les mesures réalisées, car une partie de la chaleur s'échappe et fait donc baisser la température qu'on lit
@@ -397,13 +424,13 @@ Or, on perd de la chaleur car l'enceinte n'est pas parfaitement adiabatique. En 
 	Q = C_V \Delta T + Q_{fuite}
 \end{equation}
 
-On a ensuite que le flux de chaleur (en Watts soit $J/s$) s'exprime comme:
+Ensuite, le flux de chaleur perdue (en Watts soit $J/s$) s'exprime comme:
 
 \begin{equation}
 	\Phi = - \frac{\Delta T}{R_{th}}
 \end{equation}
 
-On peut donc en déduire la quantité de chaleur perdue sur une durée avec:
+On en déduit la quantité de chaleur perdue sur une durée avec:
 
 \begin{equation}
 	Q_{fuite} = \Phi \times \Delta t = - \frac{\Delta T}{R_{th}} \times \Delta t
@@ -415,7 +442,36 @@ Finalement, il vient que:
 	Q = C_V \Delta T - \frac{\Delta T}{R_{th}} \times \Delta t = \Delta T \left( C_V - \frac{\Delta t}{R_{th}} \right)
 \end{equation}
 
+\newpage
+Comme on a la valeur de $R_{th}$ déterminée précédemment, on peut calculer $Q$ dans une situation idéale dite adiabatique, ainsi que dans le cas où il y a une fuite de chaleur, et l'on pourra comparer les deux cas.
+
+On pose $Q_{adia}$, la chaleur dans la situation adiabatique que l'on a supposé pendant les premières expériences, et $Q_{r}$, la chaleur dans le cas réaliste.
+On prendra l'expérience 1 avec 450gr d'eau sous une tension de 12V avec une résistance de $5\Omega$ pour faire nos calculs. On aura donc $\Delta T = 13.1K$ et $\Delta t = 900s$.
+
+\begin{gather}
+	Q_{adia} = C_V \Delta T \approx 1761 * 13.1  \approx 23069 J \\
+	Q_{r} = \Delta T \left( C_V - \frac{\Delta t}{R_{th}} \right) \approx 13.1 \times (1761 - \frac{900}{10.3}) \approx 21924 J
+\end{gather}
+
+En réalité, nous avons perdu 1145J par fuite de chaleur dans notre expérience, ce qui n'est pas négligeable car nous avons basé l'ensemble de nos calculs
+sur l'hypothèse que notre calorimètre était adiabatique. Or, cela n'est pas le cas, et notre hypothèse de départ était donc fausse, introduisant des erreurs sur nos mesures
+ainsi que nos calculs qui suivaient. On compile les valeurs de la chaleur dans le cas idéal et dans le cas réaliste dans le tableau suivant en reprenant les mêmes notations:
+
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			Expérience n° & $Q_{adia}$ & $Q_{r}$ \\ \hline
+			1 (450gr 12V) & $23069J$ & $21924J$ \\
+			2 (450gr 6V) & $6164J$ & $5858J$ \\
+			3 (800gr 12V) & $26773J$ & $26091J$ \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
 \section{Conclusion}
+
+Dans ce travail pratique, nous avons d'abord estimé les valeurs des capacités thermiques de l'eau et du vase calorimétrique. Les grandes valeurs d'incertitudes ne nous ont pas permis de conclure sur des valeurs précises, il faudrait donc refaire le protocole expérimental avec des appareils de mesure plus précis, notamment un thermomètre. Nous avons ensuite mesuré les capacités thermiques de différents matériaux. Nous avons obtenus des résultats cohérents pour trois des matériaux mais pas pour le plexiglas. Refaire le protocole expérimental en laissant les matériaux chauffer plus longtemps pourrait nous permettre d'améliorer nos résultats. Enfin, nous avons évalué les fuites thermiques de notre calorimètre. Nous avions mal mis le thermomètre pour certaines mesures, refaire notre expérience nous permettrait donc d'améliorer grandement nos calculs. 
 
 \newpage
 \section*{Annexes}
@@ -425,7 +481,7 @@ On a pour la première expérience  $m_{eau1}=450.0\pm 0.1g$ et $U_1=12.0\pm 0.1
 
 
 
-\begin{table}
+\begin{table}[h!]
 	\begin{center}
 		\begin{tabular}{|c|c|c|c|}
 		\hline
@@ -450,7 +506,7 @@ On a pour la première expérience  $m_{eau1}=450.0\pm 0.1g$ et $U_1=12.0\pm 0.1
 		\hline
 		\end{tabular}
 	\end{center}
-	\caption{Température lors des 3 expériences du la première partie}
+	\caption{Température lors des 3 expériences de la première partie}
 \end{table}
 
 \begin{table}[h!]
