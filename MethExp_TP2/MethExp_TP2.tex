@@ -22,9 +22,83 @@
 \maketitle
 
 \section*{Introduction}
-
+Dans ce travail pratique, on cherche à vérifier la validité de la conservation de la quantité de mouvement 
+ainsi que de l'énergie cinétique au cours d'une collision ainsi que mettre en évidence les limites de la conservation énergétique.
+Pour cela, on produira des collisions supposées élastiques entre deux chariots avec des conditions initales différentes. On étudiera 
+la position et la vitesse de ces derniers pour affirmer ou infirmer
+les deux lois. On s'appuiera comme pour les derniers travaux pratiques de Python pour l'analyse et la modélisation de nos données.
 
 
 \newpage
+\section{Expérience}
+Pour réaliser les collisions, on utilise un banc de mécanique à niveau, avec deux chariots. On écarte les deux mires 
+d'un mètre puis l'on place un chariot au niveau de chaque mire. On replacera le système dans cet état pour chaque nouvelle collision.
+Enfin, chaque collision doit se produire entre les deux mires. 
+
+Concernant la caméra, on la règle sur 30 images par seconde avec ouverture à 1/500s, et permet de capturer la position des deux mobiles au cours du temps.
+Enfin, on conservera seulement 4 à 6 images avant et après le choc pour pouvoir négliger les frottements sur ce petit laps de temps.
+
+On réalise une première collision élastique en propulsant chaque chariot simultanément avec une vitesse initiale faible.
+
+Pour la seconde collision élastique, on positionne un chariot au milieu des deux mires, et on propulse le second chariot avec une vitesse initiale faible.
+
+\section{Exploitation des mesures}
+Pour nos mesures, l'usage de différents appareils de mesure induit des incertitudes sur nos valeurs. On a:
+\begin{itemize}
+    \item l'incertitude de la position: $\delta x = 0.001m$ dû au mètre pour la mesure (l'incertitude de détermination de la position par le logiciel est inconnu)
+    \item l'incertitude sur le temps: $\delta t = 0.033s$
+    \item l'incertutde sur la masse des chariots: $\delta m_1 = VALEUR kg$ et $\delta m_2 = VALEUR kg$
+\end{itemize}
+
+Après avoir les expériences, on synthétise les données dans les deux graphiques suivants:
+
+\[
+    \text{GRAPHIQUE DE X1/X'1, X2/X'2 ICI}
+\]
+\newpage
+
+Ensuite, on s'intéresse à calculer la vitesse, l'énergie cinétique ainsi que la quantité de mouvement
+pour chaque mobile.
+Pour calculer la vitesse $v$ à chaque instant $t$, on utilise sur la formule suivante:
+\begin{equation}
+    v(t) = \frac{x(t + \delta t) - x(t)}{\delta t}
+\end{equation}
+
+On note $t_i, x_i$, l'instant et la position initiale et $t_f, x_f$, l'instant et la position finale. On utilise donc la méthode
+des pentes extrêmes pour obtenir l'incertitude sur la vitesse de chaque mobile:
+\begin{gather*}
+    v_{max} = \frac{(x_f + \delta x) - (x_i - \delta x)}{(t_f - \delta t) - (t_i + \delta t)} \\
+    v_{min} = \frac{(x_f - \delta x) - (x_i + \delta x)}{(t_f + \delta t) - (t_i - \delta t)} \\
+    \delta v = \frac{v_{max} - v_{min}}{2} \quad v = \frac{v_{max} + v_{min}}{2}
+\end{gather*}
+
+L'énergie cinétique ainsi que son incertitude sont données par:
+\begin{equation}
+    E_{ci} = \frac{1}{2}m_iv_i^2 \quad \text{ et } \quad \delta E_{ci} = \frac{1}{2}v_i^2 \times \delta m_i + m_iv_i \times \delta v_i
+\end{equation}
+
+Enfin, la quantité de mouvement ainsi que son incertitude sont données par:
+\begin{equation}
+    p_i = m_iv_i \quad \text{ et } \quad \delta p_i = v_i\delta m_i + m_i\delta v_i
+\end{equation}
+
+On trace donc la vitesse, l'énergie cinétique et la quantité de mouvement sur un graphique pour chaque expérience:
+
+\[
+    \text{GRAPHIQUE VITESSE/ENERGIE CINETIQUE/QUANTITE DE MOUVEMENT}
+\]
+
+\newpage
+Ensuite, on s'intéresse à la conservation de la quantité de mouvement et de l'énergie cinétique du système pour
+vérifier les lois de conservation. On note donc $E_c^{tot}$ et $p^{tot}$, l'énergie cinétique et la quantité de mouvement du système. 
+Pour les incertitudes, on les somme simplement car les grandeurs d'un mobile sont indépendantes de l'autre mobile. On a par exemple:
+
+\begin{align}
+    p^{tot} & = m_1v_1 + m_2v_2 \\
+    \Rightarrow \delta p^{tot} & = v_1\delta m_1 + m_1\delta v_1 + v_2\delta m_2 + m_2\delta v_2 \\
+    \Rightarrow \delta p^{tot} & = \delta p_1 + \delta p_2
+\end{align}
+
+La dérivée de $v_1m_1$ en fonction de $v_2$ ou $m_2$ est nulle. On retrouve exactement le même résultat pour l'énergie cinétique et la vitesse.
 
 \end{document}
