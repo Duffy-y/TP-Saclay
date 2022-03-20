@@ -31,31 +31,41 @@ les deux lois. On s'appuiera comme pour les derniers travaux pratiques de Python
 
 \newpage
 \section{Expérience}
-Pour réaliser les collisions, on utilise un banc de mécanique à niveau, avec deux chariots. On écarte les deux mires 
-d'un mètre puis l'on place un chariot au niveau de chaque mire. On replacera le système dans cet état pour chaque nouvelle collision.
-Enfin, chaque collision doit se produire entre les deux mires. 
+
+Le but de l'expérience est d'étudier l'énergie cinétique et la quantité de mouvement de deux mobiles avant et après un choc élastique. 
+
+Pour réaliser les collisions, on utilise un banc de mécanique à niveau, avec deux chariots. On souhaite étudier des collisions élastiques, les chariots sont donc équipés d'aimants, de tel sorte que les chariots ne se touchent pas pendant la choc. Cette configuration permet de limiter l'énergie perdue sous forme de chaleur. Les chariots sont propulsés à la main ou à l'aide d'un propulseur à ressort. 
 
 Concernant la caméra, on la règle sur 30 images par seconde avec ouverture à 1/500s, et permet de capturer la position des deux mobiles au cours du temps.
-Enfin, on conservera seulement 4 à 6 images avant et après le choc pour pouvoir négliger les frottements sur ce petit laps de temps.
+Enfin, on conservera seulement 4 à 6 images avant et après le choc pour pouvoir négliger les frottements sur ce petit laps de temps. On fixe l'origine de notre repère sur un point entre nos deux mobiles. 
 
 On réalise une première collision élastique en propulsant chaque chariot simultanément avec une vitesse initiale faible.
 
-Pour la seconde collision élastique, on positionne un chariot au milieu des deux mires, et on propulse le second chariot avec une vitesse initiale faible.
+Pour la seconde collision élastique, un mobile $M1$ est initialement en mouvement et le second mobile $M2$ est immobile.
+
+
 
 \section{Exploitation des mesures}
 Pour nos mesures, l'usage de différents appareils de mesure induit des incertitudes sur nos valeurs. On a:
 \begin{itemize}
     \item l'incertitude de la position: $\delta x = 0.001m$ dû au mètre pour la mesure (l'incertitude de détermination de la position par le logiciel est inconnu)
-    \item l'incertitude sur le temps: $\delta t = 0.033s$
-    \item l'incertutde sur la masse des chariots: $\delta m_1 = VALEUR kg$ et $\delta m_2 = VALEUR kg$
+    \item l'incertitude sur le temps: $\delta t = 0.033s$, liée au nombre d'image par seconde. 
+    \item l'incertutde sur la masse des chariots: $\delta m_1 =\delta m_2 = 0.0001 kg$, qui est l'incertitude de la balance utilisée. Les valeurs des masses des chariots sont $m1=0.5286\,kg$ et $m2=5282\, kg$.
 \end{itemize}
 
-Après avoir les expériences, on synthétise les données dans les deux graphiques suivants:
+On note respectivement X1 et X2 les positions des mobiles M1 et M2 avant le choc. On note de la même manière X1' et X2' la position des mobiles après le choc. 
 
-\[
-    \text{GRAPHIQUE DE X1/X'1, X2/X'2 ICI}
-\]
 \newpage
+Après avoir réaliser les expériences, on synthétise les données dans les deux graphiques suivants:
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.5]{GrapheX.png}
+		\label{GrapheX1,...}
+		 \caption{Positions des mobiles pour la première expérience(à gauche) et la deuxième expérience(à droite)}
+	\end{center}
+\end{figure}
+
+On remarque que pour les deux expériences, les points ne se rejoignent pas: c'est parce que le logiciel ne repère pas le bout des mobiles mais un post-it sur le mobile.  
 
 Ensuite, on s'intéresse à calculer la vitesse, l'énergie cinétique ainsi que la quantité de mouvement
 pour chaque mobile.
