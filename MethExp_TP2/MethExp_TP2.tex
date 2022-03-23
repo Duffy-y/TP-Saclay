@@ -30,10 +30,11 @@ les deux lois. On s'appuiera comme pour les derniers travaux pratiques de Python
 
 
 \newpage
-\section{Expérience}
+\section{Étude de différents chocs }
 
 Le but de l'expérience est d'étudier l'énergie cinétique et la quantité de mouvement de deux mobiles avant et après un choc élastique. 
 
+\subsection{Expérimentation}
 Pour réaliser les collisions, on utilise un banc de mécanique à niveau, avec deux chariots. On souhaite étudier des collisions élastiques, les chariots sont donc équipés d'aimants, de tel sorte que les chariots ne se touchent pas pendant la choc. Cette configuration permet de limiter l'énergie perdue sous forme de chaleur. Les chariots sont propulsés à la main ou à l'aide d'un propulseur à ressort. 
 
 Concernant la caméra, on la règle sur 30 images par seconde avec ouverture à 1/500s, et permet de capturer la position des deux mobiles au cours du temps.
@@ -45,10 +46,10 @@ Pour la seconde collision élastique, un mobile $M1$ est initialement en mouveme
 
 
 
-\section{Exploitation des mesures}
+\subsection{Exploitation des mesures}
 Pour nos mesures, l'usage de différents appareils de mesure induit des incertitudes sur nos valeurs. On a:
 \begin{itemize}
-    \item l'incertitude de la position: $\delta x = 0.001m$ dû au mètre pour la mesure (l'incertitude de détermination de la position par le logiciel est inconnu)
+    \item l'incertitude de la position: $\delta x = 0.005m$ dû au mètre pour la mesure et à l'imprécision du logiciel.
     \item l'incertitude sur le temps: $\delta t = 0.033s$, liée au nombre d'image par seconde. 
     \item l'incertutde sur la masse des chariots: $\delta m_1 =\delta m_2 = 0.0001 kg$, qui est l'incertitude de la balance utilisée. Les valeurs des masses des chariots sont $m1=0.5286\,kg$ et $m2=5282\, kg$.
 \end{itemize}
@@ -67,9 +68,39 @@ Après avoir réaliser les expériences, on synthétise les données dans les de
 
 On remarque que pour les deux expériences, les points ne se rejoignent pas: c'est parce que le logiciel ne repère pas le bout des mobiles mais un post-it sur le mobile.  
 
+Dans notre expérience, on n'utiliseras pas toutes les valeurs de positions pour calculer les vitesses. On ne cherche pas à calculer les vitesses lors du choc. On calcule donc les vitesses à partir des 4 premières valeurs avant le choc et les 4 dernières valeurs après le choc. 
+\newpage
+Les valeurs qu'on utiliseras seront donc:
+\begin{table}[!h]
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+		\hline
+	
+		& Première expérience & Deuxième expérience \\
+		\hline
+		$X_1^{min}\pm 0.005$ (en m) & 0.169 & 0.141 \\
+		$X_1^{max}\pm 0.005$ (en m) & 0.14 & 0.093 \\
+		$X_2^{min}\pm 0.005$ (en m) & 0 & 0 \\
+		$X_2^{max}\pm 0.005$ (en m) & 0.028 & -0.002 \\
+		$X_1^{'min}\pm 0.005$ (en m) & 0.135 & 0.054 \\
+		$X_1^{'max}\pm 0.005$ (en m) & 0.163 & 0.056 \\
+		$X_2^{'min}\pm 0.005$ (en m) & 0.029 & -0.057\\
+		$X_2^{'max}\pm 0.005$ (en m) & 0.002 & -0.105 \\
+		$t_{min}\pm 0.033$ (en s) &0 & 0 \\
+		$t_{max}\pm 0.033$ (en s) &0.1 & 0.1 \\
+		$t'_{min}\pm 0.033$ (en s) &0.3 & 0.3 \\
+		$t'_{max}\pm 0.033$ (en s) & 0.4 & 0.4\\
+		\hline
+		\end{tabular}
+		\caption{Données utilisées pour les calculs de vitesses}
+		\label{Tabledonnéesutilisées}
+	\end{center}
+\end{table}
+
+		
 Ensuite, on s'intéresse à calculer la vitesse, l'énergie cinétique ainsi que la quantité de mouvement
 pour chaque mobile.
-Pour calculer la vitesse $v$ à chaque instant $t$, on utilise sur la formule suivante:
+Pour calculer la vitesse $v$ à chaque instant $t$, on utilisela formule suivante:
 \begin{equation}
     v(t) = \frac{x(t + \delta t) - x(t)}{\delta t}
 \end{equation}
@@ -82,6 +113,11 @@ des pentes extrêmes pour obtenir l'incertitude sur la vitesse de chaque mobile:
     \delta v = \frac{v_{max} - v_{min}}{2} \quad v = \frac{v_{max} + v_{min}}{2}
 \end{gather*}
 
+
+
+On prendra les valeurs absolues de nos résultats pour n'avoir que des vitesses positives.	
+		
+
 L'énergie cinétique ainsi que son incertitude sont données par:
 \begin{equation}
     E_{ci} = \frac{1}{2}m_iv_i^2 \quad \text{ et } \quad \delta E_{ci} = \frac{1}{2}v_i^2 \times \delta m_i + m_iv_i \times \delta v_i
@@ -92,13 +128,50 @@ Enfin, la quantité de mouvement ainsi que son incertitude sont données par:
     p_i = m_iv_i \quad \text{ et } \quad \delta p_i = v_i\delta m_i + m_i\delta v_i
 \end{equation}
 
-On trace donc la vitesse, l'énergie cinétique et la quantité de mouvement sur un graphique pour chaque expérience:
 
-\[
-    \text{GRAPHIQUE VITESSE/ENERGIE CINETIQUE/QUANTITE DE MOUVEMENT}
-\]
+On regroupe nos calculs dans un tableau:
+\begin{table}[!h]
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+		\hline
+		Mobile & v(en m/s)  & $E_c$ (en J) & $\rho$ (en $kg.m.s^{-1}$) \\
+		\hline
+		X2 & $0.6\pm 0.5$ & $0.1\pm 0.2$ & $0.3 \pm 0.3$ \\
+		\hline
+		X1 & $0.4\pm 0.2$ & $0.04\pm 0.03$ & $0.21\pm 0.08$ \\
+		\hline 
+		X2' & $0.4\pm 0.1$ & $0.03\pm 0.03$ & $0.19\pm 0.07$\\
+		\hline 
+		X1' & $0.6\pm 0.5$ & $0.1\pm 0.2$ & $0.3\pm 0.3$\\
+		\hline		
+		\end{tabular}	
+		\label{Tableau première expérience}
+		\caption{Valeurs calculées pour la première expérience}
+	\end{center}
+\end{table}
+
+\begin{table}[!h]
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+		\hline
+		Mobile & v(en m/s)  & $E_c$ (en J) & $\rho$ (en $kg.m.s^{-1}$) \\
+		\hline
+		X1 & $0.7\pm 0.4$ & $0.1 \pm 0.1$ & $0.4 \pm 0.2]$  \\
+		\hline
+		X2 & $0\pm 0.2$ & $0.002\pm 0.007$  & $0.04\pm 0.08$ \\
+		\hline 
+		X1' & $0.1\pm 0.2$ & $0.0\pm 0.01$  & $0.06\pm 0.09$ \\
+		\hline 
+		X2' & $0.7\pm 0.4$ & $0.1\pm 0.1$  & $0.4\pm 0.2$ \\
+		\hline		
+		\end{tabular}	
+		\label{Tableau deuxième expérience}
+		\caption{Valeurs calculées pour la deuxième expérience}
+	\end{center}
+\end{table}
 
 \newpage
+
 Ensuite, on s'intéresse à la conservation de la quantité de mouvement et de l'énergie cinétique du système pour
 vérifier les lois de conservation. On note donc $E_c^{tot}$ et $p^{tot}$, l'énergie cinétique et la quantité de mouvement du système. 
 Pour les incertitudes, on les somme simplement car les grandeurs d'un mobile sont indépendantes de l'autre mobile. On a par exemple:
@@ -110,6 +183,50 @@ Pour les incertitudes, on les somme simplement car les grandeurs d'un mobile son
 \end{align}
 
 La dérivée de $v_1m_1$ en fonction de $v_2$ ou $m_2$ est nulle. On retrouve exactement le même résultat pour l'énergie cinétique et la vitesse.
+
+\begin{table}[!h]
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		& $E_c^{tot}$ (en J) & $E_c^{'tot}$ (en J)& $\rho^{tot}$ (en $kg.m.s^{-1}$) & $\rho^{'tot}$ (en $kg.m.s^{-1}$)\\
+		\hline
+		Première expérience & $0.1 \pm 0.2$ & $0.1\pm 0.2$ & $0.5\pm 0.3$ & $0.5\pm 0.3$\\
+		\hline
+		Deuxième expérience & $0.1\pm 0.1$ & $0.1\pm 0.1$ & $0.4\pm 0.2$ & $0.4\pm 0.2$\\
+		\hline		
+		\end{tabular}
+		\label{TableauSomme}
+		\caption{Comparaison des sommes d'énergie cinétique et de quantité de mouvement dans les deux expériences}
+	\end{center}
+\end{table}
+
+\subsection{Modélisation}
+
+On étudie le choc de deux corps. 
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[scale=0.7]{SchémaExp1.png}
+		\label{SchmExp1}
+		\caption{Schéma de la première}
+	\end{center}
+\end{figure}
+
+On néglige les forces de frottements. On a donc $\vec{R}=-m\vec{g}$. D'après le PFD, on a :
+\begin{align*}
+\sum_i\vec{F_i}=m\vec{a}=0\Rightarrow \vec{a}=\vec{0}\Rightarrow v=constante
+\end{align*}
+
+Dans un choc élastique, la relation suivante est vérifié:
+\begin{equation}
+\sum_i E_i=\sum_{j'}E_{j'}
+\end{equation}
+
+De même,$m\vec{a}=\frac{d\vec{p}}{dt}$ et $\vec{a}=\vec{0}$, donc:
+\begin{equation}
+\sum_i \rho_i=\sum_{j'}\rho_{j'}
+\end{equation}
+
+On a donc théoriquement que nos sommes d'énergie cinétique et de quantités de mouvement doivent être les mêmes avant et après le choc. D'après le tableau (\ref{TableauSomme}) ces relations sont donc bien vérifiés dans notre expérience. 
 
 \section{Transfert d'énergie cinétique}
 Dans cette partie on se propose d'étudier le transfert d'énergie cinétique d'un mobile en mouvement vers 
