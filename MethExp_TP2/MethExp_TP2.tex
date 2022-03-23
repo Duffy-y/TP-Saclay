@@ -111,4 +111,80 @@ Pour les incertitudes, on les somme simplement car les grandeurs d'un mobile son
 
 La dérivée de $v_1m_1$ en fonction de $v_2$ ou $m_2$ est nulle. On retrouve exactement le même résultat pour l'énergie cinétique et la vitesse.
 
+\section{Transfert d'énergie cinétique}
+Dans cette partie on se propose d'étudier le transfert d'énergie cinétique d'un mobile en mouvement vers 
+un mobile au repos. 
+
+\subsection{Théorie}
+On suppose donc que le mobile 1 en mouvement de masse $m_1$ avec sa vitesse initiale $v_1$, et le mobile 2 au repos de masse $m_2$ avec sa vitesse initiale
+$v_2 = 0 m/s$. On montre que le transfert d'énergie cinétique entre les deux mobiles s'exprime comme:
+
+\begin{equation}
+    R = \frac{E^{'}_{c2}}{E_{c1}} = 4 \frac{m_1}{m_2} \left(1 + \frac{m_1}{m_2} \right)^{-2}
+\end{equation}
+
+\subsection{Expérimentation}
+Pour vérifier le modèle théorique, on lance le mobile 1 avec une vitesse initiale vers le mobile 2 au repos afin de réaliser un choc élastique.
+On répéte plusieurs fois la collision en modifiant la masse du mobile 1, et la masse du mobile 2 afin d'obtenir différents rapport de masse $m_1/m_2$ pour comparer avec
+le modèle théorique.
+
+On souhaite d'abord reporter la vitesse des mobiles et l'énergie cinétique de ces derniers avant et après la collision. Cependant, on remarque que la vitesse 
+fournit par le logiciel n'est pas continu, les valeurs oscillent beaucoup. Pour s'affranchir de ce problème, on décide de prendre la moyenne de la vitesse sur les premières/dernières images
+(en prenant soin que la collision ne se produise pas au cours de ces images). Pour les incertitudes, on utilise la méthode des pentes extrêmes entre les deux points qu'on moyenne pour la vitesse et pour les énergies cinétiques, on a:
+
+\begin{gather}
+    E_c = \frac{1}{2} m v^2 \\
+    \delta E_c = \frac{v^2}{2} \delta m + mv \delta v
+\end{gather}
+
+On reporte donc les résultats dans ce tableau:
+
+
+\begin{table}[h!]
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|c|c|c|}
+            \hline
+            R (en kg) & $v_{i1}$ (m/s) & $v_{f1}$ (m/s) & $v_{f2}$ (m/s) & $E_{ci1}$ (J) & $E_{cf1}$ (J) & $E_{cf2}$ (J) \\ \hline
+            0.982 & 0.4 $\pm$ 0.1 & 0.0 $\pm$ 0.4 & 0.33 $\pm$ 0.07 & 0.04 $\pm$ 0.02 & 0.0 $\pm$ 0.005 & 0.03 $\pm$ 0.01 \\ 
+            0.914 & 0.4 $\pm$ 0.1 & 0.0 $\pm$ 0.4 & 0.37 $\pm$ 0.07 & 0.04 $\pm$ 0.02 & 0.0 $\pm$ 0.0 & 0.04 $\pm$ 0.01 \\ 
+            0.516 & 0.4 $\pm$ 0.1 & 0.1 $\pm$ 0.5 & 0.29 $\pm$ 0.04 & 0.05 $\pm$ 0.03 & 0.0 $\pm$ 0.02 & 0.04 $\pm$ 0.01 \\ 
+            0.513 & 0.4 $\pm$ 0.2 & 0.1 $\pm$ 0.5 & 0.3 $\pm$ 0.02 & 0.05 $\pm$ 0.04 & 0.01 $\pm$ 0.04 & 0.045 $\pm$ 0.005 \\ 
+            1.020 & 0.6 $\pm$ 0.4 & 0.0 $\pm$ 0.4 & 0.6 $\pm$ 0.3 & 0.1 $\pm$ 0.1 & 0.0 $\pm$ 0.0 & 0.1 $\pm$ 0.1 \\ 
+            1.095 & 0.4 $\pm$ 0.2 & 0.0 $\pm$ 0.3 & 0.4 $\pm$ 0.2 & 0.06 $\pm$ 0.04 & 0.0 $\pm$ 0.004 & 0.05 $\pm$ 0.04 \\ 
+            1.942 & 0.27 $\pm$ 0.04 & 0.1 $\pm$ 0.3 & 0.33 $\pm$ 0.03 & 0.04 $\pm$ 0.01 & 0.0 $\pm$ 0.02 & 0.028 $\pm$ 0.005 \\ 
+            1.951 & 0.4 $\pm$ 0.2 & 0.1 $\pm$ 0.2 & 0.5 $\pm$ 0.3 & 0.1 $\pm$ 0.08 & 0.01 $\pm$ 0.03 & 0.07 $\pm$ 0.08 \\ 
+            0.516 & 0.5 $\pm$ 0.3 & 0.2 $\pm$ 0.6 & 0.36 $\pm$ 0.07 & 0.08 $\pm$ 0.08 & 0.01 $\pm$ 0.05 & 0.06 $\pm$ 0.02 \\ 
+            0.513 & 0.5 $\pm$ 0.2 & 0.2 $\pm$ 0.5 & 0.27 $\pm$ 0.03 & 0.07 $\pm$ 0.06 & 0.01 $\pm$ 0.04 & 0.038 $\pm$ 0.009 \\ 
+            0.914 & 0.4 $\pm$ 0.1 & 0.0 $\pm$ 0.4 & 0.37 $\pm$ 0.08 & 0.05 $\pm$ 0.03 & 0.0 $\pm$ 0.004 & 0.04 $\pm$ 0.02 \\ 
+            1.951 & 0.36 $\pm$ 0.05 & 0.1 $\pm$ 0.2 & 0.5 $\pm$ 0.2 & 0.07 $\pm$ 0.02 & 0.01 $\pm$ 0.02 & 0.05 $\pm$ 0.04 \\ 
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\textbf{Remarque:} les énergies cinétiques sont très petites, ce qui explique la présence d'énergies cinétiques à $0$. En réalité, elles ne sont pas toutes nulles,
+mais comme la valeur a plus de $0$ après la virgule que l'incertitude, la valeur est arrondie à 0. Cependant, certaines incertitudes valent bien 0 car le mobile 
+est bien à l'arrêt, comme c'est le cas dans la deuxième ligne par exemple.
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[scale=0.8]{RapportMasse.png}
+    \end{center}
+    \caption{Comparaison de $R$ entre la valeur théorique et la valeur expérimentale}
+\end{figure}
+
+Pour déterminer l'incertitude sur $R$ due à la force entre les aimants qu'on ne peut mesurer, nous avons répété plusieurs fois la même situation à un même rapport de masse, 
+et on a obtenu un écart de $R$ d'environ 10\% que l'on a reporté sur le graphique ci-dessus.
+
+\newpage
+On remarque sur le graphique un écart considérable entre la valeur théorique et la valeur expérimentale. Cet écart peut s'expliquer par notre hypothèse, où l'on suppose le choc parfaitement élastique, alors
+que les chocs ne sont jamais totalement élastique, ce qui invalide notre hypothèse initiale. De plus, pour approcher des conditions d'un choc élastique, les chariots ne collisionnent pas réellement, mais le choc se produit
+au travers d'aimant qui se repousse entre eux. La force entre les deux aimants est indépendante et l'on ne peut pas la mesurer, on ne peut donc pas estimer l'incertitude dessus, et quantifier si cette force 
+peut "transmettre" l'énergie du mobile 1 au mobile 2. Il y a donc un flou conséquent sur cette partie du choc que l'on ne peut déterminer.
+
+Finalement, en regardant le graphique, on peut se demander quelles sont les conditions pour maximiser le transfert, ou à l'inverse, le minimiser. On remarque sur la courbe que le transfert est maximal lorsque
+le rapport de masse est proche de 1, donc lors d'un choc entre deux masses équivalentes, et minimal lorsque le rapport de masse s'éloigne de 1, donc lors d'un choc entre une masse très grande devant l'autre.
+
+\section{Conclusion}
+
 \end{document}
