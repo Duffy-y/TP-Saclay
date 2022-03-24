@@ -48,6 +48,7 @@ d_fin_ec1 = []
 d_fin_ec2 = []
 
 R_exp = []
+R_err = []
 
 R_th = 4 * rapport_mass_linspace * (1 + rapport_mass_linspace) ** (-2) * 100
 
@@ -67,9 +68,9 @@ for i in range(1, 13):
     v1 = (x1[1:] - x1[:-1]) / dt
     v2 = (x2[1:] - x2[:-1]) / dt
     
-    _, dvi_1, _, _ = pente_extreme(t[:4], x1[:4], 0.01, dt)
-    _, dvf_1, _, _ = pente_extreme(t[-4:], x1[-4:], 0.01, dt)
-    _, dvf_2, _, _ = pente_extreme(t[-4:], x2[-4:], 0.01, dt)
+    _, dvi_1, _, _ = pente_extreme(t[:4], x1[:4], 0.005, dt)
+    _, dvf_1, _, _ = pente_extreme(t[-4:], x1[-4:], 0.005, dt)
+    _, dvf_2, _, _ = pente_extreme(t[-4:], x2[-4:], 0.005, dt)
     
     initial_v1 = np.mean(v1[:4])
     initial_v2 = 0
@@ -105,6 +106,7 @@ for i in range(1, 13):
     d_fin_ec2.append(decf_2)
     
     R_exp.append(final_ec_2 / initial_ec_1 * 100)
+    R_err.append(decf_2 / deci_1 )
     
 
 latex = ""
