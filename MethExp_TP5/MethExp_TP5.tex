@@ -1,0 +1,128 @@
+\documentclass[12pt]{article}
+\usepackage[left=2cm, top=2cm, right=2cm, bottom=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{physics}
+
+
+\title{\textbf{Méthodes expérimentales} \\ TP 2: Collisions}
+\author{MENARD Alexandre \\ VIEILLEDENT Florent}
+
+\setlength{\parindent}{1cm}
+
+\begin{document}
+\maketitle
+
+\section*{Introduction}
+
+\newpage
+\section{Champ magnétique généré par une seule bobine}
+Dans un premier temps, on s'intéresse à modéliser le champ magnétique d'une seule bobine comportant 
+$N = 154 spires$, de rayon $r = 20cm$ (A MODIFIER APRES MESURE).
+
+\subsection{Théorie par la loi de Biot-Savart}
+Dans une bobine de rayon $r$ parcourue par un courant $I$. On pose $P$, le point se trouvant sur la spire,
+, $M$, le point où l'on souhaite mesurer le champ magnétique, et $O$, le centre de la bobine. On munira notre espace d'une base cylindrique vu
+la symétrie du problème. On aura donc les trois vecteurs unitaires suivant : $(\vec{e_r}, \vec{e_\theta}, \vec{e_z})$.
+
+\begin{equation}
+    \vec{B}(\vec{r}) = \frac{\mu_0}{4 \pi} \oint_C \frac{I d\vec{l} \wedge (\vec{PM})}{PM^3}
+\end{equation}
+
+Sachant que la distance $PM$ est constante lorsque l'on parcoure la spire, $I$ est constant, on peut les sortir. De plus,
+on découpe l'intégrale en deux en notant que $\vec{PM} = \vec{PO} + \vec{OM}$.
+
+\begin{equation}
+    \vec{B}(\vec{r}) = \frac{I \mu_0}{4 \pi PM^3} \left( \oint_C d\vec{l} \wedge \vec{PO} + \oint_C d\vec{l} \wedge \vec{OM} \right)
+\end{equation}
+
+On exprime les deux intégrales à part:
+\begin{gather*}
+    \oint_C d\vec{l} \wedge \vec{OM} = \oint_C rd\theta \vec{e_\theta} \wedge z\vec{e_z} = \oint_C rd\theta \vec{e_r} = \vec{0} \\
+    \oint_C d\vec{l} \wedge \vec{PO} = \oint_C rd\theta \vec{e_\theta} \wedge r * (-\vec{e_r}) = \oint_C r^2 d\theta \vec{e_z} = 2 \pi r^2\vec{e_z}
+\end{gather*}
+
+On a finalement que:
+\begin{equation}
+    \vec{B}(\vec{r}) = \frac{I \mu_0 r^2}{2 PM^3} \vec{e_z}
+\end{equation}
+
+Cependant, on a $PM = \sqrt{r^2 + z^2}$ donc:
+\begin{equation}
+    \vec{B}(\vec{r}) = \frac{I \mu_0 r^2}{2 \sqrt{r^2 + z^2}^3} \vec{e_z}
+\end{equation}
+
+Lorsqu'on se place dans le centre de la bobine, c'est à dire $z = 0$, on a plus simplement que:
+\begin{equation}
+    \vec{B_0}(\vec{r}) = \frac{I \mu_0 r^2}{2r} \vec{e_z} = \frac{I \mu_0}{2r} \vec{e_z}
+\end{equation}
+
+Et dans le cas d'une bobine à $N$ spires, on a finalement que:
+\begin{equation}
+    \vec{B_0}(\vec{r}) = \frac{N I \mu_0}{2r} \vec{e_z}
+\end{equation}
+
+\subsection{Expérimentation}
+Pour cette expérience, on positionne une bobine de $N = 154$ spires et de rayon $r = 20cm$ (A MESURER) au centre du banc de telle sorte à pouvoir réaliser
+autant de mesures de chaque côté de cette dernière. Avec une source de courant, on alimente la bobine avec 
+un courant $I = 2A$. A l'aide d'un ampèremètre, on mesure le courant réel parcourant notre bobine, on a $I_r = ?? A$.
+
+Pour commencer, on souhaite déterminer l'influence du sens du courant sur le champ magnétique. Pour cela, on suit le protocole
+suivant:
+
+\begin{enumerate}
+    \item A l'aide d'une boussole, on détermine la direction et le sens du champ magnétique $\vec{B}$, ainsi que les lignes de champs
+    en déplaçant la boussole le long de l'axe de la bobine en s'éloignant. \label{etape:boussole}
+    \item En prenant soin d'éteindre la source de courant, on inverse le courant et l'on allume de nouveau la source.
+    \item On détermine de nouveau l'orientation du champ magnétique avec la boussole en suivant l'étape \ref{etape:boussole}. 
+\end{enumerate}
+
+En inversant le courant, on remarque que la boussole pointe dans le sens opposé, mais les lignes de champs restent identiques. On représente
+les lignes de champs dans la figure suivante:
+
+\begin{equation}
+    \text{[INSERER FIGURE]}
+\end{equation}
+
+Ensuite, on détermine l'influence de la distance $z$ avec la bobine sur l'intensité du champ magnétique. Pour cela, avec une sonde de Hall, on mesure l'intensité 
+du champ magnétique sur l'axe $Oz$, à différentes distances $z$, en faisant cela de chaque côté de la bobine.
+On trace donc l'intensité de $\vec{B}$ selon la distance $z$ avec la bobine. 
+
+\begin{figure}[h!]
+    \begin{center}
+        % \includegraphics[]{}
+        \text{[GRAPHIQUE CHAMP MAGNETIQUE SELON OZ]}
+    \end{center}
+    \caption{Influence de la distance $z$ sur l'intensité du champ magnétique}
+\end{figure}
+
+Enfin, on mesure l'effet de l'intensité du courant sur l'intensité du champ magnétique. On positionne donc notre
+sonde de Hall (la pointe) au centre de la bobine (ie $z=0m$). On règle la valeur du courant $I$ à différentes valeurs, et l'on mesure 
+le courant réel parcourant notre bobine avec un ampèremètre et l'intensité du champ magnétique. On trace donc $\norm{\vec{B}}$ en fonction $I$.
+
+\begin{figure}[h!]
+    \begin{center}
+        % \includegraphics[]{}
+        \text{[GRAPHIQUE CHAMP MAGNETIQUE SELON I]}
+    \end{center}
+    \caption{Influence de l'intensité du courant sur l'intensité du champ magnétique}
+\end{figure}
+
+\newpage
+
+\subsection{Modélisation}
+Dans cette partie, nous allons comparer nos valeurs expérimentales à la théorie vue en tout premier lieu. Ainsi,
+on comparera l'intensité du champ magnétique au centre de la bobine à ce que la théorie prédit, puis on comparera la courbe
+de l'intensité du champ magnétique selon $z$ face à la l'intensité attendue selon la théorie, tout cela avec un courant $I$ fixe.
+
+\newpage
+
+\end{document}
