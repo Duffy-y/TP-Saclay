@@ -15,7 +15,7 @@ def chiffre_cs(x, u):
     while str(val)[0] == "0":
         apres_virgule += 1
         val *= 10
-    return f"{round(x, apres_virgule)} \\pm {round(u, apres_virgule)}"
+    return f"{round(x, apres_virgule)} $\\pm$ {round(u, apres_virgule)}"
 
 # uncertainty
 dt = 0.033 #s
@@ -123,4 +123,5 @@ plt.errorbar(rapport_mass, R_exp, fmt="o", yerr=9, label="Résultat expérimenta
 plt.plot(rapport_mass_linspace, R_th, "-", label="Résultat théorique")
 plt.xlabel("Rapport de masse")
 plt.ylabel("Coefficient de restitution (%)")
+plt.legend()
 plt.show()
