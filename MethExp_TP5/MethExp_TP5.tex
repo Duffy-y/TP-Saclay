@@ -233,4 +233,74 @@ On en conclut donc que si l'on souhaite générer un champ magnétique le plus u
 
 \newpage
 
+\section{Mesure du champ magnétique local}
+
+Le but de cette expérience est de déterminer la valeur du champ magnétique local. On utilise pour cela une boussole et un montage similaire au précédent. 
+
+\subsection{Expérimentation}
+On réalise le même montage que l'expérience, avec deux bobines. On écarte nos deux bobines de $70cm$. On commence par faire passer le courant dans un sens opposés. On trouve alors un $z_0$ à l'endroit où le champ magnétique est nul, ce qu'on détermine grâce au Teslamètre. 
+
+On fait ensuite passer le courant dans le même sens dans les deux bobines, et on mesure la valeur du champ magnétique pour différentes valeurs d'intensité, ce qui nous permettra de trouver une relation entre $B$ et $I$. 
+
+On place ensuite notre boussole en $z_0$, et on mesure l'angle $\alpha_0$ que fait la boussole avec l'axe des bobines, lorsque l'intensité est nulle. On installe ensuite le rhéostat en série dans notre montage. On fait varier la valeur de $I$ grâce au rhéostat jusqu'à ce que $\alpha_0$ soit divisé par 2. On note cette intensité $I_l$. 
+
+On regroupe nos données : 
+\begin{figure}[!h]
+	\begin{center}
+		\begin{tabular}{|c|c|}
+		\hline
+		$I\pm 0.001 \, A$ & $B\pm 0.02\, mT$ \\
+		\hline
+	$0.0$ & $0.0$ \\ 
+$0.246$ & $0.01$ \\ 
+$0.592$ & $0.05$ \\ 
+$0.882$ & $0.08$ \\ 
+$1.154$ & $0.12$ \\ 
+$1.436$ & $0.15$ \\ 
+$1.69$ & $0.17$ \\ 
+$1.998$ & $0.21$ \\ 
+	\hline	
+		\end{tabular}
+	\end{center}
+	\label{RelationIB}
+	\caption{Valeur du champ magnétique pour différents courants}
+\end{figure}
+
+On mesure également: $\alpha_0=57\pm 1^\circ  $,$I_l=0.095\pm 0.001\, A$.
+
+\newpage
+\subsection{Modélisation}
+
+On commence par déterminer la relation entre B et I. Les données obtenues permettent de tracer B en fonction de I.
+\begin{figure}[!h]
+	\begin{center}	
+		\includegraphics[scale=1]{img/B_fonction_I.eps}
+	\end{center}
+	\label{BfonctionI}
+	\caption{Relation entre le champ magnétique des bobines B et l'intensité I}
+\end{figure}
+
+On obtient donc une droite et la relation $B=aI$, avec $a=102\pm 2 \, \mu T/A$.
+
+On cherche maintenant un $I$ tel que $B_{bobine}=B_{local}$. Les bobines créent un champ dans l'axe de la boussole, donc s'il n'y avait pas de champ local mais seulement le champ des bobines, on aurait $\alpha = 0$. 
+Inversement, lorsque qu'il n'y a que le champ local, la boussole fait un angle $\alpha_0$ avec l'axe des bobines. 
+
+\newpage
+On remarque donc que lorsque le champ local et le champ des bobines ont la même norme, alors la boussole fait un angle $\frac{\alpha_0}{2}$ avec l'axe des bobines. 
+
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[scale=0.5]{img/Boussole.png}
+	\end{center}
+	\label{SchmBouss}
+	\caption{Schéma de la boussole lorsque $B_{bobines}=B_{local}$}
+\end{figure}
+
+Notre $I_l$ mesuré lors de l'expérience est donc la valeur de l'intensité pour laquelle $B_{bobines}=B_{local}$. On a donc:
+\begin{align*}
+B_{local}&=a*I_l & \delta B_{local}=a*\delta I_l + I_l * \delta a
+\end{align*}
+On fait l'application numérique et on obtient $B_{local}=9.7\pm 0.3\, \mu T$. 
+champtereste=47
+
 \end{document}
