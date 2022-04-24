@@ -14,7 +14,7 @@
 \usepackage{subfig}
 
 
-\title{\textbf{Méthodes expérimentales} \\ TP 2: Collisions}
+\title{\textbf{Méthodes expérimentales} \\ TP 5: Champs magnétiques}
 \author{MENARD Alexandre \\ VIEILLEDENT Florent}
 
 \setlength{\parindent}{1cm}
@@ -27,6 +27,9 @@
 Dans ce travail pratique, on étudieras puis calculeras le champ magnétique généré par une puis deux bobines traversées par un courant électrique. On mesureras ensuite le champ magnétique local. 
 
 On utiliseras pour cela notamment un Teslamètre, aussi appelé sonde de Hall, pour calculer la valeur du champ magnétique. On utiliseras une boussole pour pouvoir déterminer la direction et le sens de ce champ. On compareras nos résultats à la loi de Biot-Savart. 
+
+\textbf{Remarque:} dans certains graphiques, les incertitudes ne semblent pas représenter. Cependant, ces dernières le sont, mais parfois
+trop petites pour être visibles (car cachées par les points), ou par l'échelle de nos valeurs. 
 
 \newpage
 \section{Champ magnétique généré par une seule bobine}
@@ -100,8 +103,7 @@ suivant:
     \item On détermine de nouveau l'orientation du champ magnétique avec la boussole en suivant l'étape \ref{etape:boussole}. 
 \end{enumerate}
 
-En inversant le courant, on remarque que la boussole pointe dans le sens opposé, mais les lignes de champs restent identiques. On représente
-les lignes de champs dans la figure suivante:
+On représente qualitativement les lignes de champs dans la figure suivante:
 
 \begin{figure}[h!]
     \begin{center}
@@ -112,7 +114,10 @@ les lignes de champs dans la figure suivante:
 
 \textbf{Remarque:} les lignes de champ et leurs positions ne reflétent pas la réalité, ce graphique a juste pour but de visualiser ces dernières.
 
+Lorsqu'on inverse le courant, on remarque que la boussole pointe dans le sens opposé, cependant, les lignes de champs sont inchangées.
+
 \newpage
+
 Ensuite, on détermine l'influence de la distance $z$ avec la bobine sur l'intensité du champ magnétique. Pour cela, avec une sonde de Hall, on mesure l'intensité 
 du champ magnétique sur l'axe $Oz$, à différentes distances $z$, en faisant cela de chaque côté de la bobine. Cependant, nous devons déterminer l'intervalle à laquelle nous
 allons mesurer le champ magnétique. \\
@@ -148,7 +153,20 @@ Dans cette partie, nous allons comparer nos valeurs expérimentales à la théor
 on comparera l'intensité du champ magnétique au centre de la bobine à ce que la théorie prédit, puis on comparera la courbe
 de l'intensité du champ magnétique selon $z$ face à l'intensité attendue selon la théorie, tout cela avec un courant $I$ fixe.
 
+\subsubsection{Comparaison de l'influence du courant}
 On commence par comparer l'intensité du champ magnétique au centre de la bobine, pour cela, on utilisera nos mesures où l'on fait varier le courant dans la bobine.
+
+Sachant que nous avons une incertitude sur notre courant $I$, la distance $z$ et le rayon $r$, nous avons une incertitude sur
+l'intensité de $\vec{B}$ que l'on détermine avec la loi de Biot-Savart. On obtient avec la méthode des dérivées l'incertitude suivante:
+
+\begin{align*}
+    \delta B & = \abs{\frac{\partial B}{\partial I}} \delta I + \abs{\frac{\partial B}{\partial r}} \delta r + \abs{\frac{\partial B}{\partial z}} \delta z \\
+    & = \frac{\mu_0}{2} r^2\left(r^2+z^2\right)^{3/2}\delta I \\
+    & + \frac{\mu_0}{2} \left( 2Ir\left(r^2 + z^2\right)^{3/2} + 3I r^3\left(r^2 + z^2\right)^{1/2} \right) \delta r \\
+    & + \frac{\mu_0}{2} 3Ir^2z\left(r^2+z^2\right)^{1/2} \delta z
+\end{align*}
+
+On reporte ainsi les valeurs théoriques et expérimentales ainsi que les incertitudes associées sur le graphique suivant pour comparer:
 
 \begin{figure}[h!]
     \begin{center}
@@ -159,25 +177,52 @@ On commence par comparer l'intensité du champ magnétique au centre de la bobin
 
 On remarque de suite que les valeurs prédites par la loi de Biot-Savart sont bien incluses dans nos valeurs expérimentales en prenant en compte les incertitudes. Numériquement, 
 on relève un écart relatif maximum avec la valeur théorique de 1\%, ce qui est un écart acceptable dans notre situation. On en conclut donc que la loi de Biot-Savart 
-prédit correctement le comportement de l'intensité du champ magnétique au centre de la bobine.
-
-% \begin{align*}
-%     \delta B & = \abs{\frac{\partial B}{\partial I}} \delta I + \abs{\frac{\partial B}{\partial r}} \delta r + \abs{\frac{\partial B}{\partial z}} \delta z \\
-%     & = \frac{\mu_0}{2} r^2\left(r^2+z^2\right)^{3/2}\delta I \\
-%     & + \frac{\mu_0}{2} \left( 2Ir\left(r^2 + z^2\right)^{3/2} + 3I r^3\left(r^2 + z^2\right)^{1/2} \right) \delta r \\
-%     & + \frac{\mu_0}{2} 3Ir^2z\left(r^2+z^2\right)^{1/2} \delta z
-% \end{align*}
+prédit correctement le comportement de l'intensité du champ magnétique au centre de la bobine en fonction du courant la traversant.
 
 \newpage
+\subsubsection{Comparaison de l'influence de la distance $z$}
 On s'intéresse maintenant à l'intensité du champ le long de l'axe $Oz$, on trace donc la courbe prédite par la loi de Biot-Savart, par dessus la courbe que l'on a obtenu précédemment.
+Pour obtenir les incertitudes, nous utilisons la même formule que dans la comparaison précédente.
+
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[scale=0.6]{img/ComparaisonB.eps}
     \end{center}
     \caption{Comparaison de l'intensité du champ entre nos mesures et la valeur prédite par le modèle}
 \end{figure}
+
+Cette fois-ci, on retrouve l'aspect qualitatif d'une courbe "en cloche" entre les deux courbes, cependant,
+les valeurs sont en accord dans les $z$ négatifs, mais pour les $z$ positifs, on remarque un léger décalage en dehors de nos incertitudes.
+Cela peut s'expliquer par une incertitude que l'on a sous-estimé lors de l'expérience, comme pour la position à prendre en compte
+pour la sonde de Hall, ou encore l'intensité qu'elle retourne.
+
+Cependant, en sachant que le champ magnétique est symétrique, à savoir que l'intensité
+en $-z$ vaut l'intensité en $z$. Or, sur le schéma, on remarque que nos valeurs expérimentales sont pour les $z$ négatifs, au dessus des valeurs théoriques, et pour
+les $z$ positifs, en dessous des valeurs théoriques, avec un écart semblable aux valeurs théoriques des deux côtés. 
+
+Prenons le cas suivant:
+à $z=-30cm$, on a $B = 0.20mT$, et à $z=30cm$, on a $B = 0.14mT$. La valeur moyenne nous donne $B = 0.17mT$. Or, la valeur prédite par 
+la loi de Biot-Savart nous donne également $B = 0.17mT$. On peut donc en déduire que notre incertitude est plus grande que ce que l'on a estimé, et on peut tracer la moyenne de nos valeurs
+expérimentales en faisant la moyenne entre les points symétriques.
+
 \newpage
 
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[scale=0.8]{img/Moyenne.eps}
+    \end{center}
+    \caption{Comparaison de l'intensité du champ moyenné et le modèle}
+\end{figure}
+
+On remarque cette fois-ci que la valeur moyenne du champ par symétrie se trouve bien dans les bornes de ce que le modèle prédit. Ainsi,
+cela confirme donc le fait que nos incertitudes étaient sous-estimées, mais que l'on a pas seulement l'aspect qualitatif du modèle, mais aussi quantitatif
+car l'on retrouve bien les intensités attendues selon la loi de Biot-Savart.
+
+On conclut donc de cette expérience que la loi de Biot-Savart est un modèle très satisfaisant pour modéliser, et quantifier
+le comportement d'un champ magnétique produit par une bobine parcourue par un courant. Lors de nos expériences, nous sommes arrivés
+à des conclusions dans ce sens, et dans chaque cas, avec une précision satisfaisante.
+
+\newpage
 \section{Montage avec deux bobines}
 On souhaite cette fois vérifier la loi de Biot-Savart avec un montage avec deux bobines espacées d'une distance $d$. On doit donc chercher le centre de ces deux bobines où 
 l'intensité du champ magnétique est nulle. On cherche donc la configuration présentant une intensité nulle à un point entre les deux bobines.
@@ -220,17 +265,17 @@ $\frac{\Delta B}{B} = \frac{B_{max} - B_{min}}{B_{min}}$ :
 \begin{table}[h!]
     \begin{center}
         \begin{tabular}{c|c|c|c}
-            Distance $d$ (en cm) & $B_{min} \pm 0.02$ (en mT) & $B_{max} \pm 0.02$ (en mT) & $\frac{\Delta B}{B} (en \%)$ \\ \hline
-            10cm & 1.37 & 1.67 & 22.0 \\
-            20cm & 1.22 & 1.31 & 7.40 \\
-            50 cm & 0.43 & 0.96 & 123 \\
+            Distance $d$ (en cm) & $B_{min} \pm 0.02$ (en mT) & $B_{max} \pm 0.02$ (en mT) & $\frac{\Delta B}{B}$ (en \%) \\ \hline
+            10cm & 1.37 & 1.67 & $18 \pm 3$ \\
+            20cm & 1.22 & 1.31 & $7 \pm 4$ \\
+            50 cm & 0.43 & 0.96 & $55 \pm 5$ \\
         \end{tabular}
     \end{center}
 \end{table}
 
-On remarque que la variation relative du champ magnétique est très grande lorsque l'on écarte les deux bobines d'une distance $d=50cm$ avec des intensités doublées (voire plus) entre les deux bobines. 
-On retrouve un constat similaire avec $d=10cm$, la variation reste marquée entre les deux bobines avec une variation de $22\%$. Cependant, lorsque l'on positionne les deux bobines à une distance $d = 20cm$,
-c'est à dire lorsqu'on les écartent avec une distance équivalente à leurs rayons, la variation d'intensité est bien plus faible, avec seulement 7.40\%. Ainsi, la configuration présentant 
+On remarque que la variation relative du champ magnétique est très grande lorsque l'on écarte les deux bobines d'une distance $d=50cm$ avec des intensités qui se multiplient par 1.5 entre les deux bobines. 
+On retrouve un constat similaire avec $d=10cm$, la variation reste marquée entre les deux bobines avec une variation de $18\%$. Cependant, lorsque l'on positionne les deux bobines à une distance $d = 20cm$,
+c'est à dire lorsqu'on les écartent avec une distance équivalente à leurs rayons, la variation d'intensité est bien plus faible, avec seulement 7\%. Ainsi, la configuration présentant 
 le champ le plus uniforme est celle avec une distance $d=20cm$.
 
 On en conclut donc que si l'on souhaite générer un champ magnétique le plus uniforme, il est préférable d'écarter les deux bobines avec une distance équivalente à leurs rayons.
@@ -304,10 +349,10 @@ Notre $I_l$ mesuré lors de l'expérience est donc la valeur de l'intensité pou
 \begin{align*}
 B_{local}&=a*I_l & \delta B_{local}=a*\delta I_l + I_l * \delta a
 \end{align*}
-On fait l'application numérique et on obtient $B_{local}=9.7\pm 0.3\, \mu T$. Le valeur théorique du champ terrestre est de $47\mu T$. Cette valeur n'est pas comprise dans notre intervalle expérimental et nous avons un écart relatif de 80%. Néanmoins, on peut chercher à déterminer si notre expérience est sensible aux erreurs de mesures. Pour cela, on réalise la même expérience mais en $z=z_0 +1\, cm$.
-On détermine de nouveau la mesure entre B et I. On trouve $B=a*I$ avec $a=370\pm 70 \mu T$. 
+On fait l'application numérique et on obtient $B_{local}=9.7\pm 0.3\, \mu T$. Le valeur théorique du champ terrestre est de $47\mu T$. Cette valeur n'est pas comprise dans notre intervalle expérimental et nous avons un écart relatif de 80. %. Néanmoins, on peut chercher à déterminer si notre expérience est sensible aux erreurs de mesures. Pour cela, on réalise la même expérience mais en $z=z_0 +1\, cm$.
+On détermine de nouveau la mesure entre B et I. On trouve $B=a*I$ avec $a=370\pm 70 \mu T/A$. 
 
-On mesure cette fois $I_l=0.100\pm 0.001 \, A$. On a donc $B_{local}=37\pm 7 \mu T$. On remarque donc que notre valeur a presque été multipliée par 4 avec un décalage de $4\, cm$. De plus, on a sous-estimé notre incertitude sur $I_l$, car notre boussole n'est pas précise. Dans notre cas,nous avions $\alpha_0=57\pm 1^\circ$. Il aurait donc fallu mesurer $I_{min}$ à $29^\circ$ et $I_{max}$ à $28^\circ$. On aurait alors eu une incertitude plus réaliste. 
+On mesure cette fois $I_l=0.100\pm 0.001 \, A$. On a donc $B_{local}=37\pm 7 \mu T$. On remarque donc que notre valeur a presque été multipliée par 4 avec un décalage de $1\, cm$. De plus, on a sous-estimé notre incertitude sur $I_l$, car notre boussole n'est pas précise. Dans notre cas,nous avions $\alpha_0=57\pm 1^\circ$. Il aurait donc fallu mesurer $I_{min}$ à $29^\circ$ et $I_{max}$ à $28^\circ$. On aurait alors eu une incertitude plus précise et représentative. 
 
 \newpage
 \section*{Conclusion}

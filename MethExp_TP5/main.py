@@ -32,27 +32,21 @@ th2 = BO(I2, R, 0) * 10**3
 
 fig = plt.figure(figsize=(7, 4))
 
-mu, N, I, r, z = symbols('mu, N, I, r, z')
-dMu, dN, dI, dR, dZ = [0, 0, dI, dR, dz]
+size = len(z1)
+B_moy = list(np.ones(len(z1)))
+B = list(B1)
+for i in range(18):
+    val = (B[i] + B[size - 1 - i]) / 2
+    B_moy[i] = val
+    B_moy[size - 1 - i] = val
+    
 
-expression = mu * N * I * r**2 / (2 * (r**2 + z**2)**(3/2))
-
-B = []
-dBF = []
-for i in I2:
-    values = [4 * np.pi * 10**(-7), 154, i, R, 0]
-    val, err = incertitude_derivee_partielle([mu, N, I, r, z], values, [dMu, dN, dI, dR, dZ], expression)
-    B.append(val)
-    dBF.append(err)
-
-dBF = np.array(dBF) * 10**(3)
-print(dBF)
-
-#plt.plot(z1, th1, 'r-', label="Loi de Biot-Savart")
+plt.errorbar(z1, th1, yerr=0.01, xerr=dz, fmt='r-', label="Loi de Biot-Savart")
 plt.errorbar(z1, B1, yerr=dB, xerr=dz, fmt='o', label="Valeur expérimentales")
+plt.errorbar(z1, B_moy, yerr=dB, xerr=dz, fmt='b-', label="Valeur moyenne")
 
 #plt.errorbar(I2, B2, yerr=dB, xerr=dI, fmt='o', label="Valeur expérimentales")
-#plt.errorbar(I2, th2, yerr=dBF, label="Loi de Biot-Savart")
+#plt.errorbar(I2, th2, yerr=0.006, xerr=dI, label="Loi de Biot-Savart")
 
 #ecart = np.abs(B2 - th2)
 #plt.plot(I2, ecart/np.max(ecart), 'r-', label="Ecart relatif")
@@ -61,4 +55,4 @@ plt.xlabel("Distance z [m]")
 plt.ylabel("Intensité du champ magnétique [mT]")
 plt.legend()
 #plt.show()
-fig.savefig('img/MagnEnFonctionDeZ.eps', format="eps", dpi=1000)
+fig.savefig('img/Moyenne.eps', format="eps", dpi=1000)
