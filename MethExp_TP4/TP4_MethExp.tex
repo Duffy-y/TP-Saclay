@@ -43,22 +43,31 @@ La seringue est placé initialement sur $15\, cm^3$. On relie ensuite la seringu
 
 \begin{figure}[!h]
 	\begin{center}
-		\includegraphics[scale=0.3]{Schéma_seringue.png}
+		\includegraphics[scale=0.2]{Schéma_seringue.png}
 		\label{Schéma_seringue}
 		\caption{Schéma de la première expérience avec la seringue et le pressiomètre}
 	\end{center}
 \end{figure}
 
-[INSÉRER PHOTO PREMIÈRE EXPÉRIENCE]
+
+
 
 On note $V_{seringue}$ le volume à l'intérieur de la seringue. On fait varier ce volume de $15\, cm^3$ à $60\, cm^3$ tout les $5\, cm^3$. La seringue est graduée tout les $cm^3$, donc notre incertitude sur le volume est $\delta V_{seringue}=0.5 \, cm^3$.  On note pour chaque volume la pression donnée par le pressiomètre. L'incertitude sur le pressiomètre est de $2\% $. On a donc $\delta P = 0.02*P$. On répète les mesures 3 fois pour avoir une meilleur estimation de l'incertitude. On note respectivement P1,P2 et P3 les mesures de pressions lors de la première, deuxième et troisième mesure. 
 
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[scale=0.04]{img/exp1.png}
+		\label{Photo exp1}
+		\caption{Montage de la première expérience}
+	\end{center}
+\end{figure}
 \newpage
+On regroupe nos données dans un tableau.
 \begin{table}[h!]
 	\begin{center}
-		\begin{tabular}{|r|r|r|r|r|r|r|}	
+		\begin{tabular}{|c|c|c|c|c|c|c|}	
 \hline
- $V_{seringue} (cm^3)$ &  P1 (hPa) &  $\delta P1(hPa)$ &  P2 (hPa) &  $\delta P2(hPa)$ &  P3 (hPa) &  $\delta P3(hPa)$ \\
+ $V_{seringue} (cm^3)$ &  $P1 (hPa)$ &  $\delta P1(hPa)$ &  $P2 (hPa)$ &  $\delta P2(hPa)$ &  $P3 (hPa)$ &  $\delta P3(hPa)$ \\
 \hline
             15 &              1003 &            20 &              1050 &            21 &              1070 &            21 \\
             20 &               792 &            16 &               810 &            16 &               816 &            16 \\
@@ -73,7 +82,54 @@ On note $V_{seringue}$ le volume à l'intérieur de la seringue. On fait varier 
 \hline
 		\end{tabular}
 	\end{center}
+	\label{Tableau première expérience}
+	\caption{Tableau des données de la première expérience}
 \end{table}
+
+
+
+\subsection{Modélisation}
+
+On rappel la loi des gaz parfait, avec R la constante des gaz parfaits,P la pression du gaz, V son volume et T sa température:
+\begin{equation}
+PV=nRT
+\end{equation}
+
+Nous devrions donc obtenir une droite si nous traçons P en fonction de $\frac{1}{V}$, car on a $P=\frac{a}{V}$ avec $a=nRT$.  
+
+Dans un premier temps, on prend $V=V_{seringue}$. D'après la méthode de la dérivée, l'incertitude associée est:
+\begin{equation}
+\delta \frac{1}{V_{seringue}}=\frac{1}{V_{seringue}^2}*\delta V_{seringue}
+\end{equation}
+
+Pour la pression, on effectue la moyenne des 3 pressions mesurées. On a :
+\begin{equation}
+P=\frac{P1+P2+P3}{3}
+\end{equation}
+
+En effectuant les dérivées partielles, on trouve l'incertitude sur la pression:
+\begin{align*}
+\delta P &= \abs{\frac{\partial P}{\partial P1}} \delta P1 +\abs{\frac{\partial P}{\partial P2}} \delta P2 +\abs{\frac{\partial P}{\partial P3}} \delta P3 \\
+\delta P &= \frac{\delta P1 +\delta P2 +\delta P3}{3}
+\end{align*}
+\newpage
+On effectue les calculs et on trace le graphique grâce à Python:
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=1]{img/GExp1.png}
+		\caption{Graphique de la pression en fonction de l'inverse du volume de la seringue}
+	\end{center}
+\end{figure}
+
+On obtient une droite affine d'équation $P=\frac{a}{V_{seringue}}+b$ avec $a=1.56\pm 0.02\, Pa.m^3$ et $b=2400\pm 400 Pa$
+On trouve bien une droite mais elle ne passe pas par zéro, l'ordonnée à l'origine b est non nul. Cela vient du fait que le volume du tuyaux et de la chambre à l'intérieur du pressiomètre ne sont pas négligeables. On note $V_T$ ce volume. On a donc:
+\begin{align*}
+P=\frac{a}{V_{seringue}+V_T}&\Rightarrow P(V_{seringue}+V_T)=a \\
+	&\Rightarrow P*V_{seringue}=a-P*V_T \\
+	&\Rightarrow V_{seringue}=\frac{a}{P}-V_T
+\end{align*}
+
+On va donc tracer $V_{seringue}$ en fonction de P. La valeur de l'opposée de l'ordonnée à l'origine sera donc égale à $V_T$. 
 
 \newpage
 \section{Relation entre la température et la pression à volume constant}
