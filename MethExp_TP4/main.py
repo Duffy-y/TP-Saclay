@@ -25,15 +25,8 @@ dP = 1 * 10**(2) # Pa
 data_exp2_chauffage = pd.read_csv("data/Exp2Chauffage.csv", delimiter=";")
 data_exp2_refroidissement = pd.read_csv("data/Exp2Refroidissement.csv", delimiter=";")
 
-popt, pcov = curve_fit(linear, data_exp2_chauffage["Température (K)"], data_exp2_chauffage["Pression (hPa)"], sigma=data_exp2_chauffage["Incertitude pression (Pa)"])
-a, b = popt
-perr = np.sqrt(np.diag(pcov))
-da, db = perr
-print(-b/a)
-print(1/a * db + b/a**2 * da)
-
-plt.plot(data_exp2_chauffage["Température (K)"], data_exp2_chauffage["Pression (hPa)"], 'bo', label="Chauffage")
-plt.plot(data_exp2_refroidissement["Température (K)"], data_exp2_refroidissement["Pression (hPa)"], "ro", label="Refroidissement")
+plt.plot(data_exp2_chauffage["Température (K)"], data_exp2_chauffage["Pression (hPa)"], 'ro', label="Chauffage")
+plt.plot(data_exp2_refroidissement["Température (K)"], data_exp2_refroidissement["Pression (hPa)"], "bo", label="Refroidissement")
 
 plt.legend()
 plt.xlabel("Température [K]")
