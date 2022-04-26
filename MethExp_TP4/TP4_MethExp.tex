@@ -107,10 +107,10 @@ En effectuant les dérivées partielles, on trouve l'incertitude sur la pression
 \delta P &= \frac{\delta P1 +\delta P2 +\delta P3}{3}
 \end{align*}
 \newpage
-On effectue les calculs et on trace le graphique grâce à Python:
+Les calculs sont données en annexe. On trace le graphique grâce à Python:
 \begin{figure}[h!]
 	\begin{center}
-		\includegraphics[scale=1]{img/GExp1.png}
+		\includegraphics[scale=1]{img/GExp1.eps}
 		\caption{Graphique de la pression en fonction de l'inverse du volume de la seringue}
 	\end{center}
 \end{figure}
@@ -123,7 +123,24 @@ P=\frac{a}{V_{seringue}+V_T}&\Rightarrow P(V_{seringue}+V_T)=a \\
 	&\Rightarrow V_{seringue}=\frac{a}{P}-V_T
 \end{align*}
 
-On va donc tracer $V_{seringue}$ en fonction de P. La valeur de l'opposée de l'ordonnée à l'origine sera donc égale à $V_T$. 
+On va donc tracer $V_{seringue}$ en fonction de P. La valeur de l'opposée de l'ordonnée à l'origine sera donc égale à $V_T$. On trouve grâce à la figure \ref{Graphique 2 Exp1} une relation de type:$V_{seringue}=\frac{a}{P}+b$ avec $a=1.727\pm0.004\, Pa.m^3$ et $b=-1.5\pm 0.1\, cm^3$. On a donc $V_T=1.5\pm 0.1\, cm^3$
+
+\newpage
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=1]{img/G2Exp1.eps}
+		\label{Graphique 2 Exp1}
+		\caption{Graphique du volume de la seringue en fonction de l'inverse de la pression}
+	\end{center}
+\end{figure}
+
+On va donc maintenant tracer $P$ en fonction de $V_{sergingue}+V_T$.
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=1]{img/G3Exp1.eps}
+		\caption{Graphique de la pression en fonction de l'inverse du volume totale}
+	\end{center}
+\end{figure}
 
 \newpage
 \section{Relation entre la température et la pression à volume constant}
@@ -212,4 +229,28 @@ La littérature scientifique conclut que l'air est un gaz parfait pour des press
 de nos mesures avec la théorie. Cependant, il est possible que l'air ne suit plus un comportement de gaz parfait à des pressions quasi-nulles, ce qui semble être l'hypothèse la plus probable. 
 Pour vérifier cette hypothèse, il serait possible de réaliser cette expérience dans une enceinte à vide pour la vérifier. 
 
+\newpage
+\section*{Annexes}
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+         $\frac{1}{V_{seringe}}$ &    $\delta \frac{1}{V_{seringue}}$ &  $P(hPa)$ &  $\delta P(hPa)$ \\
+\hline
+66666 & 2222 &                    1041 &           21 \\
+50000 & 1250 &                     806 &           16 \\
+40000 &  800 &                     649 &           13 \\
+33333 &  555 &                     550 &           11 \\
+28571 &  408 &                     474 &            9 \\
+25000 &  313 &                     418 &            8 \\
+22222 &  247 &                     372 &            7 \\
+20000 &  2000 &                     335 &            7 \\
+18181 &  165 &                     305 &            6 \\
+16666 &  138 &                     281 &            6 \\
+\hline
+\end{tabular}
+\end{center}
+\label{Table1annexes}
+\caption{Valeurs intermédiaires pour la première expérience}
+\end{table}
 \end{document}
