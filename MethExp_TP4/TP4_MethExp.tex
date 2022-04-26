@@ -23,19 +23,13 @@
 \maketitle
 
 \section*{Introduction}
-Dans ce travail pratique, on cherchera à vérifier la loi des gaz parfaits. Le gaz utilisé sera l'air qu'on considère ici comme un gaz parfait. Dans un premier temps, on mesureras le pression d'un gaz en faisant varier le volume de ce gaz avec une température constante. On utiliseras pour cela une seringue et un pressiomètre Jeulin. 
-
-On mesureras ensuite la pression d'un gaz à volume constant en faisant varier la température. On utilise pour ça une bouteille étanche et un manomètre. On utilise pour cela un gaz dans une seringue et un pressiomètre Jeulin. 
-
-
-
-
+Dans ce travail pratique, on cherchera à vérifier la loi des gaz parfaits. Le gaz utilisé sera l'air qu'on considère ici comme un gaz parfait. Dans un premier temps, on mesurera la pression d'un gaz en faisant varier le volume de ce gaz avec une température constante. On utilisera pour cela une seringue et un pressiomètre Jeulin. 
+On mesurera ensuite la pression d'un gaz à volume constant en faisant varier la température. On utilise pour ça une bouteille étanche et un manomètre.
 
 \newpage
-
 \section{Relation entre le volume et la pression à température donnée}
 
-Dans cette première expérience on cherche à vérifier que le produit PV est une constante. Pour cela, on calcule la pression d'un gaz pour différentes valeurs de volumes, sans changer la température. 	
+Dans cette première expérience on cherche à vérifier que le produit PV est une constante. Pour cela, on calcule la pression d'un gaz pour différentes valeurs de volume, sans changer la température. 	
 
 \subsection{Expérimentation}
 
@@ -143,13 +137,8 @@ Ici, on a la pression $P$ et la température $T$ qui varient, et le volume $V$ c
     PV = nRT
 \end{equation}
 
-On obtient directement que le produit $V = \frac{nRT}{P}$ est constant. Pour vérifier nos mesures, nous avons donc plusieurs solutions:
-\begin{itemize}
-    \item Tracer le volume $V$ en fonction du produit $\frac{nRT}{P}$ en utilisant les valeurs de $T$ et $P$ que l'on mesure.
-    On s'attendra donc à obtenir une droite d'équation $y = V$ pour que la loi des gazs parfait soit vérifiée. De plus, cette approche nous permettra de déterminer le volume réel
-    que l'on a dans notre expérience, car dans la partie expérimentation, nous allons supposer un volume de 250mL, ce qui n'inclut pas le volume du tuyau et du manomètre.
-    \item Tracer $P$ en fonction de $T$, car $P = \frac{nR}{V} T$, on doit donc obtenir une droite. Cette approche permet de déterminer la valeur de la température à $P=0Pa$.
-\end{itemize}
+On obtient directement que le produit $V = \frac{nRT}{P}$ est constant. Pour vérifier nos mesures, on tracera donc $P$ en fonction de $T$, 
+car $P = \frac{nR}{V} T$, on doit donc obtenir une droite. Cette approche permettra de déterminer la valeur de la température à $P=0Pa$ en extrapolant notre régression linéaire.
 
 \subsection{Expérimentation}
 Maintenant que nous savons ce que l'on doit chercher, on passe à l'expérimentation. L'expérience consiste à
@@ -158,12 +147,13 @@ On relève ensuite la température de l'eau et la pression tous les degrés.
 
 \begin{figure}[!h]
 	\begin{center}
-		\includegraphics[scale=0.05]{img/exp2.jpg}
+		\includegraphics[scale=0.07]{img/exp2.jpg}
 		\label{Exp2}
 		\caption{Montage de l'expérience}
 	\end{center}
 \end{figure}
 
+\newpage
 \textbf{Remarque:} le thermocouple est plongé dans l'eau, et non l'air de la bouteille, pourtant, nous allons utiliser la pression de l'air dans
 la bouteille, on a donc deux variables qui representent des systèmes différents car rien ne nous affirme qu'il y a thermalisation entre l'air de la bouteille et l'eau.
 Pour s'en convaincre, à la fin de l'expérience, nous laisserons refroidir l'eau naturellement (donc très lentement) tout en prenant les valeurs de températures et pression. 
@@ -172,10 +162,54 @@ refroidissement, on pourra affirmer qu'il y avait thermalisation pendant le chau
 
 \begin{figure}[!h]
 	\begin{center}
-		\includegraphics[scale=0.7]{img/exp2_graph1.png}
-		\label{Exp2_graph1}
+		\includegraphics[scale=0.68]{img/exp2_graph1.eps}
 		\caption{Pression $P$ en fonction de la température}
 	\end{center}
+	\label{Exp2_graph1}
 \end{figure}
+
+\textbf{Point sur les incertitudes:} nous avons relevé sur la fiche technique des appareils que l'incertitude était de 2\% (donc $\pm$ 1\%) de la valeur pour la pression, et 0.2\% (donc $\pm$ 0.1\%) pour la température, qu'on a donc représenté sur
+le graphique.
+
+Avant toute modélisation, on peut revenir sur la remarque précédente concernant la thermalisation de l'air de la bouteille. On note que les points de température et pression lors du chauffage et 
+du refroidissement suivent la même tendance, ainsi que les mêmes valeurs. On en conclut donc par rapport à notre raisonnement précédent qu'il y avait bien thermalisation entre l'eau et l'air lors du chauffage.
+
+\newpage
+Pour déterminer le caractère linéaire de nos mesures, on réalise une régression linéaire de ces dernières et l'on compare au coefficient de corrélation. 
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[scale=0.65]{img/exp2_graph2.eps}
+		\caption{Ajustement des mesures par un modèle linéaire de type $y=ax+b$}
+	\end{center}
+	\label{Exp2_graph2}
+\end{figure}
+
+On obtient un coefficient de corrélation $R^2 = 0.99984$, ce qui permet de conclure que nos mesures se comportent de façon très étroite et proche d'une fonction linéaire. On obtient donc les paramètres suivants:
+\begin{align*}
+	a = 3.21 \pm 0.14 hPa.K^{-1} \quad \quad b = 57 \pm 45 hPa
+\end{align*}
+\begin{equation*}
+	P_{fit} = a * T + b
+\end{equation*}
+
+En reprendant la loi des gaz parfaits, cette dernière prédit qu'à $P = 0Pa$, la température doit être nulle, ou inversement lorsque $T = 0K$, on doit avoir $P=0Pa$. On peut donc vérifier cela
+en extrapolant nos mesures. On peut déjà s'attendre à une valeur non nulle car l'ordonnée à l'origine $b$ ne l'est pas. On note $T_0$, la température à $P=0Pa$:
+
+\begin{equation}
+	T_0 = \frac{-b}{a}
+\end{equation}
+
+On en déduit l'incertitude associée :
+\begin{equation}
+	\delta T_0 = \frac{\delta b}{a} + \frac{b}{a^2} \delta a
+\end{equation}
+
+\newpage
+Pour conclure cette expérience, nous avons obtenu un comportement linéaire de la pression en fonction de la température à volume constant pour des pressions proches de la pression atmosphérique.
+Cependant, en prolongeant la régression linéaire de nos mesures, on obtient une température $T_0 = -18 \pm 15 K$ à $P=0Pa$, donc au plus proche de $0K$, $T_0 = -3K$, on note donc un écart à la théorie.
+De plus, une température inférieure à $0K$ est impossible, le résultat est donc incohérent. Ce résultat peut potentiellement provenir de notre hypothèse de départ, c'est-à-dire que l'air est un gaz parfait. 
+La littérature scientifique conclut que l'air est un gaz parfait pour des pressions proches de la pression atmosphérique, ce qui explique le bon comportement
+de nos mesures avec la théorie. Cependant, il est possible que l'air ne suit plus un comportement de gaz parfait à des pressions quasi-nulles, ce qui semble être l'hypothèse la plus probable. 
+Pour vérifier cette hypothèse, il serait possible de réaliser cette expérience dans une enceinte à vide pour la vérifier. 
 
 \end{document}
