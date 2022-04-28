@@ -110,7 +110,7 @@ En effectuant les dérivées partielles, on trouve l'incertitude sur la pression
 Les calculs sont données en annexe. On trace le graphique grâce à Python:
 \begin{figure}[h!]
 	\begin{center}
-		\includegraphics[scale=1]{img/GExp1.eps}
+		\includegraphics[scale=0.9]{img/GExp1.eps}
 		\caption{Graphique de la pression en fonction de l'inverse du volume de la seringue}
 	\end{center}
 \end{figure}
@@ -123,12 +123,12 @@ P=\frac{a}{V_{seringue}+V_T}&\Rightarrow P(V_{seringue}+V_T)=a \\
 	&\Rightarrow V_{seringue}=\frac{a}{P}-V_T
 \end{align*}
 
-On va donc tracer $V_{seringue}$ en fonction de P. La valeur de l'opposée de l'ordonnée à l'origine sera donc égale à $V_T$. On trouve grâce à la figure \ref{Graphique 2 Exp1} une relation de type:$V_{seringue}=\frac{a}{P}+b$ avec $a=1.727\pm0.004\, Pa.m^3$ et $b=-1.5\pm 0.1\, cm^3$. On a donc $V_T=1.5\pm 0.1\, cm^3$
+On va donc tracer $V_{seringue}$ en fonction de P. La valeur de l'opposée de l'ordonnée à l'origine sera donc égale à $V_T$. On trouve grâce à la figure (4) une relation de type:$V_{seringue}=\frac{a}{P}+b$ avec $a2=1.727\pm0.004\, Pa.m^3$ et $b2=-1.5\pm 0.1\, cm^3$. On a donc $V_T=1.5\pm 0.1\, cm^3$
 
 \newpage
 \begin{figure}[h!]
 	\begin{center}
-		\includegraphics[scale=1]{img/G2Exp1.eps}
+		\includegraphics[scale=0.9]{img/G2Exp1.eps}
 		\label{Graphique 2 Exp1}
 		\caption{Graphique du volume de la seringue en fonction de l'inverse de la pression}
 	\end{center}
@@ -141,6 +141,8 @@ On va donc maintenant tracer $P$ en fonction de $V_{sergingue}+V_T$.
 		\caption{Graphique de la pression en fonction de l'inverse du volume totale}
 	\end{center}
 \end{figure}
+
+Notre $b$ théorique est de 0. Ici on a bien $0\in [b3_{min};b3_{max}]$. Notre modèle est donc bien vérifié. Néanmoins notre incertitude sur b est très grande ce qui rend difficile de conclure. De plus, on a considérer que l'air était un gaz parfait ce qui n'est pas le cas. Il est donc attendu que notre ordonné à l'origine ne soit pas exactement zéro.  
 
 \newpage
 \section{Relation entre la température et la pression à volume constant}
