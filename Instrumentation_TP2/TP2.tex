@@ -41,7 +41,7 @@ Pour mesurer le temps de réponse du capteur, on réutilise le même circuit. On
 	\end{center}
 \end{figure}
 
-On utilise ensuite le circuit 2. On mesure $U_{PT}$ en faisant varier la résistance du potentiomètre $R_{PT}$ de 3500 à 250 $\Omega$.
+On utilise ensuite le circuit 2. On mesure $U_{PT}$ en faisant varier la résistance du potentiomètre $R_{Pot}$ de 3500 à 250 $\Omega$.
 
 \subsection{Modèle}
 D'après la fiche technique du capteur, on a la relation suivant pour $T\geq 0\degree C$:
@@ -94,9 +94,9 @@ La fiche technique nous donne un $\tau_{0.9}=10\, s$, ce qui correspond à
 \label{Equa_tempsréponse}
 \end{equation}
 
-Lorsqu'on diminue beaucoup la résistance du potentiomètre, on augmente l'intensité du courant. L'effet Joule va donc augmenter. On rappelle l'expression de l'effet Joule :$P=RI^2$. La fiche technique nous donne un coefficient d'auto-chauffage en $\degree C/mW$, qu'on note $a$. Par analyse dimensionnelle, on a la relation suivante :
+Lorsqu'on diminue beaucoup la résistance du potentiomètre, on augmente l'intensité du courant. L'effet Joule va donc augmenter. On rappelle l'expression de l'effet Joule :$P=RI^2$. La fiche technique nous donne un coefficient d'auto-chauffage en $\degree C/W$, qu'on note $a$. Par analyse dimensionnelle, on a la relation suivante :
 \begin{equation}
-\delta T=a*10^{3}*P=a*10^{3}*i^2*R_{PT}
+\delta T=a*P=a*i^2*R_{PT}
 \label{Equation_puissance}
 \end{equation}
 
@@ -113,7 +113,7 @@ On commence par mesurer la température de la pièce. On mesure $U_{PT}=105.97\p
 \end{align*}
 
 On utilise ensuite l'équation (\ref{Equation_température}) et on obtient $T=25.07 \degree C$. On calcule aussi l'incertitude : $\delta T = \frac{\delta R_{PT}}{a*R_0}=0.05 \degree C$. On a donc $T=25.07\pm 0.05 \degree C$. On a aussi mesuré le température avec un thermocouple et on obtient $T_{thermocouple}=25.0\pm 0.5 \degree C$. Les valeurs sont cohérentes. 
-[COMPARAISON OHMMÈTRE]
+[COMPARAISON OHMMÈTRE, RÉSOLUTION DU CAPTEUR]
 
 \newpage
 On cherche maintenant à déterminer le temps de réponse. On regroupe les données de tension en fonction du temps dans un tableau:
@@ -163,13 +163,69 @@ Grâce aux équations(\ref{Equa_resistance}) et (\ref{Equation_température}), o
 \begin{figure}[h!]
 	\begin{center}
 		\includegraphics[scale=0.7]{Tempscara.eps}
-		\label{Temps_caractéristique}
 		\caption{$\Delta T$ en fonction du temps et courbe ajustée}
+		\label{Temps_caractéristique}
 	\end{center}
 \end{figure}
 
 On trouve bien une courbe exponentielle, il y a donc un accord qualitative avec l'équation (\ref{exponentielle}). On ajuste une courbe avec Python et on trouve un $\tau = 5.42\pm 0.04\,s$. Grâce à l'équation (\ref{Equa_tempsréponse}), on calcule notre temps de réponse expérimentale $\tau_{0.9}=12.48\pm 0.09\,s$. [COMPARAISON THEORIQUE AIR FLOW JOUER DE LA FLUTE].
 
+On étudie maintenant l'influence du courant sur nos mesures. En faisant varier $R_{pot}$, on obtient les données suivantes :
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{|c|c|}
+\hline
+ $R_{pot}\, en (\Omega)$ &  U (en mV) \\
+\hline
+  3500 &      153.0 \\
+  3000 &      177.7 \\
+  2500 &      211.1 \\
+  2000 &      262.3 \\
+  1500 &      344.1 \\
+  1000 &      500.4 \\
+   800 &      610.0 \\
+   600 &      785.2 \\
+   400 &     1104.0 \\
+   350 &     1229.0 \\
+   300 &     1385.0 \\
+   250 &     1586.0 \\
+\hline
+\end{tabular}
+	\end{center}
+	\label{Tableau_puissance}
+	\caption{Valeurs de la tension aux bornes du capteur pour différentes valeurs de résistance du potentiomètre}
+\end{table}
 
+On calcule donc $i$ l'intensité dans le capteur grâce à l'équation (\ref{Equa_intensité}), puis la température grâce aux équations (\ref{Equa_resistance}) et (\ref{Equation_température}). On trace $\Delta T=T-T_A$ en fonction de l'intensité, avec $T_A$ la température de la pièce. Pour mieux visualiser, on trace ensuite $\Delta T$ en fonction de la puissance. D'après l'équation ($\ref{Equation_puissance}$), on est censé obtenir une droite. On remarque dans les deux graphiques de la figure (\ref{Graphe_puissance}) que les premiers points semblent aberrants. Les autres points du deuxième graphique semblent néanmoins tracer une droite, on peut dire qu'il y a un accord qualitatif.
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.5]{Graphe2_puissance.eps}		
+		\caption{Gauche: Graphique de $\Delta T$ en fonction du courant dans la capteur. Droite: Graphique de la température générée par effet Joule en fonction de la puissance}
+		\label{Graphe_puissance}
+	\end{center}
+\end{figure}
+
+ On fait donc une régression linéaire et on obtient  un coefficient linéaire $a=651\pm 13\, \degree C/W$. La valeur théorique donné par la fiche technique est de $500\, \degree C/W$. Il n'y a pas d'accord quantitatif, l'écart relatif est de $30\%$. Cet écart peut en partie s'expliquer car la valeur théorique est donné pour un mouvement d'air de $1\, m/S$, ce qui n'est sûrement pas le cas dans notre montage. Néanmoins, l'écart est important et nous avons des points aberrants, il faudrait donc refaire l'expérience, notamment en mesurant directement l'intensité dans notre circuit. 
+
+\section{Deuxième circuit de conditionnement : Pont de Wheatstone}
+\subsection{Montage expérimental}
+
+On réalise un pont de Wheatstone avec une résistance $R'$ de $2\, k\Omega$, 2 résistances $R$ de $200\,\Omega$, un potentiomètre $R_{pot}$ réglé sur $110\, \Omega$, un générateur de tension de $5.0136\, V$, un voltmètre et notre capteur de température. 
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.2]{Wheatstone.png}
+		\caption{Circuit du pont de Wheastone}
+		\label{Wheatstone}
+	\end{center}
+\end{figure}
+
+\subsection{Modèle}
+
+On détermine l'intensité $i$ qui traverse notre capteur en utilisant des résistances équivalentes et l'équivalence Thévenin/Norton :
+\begin{equation}
+i=\frac{\frac{R'*(R_{pot}+R)}{R'+(R_{pot}+R)}}{\frac{R'*(R_{pot}+R)}{R'+(R_{pot}+R)}+(R+R_{PT})}*\frac{E}{R'}
+\label{Intensité_wheatstone}
+\end{equation}
 
 \end{document}
