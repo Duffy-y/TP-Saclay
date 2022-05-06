@@ -22,15 +22,15 @@
 \maketitle
 
 \section*{Introduction}
-Dans ce travail pratique, on étudie les caractéristiques d'un capteur de température PT100. Le capteur est composé notamment d'une couche de platine dont la résistance varie en fonction de la température. Le capteur que nous utilisons est de classe B et de type PTFF.100 fait référence à la résistance $R_0$ du capteur à $0\degree C$. On commence par un circuit d'un pont diviseur de tension. On cherche alors à déterminer la température de la pièce en mesurant la résistance du capteur. On cherche aussi à déterminer le temps de réponse du capteur et on étudie l'influence du courant sur les mesures. On change ensuite le circuit de conditionnement en utilisant un Pont de Wheatstone, pour comparer la sensibilité des deux circuits.
+Dans ce travail pratique, on étudie les caractéristiques d'un capteur de température PT100. Le capteur est composé notamment d'une couche de platine dont la résistance varie en fonction de la température. Le capteur que nous utilisons est de classe B et de type PTFF.100 faisant référence à la résistance $R_0$ du capteur à $0\degree C$. On commence par un circuit d'un pont diviseur de tension. On cherche alors à déterminer la température de la pièce en mesurant la résistance du capteur. On cherche aussi à déterminer le temps de réponse du capteur et on étudie l'influence du courant sur les mesures. On change ensuite le circuit de conditionnement en utilisant un Pont de Wheatstone, pour comparer la sensibilité des deux circuits.
 
 \section{Premier circuit de conditionnement : Pont diviseur de tension}
 \subsection{Montage expérimental}
-La fiche technique du capteur nous indique un courant recommandé pour nos mesure de $I_{mes}=1.4\, mA$, nous allons donc utiliser un pont diviseur de tension pour avoir le courant voulu dans notre capteur. Notre montage est composé d'un générateur de tension $E=5.0136\, V$ (mesuré avec un voltmètre), d'une résistance $R=5.085 \, k\Omega$(mesuré avec un ohmmètre), d'un voltmètre et du capteur de température. On note respectivement $R_{PT}$ et $U_{PT}$ la résistance du capteur et la tension à ses bornes. 
+La fiche technique du capteur nous indique un courant recommandé pour nos mesure de $I_{mes}=1.4\, mA$, nous allons donc utiliser un pont diviseur de tension pour avoir le courant recommandé dans notre capteur. Notre montage est composé d'un générateur de tension $E=5.0136\, V$ (mesuré avec un voltmètre), d'une résistance $R=5.085 \, k\Omega$ (mesuré avec un ohmmètre), d'un voltmètre et du capteur de température. On note respectivement $R_{PT}$ et $U_{PT}$ la résistance du capteur et la tension à ses bornes. 
 
 Pour calculer la température de la pièce, on commence par calculer $R_{PT}$ avec un ohmmètre. Puis on calcule $U_{PT}$ avec le circuit 1 de la figure (\ref{Schéma_exp1}).
 
-Pour mesurer le temps de réponse du capteur, on réutilise le même circuit. On commence par chauffer le capteur en le tenant dans nos doigts. Puis on filme le voltmètre avec un chronomètre à côté et on laisse refroidir le capteur. On note tout les secondes la tension aux bornes du capteur.  
+Pour mesurer le temps de réponse du capteur, on réutilise le même circuit. On commence par chauffer le capteur en le tenant dans nos doigts. Puis on filme le voltmètre avec un chronomètre à côté et on laisse refroidir le capteur. On note toutes les secondes la tension aux bornes du capteur.  
 
 \newpage
 \begin{figure}[h!]
@@ -44,7 +44,7 @@ Pour mesurer le temps de réponse du capteur, on réutilise le même circuit. On
 On utilise ensuite le circuit 2. On mesure $U_{PT}$ en faisant varier la résistance du potentiomètre $R_{Pot}$ de 3500 à 250 $\Omega$.
 
 \subsection{Modèle}
-D'après la fiche technique du capteur, on a la relation suivant pour $T\geq 0\degree C$:
+D'après la fiche technique du capteur, on a la relation suivante pour $T\geq 0\degree C$:
 \begin{equation}
 R_{PT}=R_0(1+a*T+b*T^2)
 \end{equation}
@@ -54,7 +54,7 @@ R_{PT}=R_0(1+a*T)
 \label{Modèle_linéaire}
 \end{equation}
 
-On calcule la différence entre ces deux modèles. On remarque que pour des températures ambiantes (entre $0$ et $40\degree C$), la différence de température entre les deux modèles est inférieur à $0.25\degree C$. On accepte cet écart pour cette première expérience mais il faut le prendre en compte dans nos conclusions. 
+On calcule la différence entre ces deux modèles. On remarque que pour des températures ambiantes (entre $0$ et $40\degree C$), la différence de température entre les deux modèles est inférieur à $0.25\degree C$. On accepte cet écart pour cette première expérience mais il faudra prendre en compte cette diffénrece dans nos conclusions. 
 \begin{figure}[h!]
 	\begin{center}
 		\includegraphics[scale=0.3]{Comparaison.eps}
@@ -94,7 +94,7 @@ La fiche technique nous donne un $\tau_{0.9}=10\, s$, ce qui correspond à
 \label{Equa_tempsréponse}
 \end{equation}
 
-Lorsqu'on diminue beaucoup la résistance du potentiomètre, on augmente l'intensité du courant. L'effet Joule va donc augmenter. On rappelle l'expression de l'effet Joule :$P=RI^2$. La fiche technique nous donne un coefficient d'auto-chauffage en $\degree C/W$, qu'on note $a$. Par analyse dimensionnelle, on a la relation suivante :
+Lorsqu'on diminue beaucoup la résistance du potentiomètre, on augmente l'intensité du courant. L'effet Joule va donc augmenter. On rappelle l'expression de l'effet Joule: $P=RI^2$. La fiche technique nous donne un coefficient d'auto-chauffage en $\degree C/mW$, qu'on note $a$. Par analyse dimensionnelle, on a la relation suivante :
 \begin{equation}
 \delta T=a*P=a*i^2*R_{PT}
 \label{Equation_puissance}
@@ -158,7 +158,7 @@ On cherche maintenant à déterminer le temps de réponse. On regroupe les donn�
 \end{table}
 
 \newpage
-Grâce aux équations(\ref{Equa_resistance}) et (\ref{Equation_température}), on calcule la température associée à chaque tension. On trace $\Delta T=T-T_A$ en fonction du temps, avec $T_A$ la dernière température mesurée.
+Grâce aux équations (\ref{Equa_resistance}) et (\ref{Equation_température}), on calcule la température associée à chaque tension. On trace $\Delta T=T-T_A$ en fonction du temps, avec $T_A$ la dernière température mesurée.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -168,8 +168,10 @@ Grâce aux équations(\ref{Equa_resistance}) et (\ref{Equation_température}), o
 	\end{center}
 \end{figure}
 
-On trouve bien une courbe exponentielle, il y a donc un accord qualitative avec l'équation (\ref{exponentielle}). On ajuste une courbe avec Python et on trouve un $\tau = 5.42\pm 0.04\,s$. Grâce à l'équation (\ref{Equa_tempsréponse}), on calcule notre temps de réponse expérimentale $\tau_{0.9}=12.48\pm 0.09\,s$. [COMPARAISON THEORIQUE AIR FLOW JOUER DE LA FLUTE].
+On trouve bien une courbe exponentielle, il y a donc un accord qualitatif avec l'équation (\ref{exponentielle}). On ajuste la courbe avec Python et on trouve un $\tau = 5.42\pm 0.04\,s$. Grâce à l'équation (\ref{Equa_tempsréponse}), on calcule notre temps de réponse expérimentale $\tau_{0.9}=12.48\pm 0.09\,s$.
 
+La documentation nous fournit un $\tau_{0.9} = 10s$ pour une vitesse de l'air $v = 1m/s$. On note donc un écart avec la valeur théorique annoncée de $2.48s$, mais cette différence peut s'expliquer en partie par 
+une vitesse de l'air différente lors de notre expérience, que l'on ne contrôle pas, et que l'on ne peut pas mesurer. 
 On étudie maintenant l'influence du courant sur nos mesures. En faisant varier $R_{pot}$, on obtient les données suivantes :
 \begin{table}[h!]
 	\begin{center}
