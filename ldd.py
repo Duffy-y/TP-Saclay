@@ -69,23 +69,31 @@ def odr_fit(model: Callable, x: np.ndarray, y: np.ndarray, p0, fit_type = 0):
 
 def plot_error(x, y, label="", fmt=None):
     if fmt == None:
-        plt.errorbar(x=unumpy.nominal_values(x), y=unumpy.nominal_values(y), xerr=unumpy.std_devs(x), yerr=unumpy.std_devs(y), label=label)
+        courbe = plt.errorbar(x=unumpy.nominal_values(x), y=unumpy.nominal_values(y), xerr=unumpy.std_devs(x), yerr=unumpy.std_devs(y), label=label)
     else:
-        plt.errorbar(x=unumpy.nominal_values(x), y=unumpy.nominal_values(y), xerr=unumpy.std_devs(x), yerr=unumpy.std_devs(y), label=label, fmt=fmt)
+        courbe = plt.errorbar(x=unumpy.nominal_values(x), y=unumpy.nominal_values(y), xerr=unumpy.std_devs(x), yerr=unumpy.std_devs(y), label=label, fmt=fmt)
+        
+def plot(x, y, label="", fmt=None):
+    if fmt == None:
+        courbe = plt.plot(unumpy.nominal_values(x), unumpy.nominal_values(y), label=label)
+    else:
+        courbe = plt.plot(unumpy.nominal_values(x), unumpy.nominal_values(y), label=label, fmt=fmt)
 
-V = unumpy.uarray([0, 2.43, 6.65, 8.054, 9.115, 10.187, 11.656, 12.590, 13.300, 13.846, 14.300, 14.366, 15.007], 0.2)
 
-r = unumpy.uarray([0.75, 0.83, 1.76, 2.38, 2.85, 3.43, 4.32, 4.96, 6.09, 6.76, 6.94, 7.84, 7.90], 0.1)
+# Exemple d'usage des incertitudes et des fonctions de la librairie
+if __name__ == "__main__":
+    V = unumpy.uarray([0, 2.43, 6.65, 8.054, 9.115, 10.187, 11.656, 12.590, 13.300, 13.846, 14.300, 14.366, 15.007], 0.2)
+    r = unumpy.uarray([0.75, 0.83, 1.76, 2.38, 2.85, 3.43, 4.32, 4.96, 6.09, 6.76, 6.94, 7.84, 7.90], 0.1)
 
-R_1 = ufloat(0.75, 0.05)
-R_2 = ufloat(8, 0.05)
+    R_1 = ufloat(0.75, 0.05)
+    R_2 = ufloat(8, 0.05)
 
-log_r = unumpy.log(r/R_1)
+    log_r = unumpy.log(r/R_1)
 
-(a, b) = odr_fit(linear_function, log_r, V, (1, 0))
+    (a, b) = odr_fit(linear_function, log_r, V, (1, 0))
 
-plot_error(log_r, linear_function([a, b], log_r), label="ODR", fmt="r-")
-plt.plot(log_r, V, label="exp", c="blue")
-plt.legend()
-plt.show()
-    
+    plot_error(log_r, linear_function([a, b], log_r), label="ODR", fmt="r-")
+    plt.plot(log_r, V, label="exp", c="blue")
+    plt.legend()
+    plt.show()
+        
