@@ -14,9 +14,9 @@
 \usepackage[export]{adjustbox}
 
 \title{\vspace{-2cm}\textbf{TP 2 - Ondes progressives ultrasonores}}
-\author{MENARD Alexandre - VIEILLEDENT Florent}
+\author{\vspace{-0.5cm}MENARD Alexandre - VIEILLEDENT Florent}
 % \setlength{\parindent}{1cm}
-\date{\vspace{-0.5cm}}
+\date{\vspace{-0.7cm}}
 
 \begin{document}
 \maketitle
@@ -32,23 +32,24 @@ Dans cette partie, nous mesurerons la célérité du son à l'aide de la longueu
 \subsection{Génération et caractérisation d'une onde sonore}
 L'émetteur sonore est composé d'un matériau dit piézo-électrique capable de se déformer sous un champ électrique. Ainsi, soumis à un champ électrique
 le matériau va se déformer et générer un déplacement du milieu donc une onde sonore. Pour une première approche, nous suivons le protocole
-expérimental dans la section \textbf{1.1}. Nous observons alors des signaux ayant [\dots].
+expérimental dans la section \textbf{1.1}. Nous observons alors pour l'émetteur que le signal est émis en continu puis ensuite n'est plus émis sous la forme d'un signal en créneau avec une amplitude de $13V$.
+Le signal reçu est sinusoïdal avec une amplitude constante de l'ordre de $500mV$\footnote{La valeur dépend de la distance émetteur-récepteur, nous avons relevé un maxima à 1.5V à une distance presque nulle, mais nous discuterons de cette caractéristique dans la dernière partie.}. De plus, nous relevons
+bien une fréquence conservée entre l'émetteur et le récepteur.
 
-On remarque que l'onde ne perd pas en amplitude sur son trajet et que sa forme est semblable à une sinusoïde, nous pourrons donc poser que l'amplitude est constante et que l'énergie est conservée dans l'onde.
-
-Nous passons ensuite l'émetteur en mode "salves courtes" en suivant le protocole de la partie \textbf{1.3.1}. Nous observons alors des signaux de la forme suivante:
+Nous passons ensuite l'émetteur en mode "salves courtes" dans la même configuration qu'avant. Nous observons alors des signaux de la forme suivante:
 \begin{figure}[!htbp]
 	\centering
-	INSERER SCHEMA
+	\includegraphics[width=0.25\textwidth]{img/salves_courtes.jpg}
 	\hfill
 	\caption{Signal émis en salves courtes}
 \end{figure}
 
+On remarque le même signal en créneau de l'émetteur, ainsi qu'un signal sinusoïdal reçu qui augmente en amplitude jusqu'à un maximum puis redescend rapidement à une amplitude nulle. L'écart étant dû à la distance entre l'émetteur et le récepteur.
+
 \subsection{Modèle}
-En suppose que l'onde émise est parfaitement sinusoïdale et que la dissipation de l'énergie de l'onde sur la distance est négligeable, l'amplitude $A$ restant donc constante. 
-Nous pouvons modéliser la propagation de cette dernière avec $k=\frac{2\pi}{\lambda}$, $\nu$ la fréquence et $\phi$ la phase à l'origine:
+En suppose que l'onde émise est parfaitement sinusoïdale, nous pouvons modéliser la propagation de cette dernière avec $k=\frac{2\pi}{\lambda}$, $\nu$ la fréquence, $\phi$ la phase à l'origine et $A(x)$, l'amplitude selon $x$:
 \begin{align}
-	y(x, t) = A \sin(2\pi\nu t - kx + \phi)
+	y(x, t) = A(x) \sin(2\pi\nu t - kx + \phi)
 \end{align}
 
 Si deux signaux (émis ou reçus) sont en phase, on a alors en deux positions $x_1$ et $x_2$:
@@ -59,14 +60,11 @@ Si deux signaux (émis ou reçus) sont en phase, on a alors en deux positions $x
 La célérité de l'onde sera alors donnée par $c = \lambda \nu$. Dans le cas d'une mesure par réflexion, si l'on note $\Delta t$ le temps de trajet de l'onde, et $d$ la distance parcourue, on aura $c = \frac{d}{\Delta t}$
 
 \subsection{Protocole expérimental}
-Nous suivrons les protocoles expérimentaux 1 et 2 fournis dans la section \textbf{1.2} pour relever une vingtaine de positions dont 10 avec un seul récepteur en mouvement, et 10 autres
-avec un récepteur fixe et un second en mouvement. La vingtaine de mesures permet de "diluer" le bruit de fond qui pourrait être présent au moment de la mesure mais aussi car l'on relève une position
-lorsque les deux signaux sont en phase, ce qui est à l'appreciation de l'expérimentateur. On partagera donc les 20 mesures entre 2 expérimentateurs pour limiter une erreur systématique dû à un des expérimentateurs. 
-La fiche technique de l'émetteur précise une fréquence émise \textbf{autour} de 40kHz, on prend donc $\nu = 40 \pm 0.2 \text{kHz}$ pour tenir compte de l'absence d'une incertitude précise. 
-Les positions des récépteurs et de l'émetteur sont notés $x_{re_1}, x_{re_2}, x_{em}$ et ont des incertitudes associées
-$\delta x = 0.1cm$ que l'on détermine par les graduations fournies par le rail gradué. 
-Nous utilisons le mode \textit{trigger}
-de l'oscilloscope pour stabiliser la forme du signal en synchronisant le balayage horizontal à un certains point du signal et faciliter la lecture de ce dernier.
+Nous suivrons les protocoles expérimentaux 1 et 2 fournis dans la section \textbf{1.2} pour relever une vingtaine de positions dont 10 avec un seul récepteur en mouvement devant être en phase avec le signal émetteur, et 10 autres
+avec un récepteur fixe et un second en mouvement où les deux signaux reçus doivent être en phase. L'intérêt de relever une vingtaine de mesures de $\lambda$ permettra de déterminer une incertitude associée statistiquement mais aussi de la réduire le plus possible. A l'aide des curseurs que l'on positionne de façon la plus large puis la plus serrée possible, nous obtenons deux bornes de la fréquence.
+On obtient alors par la moyenne $\nu = 37.9 \pm 0.9 kHz$. Les positions des récépteurs et de l'émetteur sont notés $x_{re_1}, x_{re_2}, x_{em}$ et ont des incertitudes associées
+$\delta x = 0.2cm$ que l'on détermine par les graduations fournies par le rail gradué mais aussi par l'incertitude sur la position exacte de la surface qui reçoit l'onde. 
+Nous utilisons le mode \textit{trigger} de l'oscilloscope pour mettre en arrêt le balayage lorsque le signal dépasse un seuil pour observer un signal fixe.
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=0.6\textwidth]{img/schema}
@@ -74,15 +72,24 @@ de l'oscilloscope pour stabiliser la forme du signal en synchronisant le balayag
 	\caption{Schéma des deux protocoles 1 et 2}
 \end{figure}
 
-\break
-\section{Mesure des coefficients de transmission et réflexion}
-Dans cette expérience, on détermine le coefficient de réflexion et de transmission de différents écrans. 
-\subsection{Modèle}
--Expliquer ce que sont les coeffs (On doit justifier ? Pourquoi au carré? Parler de l'absobtion --> dire qu'on la néglige pour l'instant et on voit plus tard qu'on peut peut être pas)
--Relier l'amplitude en volt et l'amplitude de l'onde? --> je pense pas, mais il demande de justifier notre calcul des coeffs dans le poly je suis pas sûr de ce qu'ils veulent
+Nous proposons également d'effectuer une mesure de la célérité par réflexion en plaçant un écran réflechissant à une distance $d$ de l'émetteur, et en positionnant le récepteur à côté de l'émetteur pour capter l'onde réflechie.
+L'écart $e$ entre l'émetteur et le récepteur étant très petit devant la distance $d$, on peut donc négliger l'écart entre le trajet réel et le trajet approché car largement plus faible devant l'incertitude due à nos mesures.\footnote{On note une erreur de l'ordre de 0.4 pour $d > 30cm$, voire Annexe pour démonstration.}
 
+Enfin, nous mesurons la température de la pièce $\theta = 20 \pm 3 \text{°} C$ pour comparer au modèle théorique.
+
+\subsection{Résultats expérimentaux et conclusion}
+Dans cette partie, l'ensemble des incertitudes découle de la méthode de propagation des incertitudes d'additions/quotients/produits.
+Pour la mesure de la longueur d'onde, nous obtenons $\lambda = 9.3 \pm 0.3 \mu m$, ce qui donne finalement une mesure de la célérité $c = 352 \pm 13 m/s$. Les mesures par réflexion nous donne $c = 325 \pm 8 m/s$. 
+Quant à la formule fournie, elle donne une valeur de $c = 343.6 \pm 1.8 m/s$.
+
+Nous remarquons que la mesure par longueur d'onde est cohérente avec la valeur théorique qui rentre dans les bornes de nos incertitudes. Cependant, la mesure par réflexion
+n'est pas en accord avec la mesure faite par les longueurs d'ondes. Cet écart est explicable par des conditions expérimentales qui ont changé entre les deux expériences, les fenêtres étant ouvertes à côté
+de notre banc de mesure, pouvant faire nettement chuter la température entre les deux mesures. Cependant, il serait pertinent de réaliser des mesures sur des distances $d$ plus grandes avec un émetteur plus puissant
+pour réaliser un plus grand nombre de mesures dans des conditions stables, et pourrait permettre de réduire les incertitudes sur notre valeur.
+
+
+\section{Réflexion et transmission}
 \subsection{Protocole expérimental}
-
 On place un premier récepteur à côté de l'émetteur et un autre à 20 centimètres. On place l'écran qu'on souhaite étudier entre l'émetteur et le deuxième récepteur, à 10 centimètres. On obtient l'amplitude de l'onde incidente en plaçant un récepteur à l'endroit où on place l'écran, à 10 centimètres en face de l'émetteur. On mesure les amplitudes grâce à un oscilloscope. Les incertitudes sur les amplitudes sont donc données par la précision à laquelle on peut régler l'oscilloscope. 
 
 \begin{figure}[h!]
@@ -93,9 +100,61 @@ On place un premier récepteur à côté de l'émetteur et un autre à 20 centim
 	\end{center}
 \end{figure} 
 
+\break
 \subsection{Résultats et interprétations}
+
+Nous obtenons les mesures suivantes pour chaque mousse et pour le cas sans mousse:
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.7]{img/tableau.png}
+		\label{Stableau}
+		\caption{Tableau récapitulatif de l'ensemble des coefficients $R, T, R+T$}
+	\end{center}
+\end{figure} 
+
+Les coefficients sont cohérents avec la nature des mousses, les mousses dures ayant des coefficients de réflexion plus haut, mais un faible coefficient de transmission
+alors que les mousses souples réflechissent moins mais transmettent plus en comparaison. Cependant, nous remarquons un écart majeur à la théorie avec un coefficient $R+T$ loin de 1, ne rentrant 
+clairement pas dans les incertitudes. Nous avons alors envisagé la possibilité d'une atténuation par l'air et la mousse. Pour cela, nous avons suivi le protocole suivant. 
+
+On mesure avec un récepteur collé à l'émetteur l'amplitude et l'on obtient $V = 1.7V$. On insère ensuite la mousse 2 et on mesure la réflexion et la transmission de l'onde.
+Le récepteur en position de transmission reçoit $V=1.5V$ et le récepteur en position de réflexion reçoit $40mV$. Ce qui nous donne $T=0.78$ et $R=5.5\times 10^{-4}$, soit un $R+T \approx 0.78$. 
+
+Dans ce protocole, l'atténuation de l'air devrait être presque négligeable, laissant supposer qu'une part non négligeable de l'onde est absorbée par la mousse. Nous avons également positionné un récepteur en face de 
+l'émetteur sans mousse intermédiaire, en éloignant progressivement le récepteur. Le manque de temps ne nous a pas permit de réaliser les mesures mais la chute de potentiel à mesure que la distance émetteur-récepteur augmente
+était considérable et pouvait également expliquer de tels coefficients $R+T$ et suggère une erreur dans le modèle de transmission/réflexion. Nous avons mis en évidence la présence d'un coefficient d'absorption dû à la présence
+d'une mousse, et de l'atténuation de l'air, ce qui n'est pas pris en compte par le modèle.
+
+\section{Conclusion}
+Au cours de ce travail pratique, nous avons retrouvé la célérité d'une onde sonore dans des conditions standardes de température et pression prédite par la théorie malgré des incertitudes considérables.
+Cependant, la mesure par réflexion n'est pas concluante et n'entre pas en accord avec la théorie potentiellement par des variations de conditions d'expérimentations. Nous concluons également
+que le modèle de réflexion/transmission n'est pas en accord avec nos expériences, et que ce modèle néglige la nature des matériaux pouvant absorber/amortir des ondes de façon non négligeable, et que l'atténuation
+spatiale de l'onde n'est pas prise en compte. Pour améliorer le modèle il faudrait pouvoir proposer une loi décrivant l'amplitude de l'onde au cours de son déplacement dans un milieu pour pouvoir comparer le cas réel à la théorie.
 
 \break
 \section*{Annexes}
-\subsection*{Table de données pour la }
+\subsection*{Démonstration de l'erreur sur l'approximation}
+On rappelle que $d$ est la distance émetteur-écran, $e$ l'écart entre émetteur et récepteur et $h$ sera la distance réelle de l'aller.
+\begin{align}
+	h = \sqrt{d^2 + \frac{e^2}{4}} = d\sqrt{1+ \frac{e^2}{4d^2}}
+\end{align}
+
+La distance réelle est donc:
+\begin{align}
+	L = 2h = 2d\sqrt{1 + \frac{e^2}{4d^2}}
+\end{align}
+
+On pose que $e \ll d$ d'où:
+\begin{align}
+	L \approx 2d + \frac{1}{2} \frac{e^2}{4d^2}
+\end{align}
+
+Finalement, on peut déduire l'écart entre $c_{reel}$ et $c_{approx}$:
+\begin{align}
+	c_{reel} = \frac{L}{\Delta t} = \frac{2d + \frac{1}{2}\frac{e^2}{4d^2}}{\Delta t} = c_{approx} + \frac{1}{2}\frac{e^2}{4d^2 \times \Delta t}
+\end{align}
+
+Finalement, pour notre mesure où $d$ est la plus basse (donc l'approximation est plus susceptible d'être fausse), on obtient avec $d=30cm, e=2.3cm, \Delta t = 1.880ms$:
+\begin{align}
+	\delta c = c_{reel} - c_{approx} = \frac{1}{2}\frac{e^2}{4d^2 \times \Delta t} = 0.4
+\end{align}
 \end{document}
