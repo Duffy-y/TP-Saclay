@@ -1,0 +1,71 @@
+\documentclass[12pt]{article}
+\usepackage[left=2cm, top=2cm, right=2cm, bottom=2cm]{geometry}
+\usepackage[utf8]{inputenc}      % accents dans le source
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{xcolor} 
+\usepackage{mathtools}
+\usepackage{parskip}
+\usepackage{subcaption}
+\usepackage[export]{adjustbox}
+\usepackage{hyperref}
+
+\tikzset{every picture/.style={line width=0.75pt}}
+
+
+\title{\textbf{Optique ondulatoire:} Diffraction de la lumière}
+\author{MENARD Alexandre - VIEILLEDENT Florent}
+
+\setlength{\parindent}{1cm}
+
+\begin{document}
+\maketitle
+
+\section*{Introduction}
+
+\section{Diffraction par des ouvertures simples}
+Dans cette première partie, nous nous intéressons au cas de la diffraction dans le cas d'ouvertures simples. Nous y proposerons une description qualitative, quantitative dans le cas d'une fente simple,
+une description de motifs de diffraction pour différentes ouvertures. Enfin, nous proposerons un protocole permettant de déterminer avec précision le diamètre d'un cheveu en s'appuyant sur le théorème de Babinet.
+\subsection{Etude d'une fente simple de largeur variable}
+
+\subsection{Caractérisation de la figure de diffraction par une fente simple avec une caméra linéaire}
+
+\subsection{Etude de différents motifs de diffraction}
+
+\break
+\subsection{Théorème de Babinet et taille d'un cheveu}
+Le théorème de Babinet donne que la figure de diffraction d'un objet et de son complémentaire est la même.
+Ainsi, un fil et une fente de même épaisseur $a$ forment dont une seule et même figure d'interférence ayant la même largeur de tâche centrale. Cette propriété permet la mesure de longueur très petite, que nous allons utiliser
+pour déterminer le diamètre d'un cheveu.
+
+On commence par positionner un laser de longueur d'onde $\lambda = \dots nm$ face à un écran. A l'aide du jeton A3015 que l'on place à une distance $D = \dots cm$ de
+l'écran, on mesure la largeur de la tâche centrale $L_a$ pour chaque largeur de fente $a$. Enfin, on place à cette même distance $D$ le cheveu dont on souhaite déterminer
+le diamètre et l'on mesure la largeur de la tâche centrale $L_{cheveu}$. On peut ensuite comparer $L_{cheveu}$ pour trouver une correspondance dans les différents $L_a$ précédent, et si l'on a une 
+correspondance, nous pouvons conclure que l'épaisseur $d_{cheveu} = a$.
+
+\begin{figure}[!h]
+    \begin{center}
+        \resizebox{0.7\textwidth}{8cm}{
+        \input{img/babinet.tikz}
+        }
+    \end{center}
+    \caption{Schéma du protocole}
+\end{figure}
+
+Cependant, il est possible que les fentes disponibles dans le jeu A3015 ne soient pas suffisantes pour avoir une valeur précise. Pour résoudre ce problème, nous pouvons
+simplement mesurer les distances $y_n$ où la figure de diffraction présente des zéros d'intensités, et d'utiliser la formule suivante donnant les $y_n$ d'intensité nulle:
+\begin{align}
+    y_n = \frac{n\lambda D}{d_{cheveu}}
+\end{align}
+
+On peut donc remonter à $d_{cheveu}$ en déterminant le coefficient directeur $y(n) = \frac{D}{d_{cheveu}} n$ de nos mesures expérimentales.
+
+
+
+\newpage
+
+\end{document}

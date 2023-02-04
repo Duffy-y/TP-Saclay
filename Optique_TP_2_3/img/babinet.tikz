@@ -1,0 +1,74 @@
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+    %uncomment if require: \path (0,429); %set diagram left start at 0, and has height of 429
+
+    %Flowchart: Process [id:dp7587016517098488] 
+    \draw   (110,120) -- (190,120) -- (190,140) -- (110,140) -- cycle ;
+    %Straight Lines [id:da1423603054270386] 
+    \draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (190,130) -- (360,130) ;
+    \draw [shift={(281,130)}, rotate = 180] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Straight Lines [id:da16631230033992783] 
+    \draw    (360,140) -- (360,180) ;
+    %Straight Lines [id:da6025420297783186] 
+    \draw    (360,80) -- (360,120) ;
+    %Straight Lines [id:da364809732100976] 
+    \draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (360,130) -- (540,110) ;
+    \draw [shift={(455.96,119.34)}, rotate = 173.66] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Straight Lines [id:da29487712829226687] 
+    \draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (360,130) -- (540,150) ;
+    \draw [shift={(455.96,140.66)}, rotate = 186.34] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Straight Lines [id:da5859877642355407] 
+    \draw  [dash pattern={on 0.84pt off 2.51pt}]  (360,130) -- (540,130) ;
+    %Straight Lines [id:da8840842764785435] 
+    \draw    (540,80) -- (540,180) ;
+    %Straight Lines [id:da5130608383839474] 
+    \draw    (372,220) -- (528,220) ;
+    \draw [shift={(530,220)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    \draw [shift={(370,220)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Straight Lines [id:da9345083369474423] 
+    \draw    (560,112) -- (560,148) ;
+    \draw [shift={(560,150)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    \draw [shift={(560,110)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Flowchart: Process [id:dp0037548894552708045] 
+    \draw   (110,280) -- (190,280) -- (190,300) -- (110,300) -- cycle ;
+    %Straight Lines [id:da6846741364957676] 
+    \draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (190,290) -- (360,290) ;
+    \draw [shift={(281,290)}, rotate = 180] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Straight Lines [id:da021706815786682876] 
+    \draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (360,290) -- (540,270) ;
+    \draw [shift={(455.96,279.34)}, rotate = 173.66] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Straight Lines [id:da044428076418244755] 
+    \draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (360,290) -- (540,310) ;
+    \draw [shift={(455.96,300.66)}, rotate = 186.34] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Straight Lines [id:da4536520815231391] 
+    \draw  [dash pattern={on 0.84pt off 2.51pt}]  (360,290) -- (540,290) ;
+    %Straight Lines [id:da2719763791486136] 
+    \draw    (540,240) -- (540,340) ;
+    %Straight Lines [id:da9223524271493639] 
+    \draw    (560,272) -- (560,308) ;
+    \draw [shift={(560,310)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    \draw [shift={(560,270)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Shape: Circle [id:dp9133941073673402] 
+    \draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (355,290) .. controls (355,287.24) and (357.24,285) .. (360,285) .. controls (362.76,285) and (365,287.24) .. (365,290) .. controls (365,292.76) and (362.76,295) .. (360,295) .. controls (357.24,295) and (355,292.76) .. (355,290) -- cycle ;
+    %Straight Lines [id:da8477820676507002] 
+    \draw    (360,340) -- (360,302) ;
+    \draw [shift={(360,300)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+    % Text Node
+    \draw (131,122) node [anchor=north west][inner sep=0.75pt]   [align=left] {Laser};
+    % Text Node
+    \draw (311,29) node [anchor=north west][inner sep=0.75pt]   [align=left] {Fente simple\\de largeur $\displaystyle a$};
+    % Text Node
+    \draw (518,361) node [anchor=north west][inner sep=0.75pt]   [align=left] {Ecran};
+    % Text Node
+    \draw (444,192.4) node [anchor=north west][inner sep=0.75pt]    {$D$};
+    % Text Node
+    \draw (571,122.4) node [anchor=north west][inner sep=0.75pt]    {$L_{a}$};
+    % Text Node
+    \draw (131,282) node [anchor=north west][inner sep=0.75pt]   [align=left] {Laser};
+    % Text Node
+    \draw (292,349) node [anchor=north west][inner sep=0.75pt]   [align=left] {Cheveu de diamètre\\$\displaystyle d_{cheveu}$ à déterminer};
+    % Text Node
+    \draw (571,282.4) node [anchor=north west][inner sep=0.75pt]    {$L_{cheveu}$};
+    % Text Node
+    \draw (521,42) node [anchor=north west][inner sep=0.75pt]   [align=left] {Ecran};
+\end{tikzpicture}
