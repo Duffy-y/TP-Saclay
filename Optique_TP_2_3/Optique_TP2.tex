@@ -42,13 +42,13 @@ Pour une première approche, nous installons un laser face à un écran, et l'on
         \input{img/diffrac_simple_quali.tikz}
         }
     \end{center}
-    \caption{Schéma du protocole}
+    \caption{Schéma du montage}
 \end{figure}
 
 Pour une largeur fixe, nous observons une figure de diffraction avec une large tâche centrale, puis des zéros d'intensité et de nouvelles tâches qui se répetent de chaque côté de la tâche centrale.
 En augmentant la largeur de la fente $a$, nous observons un resserement des tâches d'intensité maximale et lorsque l'on réduit la largeur, ces mêmes tâches s'élargissent.
 
-% TODO: Insérer nos propres images des figures de diffraction dans ces parties ! Il faut 
+% TODO: Insérer nos propres images des figures de diffraction dans ces parties ! Il faut penser à prendre nos photos
 \begin{figure}[h!]
     \centering
     \begin{subfigure}{.33\textwidth}
@@ -78,14 +78,44 @@ Nous proposons ensuite de vérifier la formule qui donne la largeur de la tâche
 connaître les valeurs d'annulation de l'intensité en fonction de $y$.
 \begin{align*}
     I(\theta) = I_0 \sinc^2\left(\frac{\pi a \sin \theta}{\lambda}\right) = 0 & \Leftrightarrow \sinc\left(\frac{\pi a \sin \theta}{\lambda}\right) = 0 \\
-    & \Leftrightarrow \frac{\pi a \sin \theta}{\lambda} = n\pi, \forall n \in \mathbb{Z} \\
+    & \Leftrightarrow \frac{\pi a \sin \theta}{\lambda} = n\pi, \forall n \in \mathbb{Z}^* \\
     & \Leftrightarrow \sin \theta = \frac{n\lambda}{a}
 \end{align*}
 
 Dans le cadre où $\theta$ très petit, on a $\theta \approx \sin \theta \approx \tan \theta $ et $\tan \theta = \frac{y}{D}$, il vient que:
 \begin{align}
-    y = \frac{n\lambda D}{a}
+    \label{eqn:loi_intensite}
+    y_n = \frac{n\lambda D}{a}, \forall n \in \mathbb{Z}^*
 \end{align}
+
+On peut alors en déduire la largeur $L$ de la tâche centrale qui s'étend entre les deux premiers minimums $n=1$ et $n=-1$ d'où:
+\begin{align}
+    L = \left\lvert y_{-1} - y_1 \right\rvert = \frac{2\lambda D}{a}
+\end{align}
+
+Pour vérifier cette loi (\ref{eqn:loi_intensite}), nous allons utiliser un seul et même montage, mais nous ferons varier un paramètre à la fois à savoir la longueur d'onde $\lambda$, la distance entre la fente et l'écran $D$, 
+et la largeur de la fente $a$. Pour cela, nous plaçons un laser de longueur d'onde $\lambda$ face à un écran, et une fente de largeur $a$ entre les deux à une distance $D$ de l'écran.
+
+\begin{figure}[!h]
+    \begin{center}
+        \resizebox{0.7\textwidth}{5cm}{
+        \input{img/diffrac_variable.tikz}
+        }
+    \end{center}
+    \caption{Schéma du montage}
+\end{figure}
+
+\subsubsection{Influence de la largeur de la fente}
+Pour ce premier paramètre, nous allons placer différentes fentes de largeur $a$ calibrée à une distance $D = \dots cm$ de l'écran, et l'on illumine les différentes fentes avec un laser de longueur d'onde
+$\lambda = \dots nm$. 
+
+\subsubsection{Influence de la longueur d'onde}
+Pour ce second paramètre, nous fixons une fente de largeur $a = \dots \mu m$ calibrée, à une distance $D = \dots cm$ de l'écran, et l'on placera différents laser de longueur d'onde $\lambda$.
+
+\subsubsection{Influence de la distance entre l'écran et la fente}
+Pour ce dernier paramètre, nous illuminons une fente de largeur $a = \dots \mu m$ calibrée, avec un laser de longueur d'onde $\lambda = \dots nm$ et nous allons faire varier la distance $D$ entre la fente et l'écran.
+
+\subsection{Synthèse et analyse des résultats expérimentaux}
 
 \break
 \subsection{Caractérisation de la figure de diffraction par une fente simple avec une caméra linéaire}
