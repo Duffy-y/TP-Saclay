@@ -1,0 +1,44 @@
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Flowchart: Process [id:dp872954957901976] 
+\draw   (104,140) -- (184,140) -- (184,160) -- (104,160) -- cycle ;
+%Straight Lines [id:da9241077852973352] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (184,150) -- (354,150) ;
+\draw [shift={(275,150)}, rotate = 180] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da39324764499965714] 
+\draw    (354,160) -- (354,200) ;
+%Straight Lines [id:da3239950960426152] 
+\draw    (354,100) -- (354,140) ;
+%Straight Lines [id:da8041456916959207] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (354,150) -- (534,130) ;
+\draw [shift={(449.96,139.34)}, rotate = 173.66] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7837201764569335] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (354,150) -- (534,170) ;
+\draw [shift={(449.96,160.66)}, rotate = 186.34] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da08364499364029099] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (354,150) -- (534,150) ;
+%Straight Lines [id:da3720582141386004] 
+\draw    (534,100) -- (534,200) ;
+%Straight Lines [id:da4573530253324263] 
+\draw    (366,240) -- (522,240) ;
+\draw [shift={(524,240)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw [shift={(364,240)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da5804934197531184] 
+\draw    (554,132) -- (554,168) ;
+\draw [shift={(554,170)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw [shift={(554,130)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (125,142) node [anchor=north west][inner sep=0.75pt]   [align=left] {Laser};
+% Text Node
+\draw (305,49) node [anchor=north west][inner sep=0.75pt]   [align=left] {Fente simple\\de largeur $\displaystyle a$};
+% Text Node
+\draw (438,212.4) node [anchor=north west][inner sep=0.75pt]    {$D$};
+% Text Node
+\draw (565,142.4) node [anchor=north west][inner sep=0.75pt]    {$L$};
+% Text Node
+\draw (515,62) node [anchor=north west][inner sep=0.75pt]   [align=left] {Ecran};
+
+
+\end{tikzpicture}

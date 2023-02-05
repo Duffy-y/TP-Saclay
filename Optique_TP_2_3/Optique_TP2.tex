@@ -6,6 +6,8 @@
 \usepackage{graphicx}
 \usepackage{graphics}
 \usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
 \usepackage{tikz}
 \usepackage{xcolor} 
 \usepackage{mathtools}
@@ -15,6 +17,7 @@
 \usepackage{hyperref}
 
 \tikzset{every picture/.style={line width=0.75pt}}
+\newcommand{\sinc}{\operatorname{sinc}}
 
 
 \title{\textbf{Optique ondulatoire:} Diffraction de la lumière}
@@ -27,11 +30,64 @@
 
 \section*{Introduction}
 
+\break
 \section{Diffraction par des ouvertures simples}
 Dans cette première partie, nous nous intéressons au cas de la diffraction dans le cas d'ouvertures simples. Nous y proposerons une description qualitative, quantitative dans le cas d'une fente simple,
 une description de motifs de diffraction pour différentes ouvertures. Enfin, nous proposerons un protocole permettant de déterminer avec précision le diamètre d'un cheveu en s'appuyant sur le théorème de Babinet.
 \subsection{Etude d'une fente simple de largeur variable}
+Pour une première approche, nous installons un laser face à un écran, et l'on insère une fente simple de largeur variable $a$ entre le laser et l'écran, à un distance $D$ de l'écran.
+\begin{figure}[!h]
+    \begin{center}
+        \resizebox{0.7\textwidth}{5cm}{
+        \input{img/diffrac_simple_quali.tikz}
+        }
+    \end{center}
+    \caption{Schéma du protocole}
+\end{figure}
 
+Pour une largeur fixe, nous observons une figure de diffraction avec une large tâche centrale, puis des zéros d'intensité et de nouvelles tâches qui se répetent de chaque côté de la tâche centrale.
+En augmentant la largeur de la fente $a$, nous observons un resserement des tâches d'intensité maximale et lorsque l'on réduit la largeur, ces mêmes tâches s'élargissent.
+
+% TODO: Insérer nos propres images des figures de diffraction dans ces parties ! Il faut 
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{.33\textwidth}
+      \centering
+        \includegraphics[width=.9\linewidth]{img/a_remplacer_par_nos_images.jpg}
+      \caption{Largeur $a$ qui diminue}
+      \label{fig:sfig1}
+    \end{subfigure}%
+    \begin{subfigure}{.33\textwidth}
+      \centering
+      \includegraphics[width=.9\linewidth]{img/a_remplacer_par_nos_images.jpg}
+      \caption{Largeur $a$ initiale}
+      \label{fig:sfig2}
+    \end{subfigure}
+    \begin{subfigure}{.33\textwidth}
+        \centering
+        \includegraphics[width=.9\linewidth]{img/a_remplacer_par_nos_images.jpg}
+        \caption{Largeur $a$ qui augmente}
+        \label{fig:sfig3}
+      \end{subfigure}
+    \caption{Figure de diffraction en fonction de la largeur de la fente}
+    \label{fig:fig}
+\end{figure}
+
+\break
+Nous proposons ensuite de vérifier la formule qui donne la largeur de la tâche centrale $L$ pour des configurations différentes de $\lambda, D$ et $a$. Pour cela, nous devons
+connaître les valeurs d'annulation de l'intensité en fonction de $y$.
+\begin{align*}
+    I(\theta) = I_0 \sinc^2\left(\frac{\pi a \sin \theta}{\lambda}\right) = 0 & \Leftrightarrow \sinc\left(\frac{\pi a \sin \theta}{\lambda}\right) = 0 \\
+    & \Leftrightarrow \frac{\pi a \sin \theta}{\lambda} = n\pi, \forall n \in \mathbb{Z} \\
+    & \Leftrightarrow \sin \theta = \frac{n\lambda}{a}
+\end{align*}
+
+Dans le cadre où $\theta$ très petit, on a $\theta \approx \sin \theta \approx \tan \theta $ et $\tan \theta = \frac{y}{D}$, il vient que:
+\begin{align}
+    y = \frac{n\lambda D}{a}
+\end{align}
+
+\break
 \subsection{Caractérisation de la figure de diffraction par une fente simple avec une caméra linéaire}
 
 \subsection{Etude de différents motifs de diffraction}
@@ -45,7 +101,7 @@ pour déterminer le diamètre d'un cheveu.
 On commence par positionner un laser de longueur d'onde $\lambda = \dots nm$ face à un écran. A l'aide du jeton A3015 que l'on place à une distance $D = \dots cm$ de
 l'écran, on mesure la largeur de la tâche centrale $L_a$ pour chaque largeur de fente $a$. Enfin, on place à cette même distance $D$ le cheveu dont on souhaite déterminer
 le diamètre et l'on mesure la largeur de la tâche centrale $L_{cheveu}$. On peut ensuite comparer $L_{cheveu}$ pour trouver une correspondance dans les différents $L_a$ précédent, et si l'on a une 
-correspondance, nous pouvons conclure que l'épaisseur $d_{cheveu} = a$.
+correspondance, nous pouvons conclure que l'épaisseur $d_{cheveu} \approx a$.
 
 \begin{figure}[!h]
     \begin{center}
@@ -67,5 +123,22 @@ On peut donc remonter à $d_{cheveu}$ en déterminant le coefficient directeur $
 
 
 \newpage
+
+\section*{Annexes}
+\subsection{Démonstration sans approximation des petits angles}
+Nous avons $\sin \theta = \frac{y}{\sqrt{D^2+y^2}}$ ce qui nous donne alors:
+\begin{align*}
+    \sin \theta = \frac{n\lambda}{a} & \Leftrightarrow \frac{y}{\sqrt{D^2+y^2}} = \frac{n\lambda}{a} \\
+    & \Leftrightarrow a^2y^2 = n^2 \lambda ^2 \left( D^2 + y^2 \right) \\
+    & \Leftrightarrow y^2 = \frac{n^2 \lambda^2 D^2}{a^2 - n^2 \lambda^2} \\
+    & \Leftrightarrow y = \pm \frac{n \lambda D}{\sqrt{a^2 - n^2 \lambda^2}}
+\end{align*}
+
+Enfin, dans l'approximation où $\lambda \ll a$, nous avons :
+\begin{align}
+    y = \pm \frac{n \lambda D}{a}
+\end{align}
+
+On retrouve bien l'approximation des petits angles.
 
 \end{document}
