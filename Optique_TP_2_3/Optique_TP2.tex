@@ -43,6 +43,7 @@ Pour une première approche, nous installons un laser face à un écran, et l'on
         }
     \end{center}
     \caption{Schéma du montage}
+    \label{fig:montage_simple}
 \end{figure}
 
 Pour une largeur fixe, nous observons une figure de diffraction avec une large tâche centrale, puis des zéros d'intensité et de nouvelles tâches qui se répetent de chaque côté de la tâche centrale.
@@ -119,8 +120,16 @@ Pour ce dernier paramètre, nous illuminons une fente de largeur $a = \dots \mu 
 
 \break
 \subsection{Caractérisation de la figure de diffraction par une fente simple avec une caméra linéaire}
+Dans cette partie, on souhaite proposer une description de l'intensité de la figure de diffraction en fonction de l'écart au centre de la figure. Pour cela, nous reprenons le même montage
+que sur la figure (\ref{fig:montage_simple}), mais nous remplaçons l'écran par la caméra linéaire. Nous nous assurons de l'alignement du laser sur la cellule sensible à la lumière de la caméra à l'aide d'une lumière pour ne pas fausser
+les acquisitions. Nous réglons l'intervalle d'acquisition à $\Delta t = \dots ms$, et l'on effectue la moyenne sur $N = \dots$ acquisitions. 
+
+Grâce à ces mesures, nous pouvons obtenir les positions d'intensité nulle avec précision en convertissant la matrice de pixel en longueur si l'on connait la taille d'un pixel (qui est fournie par le fabricant).
+Elle permet également de vérifier qualitativement si l'intensité suit une fonction de type sinus cardinal.
 
 \subsection{Etude de différents motifs de diffraction}
+Dans cette partie, nous souhaitons mettre en évidence des différences de comportement des figures de diffraction selon la forme de l'ouverture. 
+Nous reprenons alors le montage de la figure (\ref{fig:montage_simple}), mais nous remplaçons la fente par un des motifs diffractifs présents sur le jeton A3000. 
 
 \break
 \subsection{Théorème de Babinet et taille d'un cheveu}
