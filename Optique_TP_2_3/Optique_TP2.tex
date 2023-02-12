@@ -47,26 +47,25 @@ Pour une première approche, nous installons un laser face à un écran, et l'on
 \end{figure}
 
 Pour une largeur fixe, nous observons une figure de diffraction avec une large tâche centrale, puis des zéros d'intensité et de nouvelles tâches qui se répetent de chaque côté de la tâche centrale.
-En augmentant la largeur de la fente $a$, nous observons un resserement des tâches d'intensité maximale et lorsque l'on réduit la largeur, ces mêmes tâches s'élargissent.
+En augmentant la largeur de la fente $a$, nous observons un resserement des tâches d'intensité maximale et lorsque l'on réduit la largeur, ces mêmes tâches s'élargissent.\footnote{Les photos sont prises à même distance sans changement de focale, les échelles sont donc identiques d'une photo à l'autre}
 
-% TODO: Insérer nos propres images des figures de diffraction dans ces parties ! Il faut penser à prendre nos photos
 \begin{figure}[h!]
     \centering
     \begin{subfigure}{.33\textwidth}
       \centering
-        \includegraphics[width=.9\linewidth]{img/a_remplacer_par_nos_images.jpg}
+        \includegraphics[width=.9\linewidth]{img/diffrac_simple_a_diminu.png}
       \caption{Largeur $a$ qui diminue}
       \label{fig:sfig1}
     \end{subfigure}%
     \begin{subfigure}{.33\textwidth}
       \centering
-      \includegraphics[width=.9\linewidth]{img/a_remplacer_par_nos_images.jpg}
+      \includegraphics[width=.9\linewidth]{img/driffac_simple_centre.png}
       \caption{Largeur $a$ initiale}
       \label{fig:sfig2}
     \end{subfigure}
     \begin{subfigure}{.33\textwidth}
         \centering
-        \includegraphics[width=.9\linewidth]{img/a_remplacer_par_nos_images.jpg}
+        \includegraphics[width=.9\linewidth]{img/diffrac_simple_a_augmente.png}
         \caption{Largeur $a$ qui augmente}
         \label{fig:sfig3}
       \end{subfigure}
@@ -91,75 +90,226 @@ Dans le cadre où $\theta$ très petit, on a $\theta \approx \sin \theta \approx
 
 On peut alors en déduire la largeur $L$ de la tâche centrale qui s'étend entre les deux premiers minimums $n=1$ et $n=-1$ d'où:
 \begin{align}
+    \label{eqn:loi_L}
     L = \left\lvert y_{-1} - y_1 \right\rvert = \frac{2\lambda D}{a}
 \end{align}
 
 Pour vérifier cette loi (\ref{eqn:loi_intensite}), nous allons utiliser un seul et même montage, mais nous ferons varier un paramètre à la fois à savoir la longueur d'onde $\lambda$, la distance entre la fente et l'écran $D$, 
-et la largeur de la fente $a$. Pour cela, nous plaçons un laser de longueur d'onde $\lambda$ face à un écran, et une fente de largeur $a$ entre les deux à une distance $D$ de l'écran.
+et la largeur de la fente $a$ montée sur un support d'épaisseur $e = 1.2 \pm 0.1cm$. Pour cela, nous plaçons un laser de longueur d'onde $\lambda$ face à un écran, et une fente de largeur $a$ entre les deux à une distance $D$ de l'écran.
 
 \begin{figure}[!h]
     \begin{center}
         \resizebox{0.7\textwidth}{5cm}{
-        \input{img/diffrac_variable.tikz}
+        \input{img/diffrac_simple_montage_exp.tikz}
         }
     \end{center}
     \caption{Schéma du montage}
 \end{figure}
 
+Pour relever la distance $D$ entre l'écran et la fente, nous disposons une règle précise au 1/2 mm à plat sur le banc optique, et nous relevons la position $x_1$ de la fente en plaçant une petite règle verticale au centre de l'épaisseur $e$ du support, et l'on 
+relève la mesure sur la règle à plat. Pour la position $x_2$ de l'écran, nous suivons le même procédé en collant à plat la règle contre l'écran. 
+L'incertitude sur la position de la fente est donc de $\delta x_1 = e/2 = 0.6cm$ car l'on ne sait pas si la fente est parfaitement centrée dans le support, et pour l'écran on a $\delta x_2 = 0.2cm$. Ainsi, on obtient $D$ avec:
+\begin{align}
+    D = \left\lvert x_2 - x_1\right\rvert, \quad \delta D = \delta x_1 + \delta x_2 = 0.8cm
+\end{align}
+
+L'incertitude sur la longueur d'onde est typiquement de l'ordre de $\delta \lambda = 10nm$ pour des lasers de cette gamme de longueur d'onde. Les fentes sont précises au $\mu m$ d'après le constructeur,
+nous avons donc $\delta a = 1 \mu m$. Enfin pour le relevé de la largeur de la tâche centrale, nous utilisons une règle précise au 1/2 mm, et nous mesurons la distance entre les centres des deux tâches noires
+de part et d'autre de la tâche centrale, l'incertitude sur une position d'une tâche noire vaut la moitié de sa largeur, et comme l'on effectue une différence pour obtenir $L$, les incertitudes s'additionnent. L'incertitude sur $L$ est donc 
+la largeur d'une des tâches noires.
+
 \subsubsection{Influence de la largeur de la fente}
-Pour ce premier paramètre, nous allons placer différentes fentes de largeur $a$ calibrée à une distance $D = \dots cm$ de l'écran, et l'on illumine les différentes fentes avec un laser de longueur d'onde
-$\lambda = \dots nm$. 
+Pour ce premier paramètre, nous allons placer différentes fentes de largeur $a$ calibrée à une distance $D = 75.5 \pm 0.8 cm$ de l'écran, et l'on illumine les différentes fentes avec un laser de longueur d'onde
+$\lambda = 532 \pm 10nm$ (laser vert). 
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{||c c||} 
+		\hline
+		$a \pm 0.1 \mu m$ & $L_{exp}$ en cm \\
+		\hline\hline
+		\footnotesize
+        $200$   &  $0.40     \pm 0.05$ \\ 
+        $150$   &  $0.55    \pm 0.05$ \\ 
+        $100$   &  $0.75    \pm 0.05$ \\ 
+        $80$    &  $1.05    \pm 0.05$ \\ 
+        $60$    &  $1.35    \pm 0.05$ \\ 
+        $40$    &  $2.1     \pm 0.1$ \\ 
+        $30$    &  Mesure impossible \\ 
+		\hline
+	\end{tabular}
+	\caption{Mesure de $L_{exp}$ pour une largeur de fente variable}
+	\label{table:1}
+\end{table}
+
+La mesure à $a = 30\mu m$ était impossible car l'on ne réussissait pas à faire passer le laser sur la fente en question trop à gauche sur le jeton, donc le faisceau du laser heurtait le support. 
+
+Pour une première analyse, nous pouvons remarquer que si $a$ diminue, la tâche centrale $L$ augmente, ce qui est en accord avec la théorie.
 
 \subsubsection{Influence de la longueur d'onde}
-Pour ce second paramètre, nous fixons une fente de largeur $a = \dots \mu m$ calibrée, à une distance $D = \dots cm$ de l'écran, et l'on placera différents laser de longueur d'onde $\lambda$.
+Pour ce second paramètre, nous fixons une fente de largeur $a = 80 \pm 1 \mu m$ calibrée, à une distance $D = 75.5 \pm 0.8 cm$ de l'écran, et l'on placera différents laser de longueur d'onde $\lambda = 650, 532, 450 \pm 10nm$ (rouge, vert, bleu).
 
-\subsubsection{Influence de la distance entre l'écran et la fente}
-Pour ce dernier paramètre, nous illuminons une fente de largeur $a = \dots \mu m$ calibrée, avec un laser de longueur d'onde $\lambda = \dots nm$ et nous allons faire varier la distance $D$ entre la fente et l'écran.
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{||c c||} 
+		\hline
+		$\lambda \pm 10 nm$ & $L_{exp}$ en cm \\
+		\hline\hline
+		\footnotesize
+        $650$   &  $1.20 \pm 0.05$ \\ 
+        $532$   &  $1.00 \pm 0.05$ \\ 
+        $450$   &  $0.75 \pm 0.05$ \\ 
+		\hline
+	\end{tabular}
+	\caption{Mesure de $L_{exp}$ pour une longueur d'onde variable}
+	\label{table:2}
+\end{table}
 
-\subsubsection{Synthèse et analyse des résultats expérimentaux}
+Nous remarquons que la largeur de la tâche suit le comportement prédit par la théorie à savoir que plus $\lambda$ est grand, plus la taille de la tâche centrale est grande.
 
 \break
+\subsubsection{Influence de la distance entre l'écran et la fente}
+Pour ce dernier paramètre, nous illuminons une fente de largeur $a = 40 \pm 1 \mu m$ calibrée, avec un laser de longueur d'onde $\lambda = 532 \pm 10 nm$ et nous allons faire varier la distance $D$ entre la fente et l'écran.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{||c c||} 
+		\hline
+		$D \pm 0.5 cm$ & $L_{exp}$ en cm \\
+		\hline\hline
+		\footnotesize
+        $75.5$      &  $2.0 \pm 0.1$ \\ 
+        $65.5$      &  $1.75 \pm 0.05$ \\ 
+        $55$        &  $1.45 \pm 0.05$ \\ 
+        $45.5$      &  $1.25 \pm 0.05$ \\ 
+        $35.2$      &  $0.95 \pm 0.05$ \\ 
+        $25$        &  $0.6 \pm 0.05$ \\ 
+        $15$        &  $0.35 \pm 0.05$ \\ 
+        $5$         &  Mesure impossible \\ 
+		\hline
+	\end{tabular}
+	\caption{Mesure de $L_{exp}$ pour une distance fente-écran variable}
+	\label{table:3}
+\end{table}
+
+La mesure à $D = 5cm$ était trop complexe à obtenir de par la très faible taille de la largeur centrale, la mesure n'aurait donc pas plus être précise et serait inutilisable pour l'analyse des résultats.
+
+Ici, quand $D$ augmente, la largeur de la tâche centrale augmente, ce qui est aussi prédit par la théorie. Il nous faut cependant vérifier la justesse de la théorie quantitativement.
+
+\subsubsection{Synthèse et analyse des résultats expérimentaux}
+Nous réunissons l'ensemble de nos mesures dans un graphique de la largeur expérimentale $L_{exp}$ en fonction de la largeur théorique $L_{th}$, de telle sorte à disposer l'ensemble des points 
+sur une droite d'équation $y=x$ pour mettre en évidence des écarts entre l'expérience et la théorie. 
+
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[scale=0.65]{img/graph_final_diffrac_simple.eps}
+    \end{center}
+    \caption{Graphe synthétisant l'ensemble de nos mesures avec $L_{exp}$ en fonction de $L_{th}$}
+\end{figure}
+
+L'ensemble de nos points avec leurs incertitudes associées se retrouvent sur la droite $y = x$, à l'exception de 2 points qui sont considérablement écartés.
+Le premier point à $\lambda = 450nm$ peut s'expliquer avec une lecture difficile de la figure de diffraction, la sensibilité de l'oeil avec le bleu (et le rouge) n'étant pas favorable, il se peut que notre mesure soit érroné. Nous pourrions
+résoudre ce problème par l'usage d'une caméra linéaire comme nous allons le faire à la partie suivante.
+Le second point à $a=40 \mu m$ peut s'expliquer par une incertitude potentiellement sous-estimée, et les franges noires étant assez grande, il est possible que la règle était mal centrée sur les deux franges noires.
+
 \subsection{Caractérisation de la figure de diffraction par une fente simple avec une caméra linéaire}
 Dans cette partie, on souhaite proposer une description de l'intensité de la figure de diffraction en fonction de l'écart au centre de la figure. Pour cela, nous reprenons le même montage
-que sur la figure (\ref{fig:montage_simple}), mais nous remplaçons l'écran par la caméra linéaire. Nous nous assurons de l'alignement du laser sur la cellule sensible à la lumière de la caméra à l'aide d'une lumière pour ne pas fausser
-les acquisitions. Nous réglons l'intervalle d'acquisition à $\Delta t = \dots ms$, et l'on effectue la moyenne sur $N = \dots$ acquisitions. 
+que sur la figure (\ref{fig:montage_simple}), mais nous remplaçons l'écran par la caméra linéaire. La caméra se trouve à une distance $D = 81.5 \pm 0.5cm$ d'une fente de $a = 150 \pm 1 \mu m$.
+Nous nous assurons de l'alignement du laser sur la cellule sensible à la lumière de la caméra à l'aide d'une cible pour ne pas fausser
+les acquisitions. Nous réglons l'intervalle d'acquisition à $\Delta t = 7 ms$, et l'on effectue la moyenne sur $N = 20$ acquisitions. 
 
 Grâce à ces mesures, nous pouvons obtenir les positions d'intensité nulle avec précision en convertissant la matrice de pixel en longueur si l'on connait la taille d'un pixel (qui est fournie par le fabricant).
 Elle permet également de vérifier qualitativement si l'intensité suit une fonction de type sinus cardinal.
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[scale=0.5]{img/graphe_camera_lineaire.eps}
+    \end{center}
+    \caption{Intensité en fonction de la position sur la cellule photo}
+\end{figure}
 
+Nous retrouvons le comportement approximatif du sinus cardinal, et nous pouvons obtenir avec une plus grande précision les deux points centraux des franges noires de chaque côté de la tâche centrale.
+On obtient $x_1 = 0.89 \pm 0.02 cm$ et $x_2 = 1.47\pm 0.02 cm$, d'où $L_{exp} = \left\lvert x_2 - x_1 \right\rvert = 0.58 \pm 0.04 cm$. A partir de cette mesure, nous pouvons obtenir la taille de la fente connue, et l'on trouve
+$a_{exp} = 150 \pm 11 \mu m$ (incertitude déterminée par la méthode de la dérivée). On retrouve la largeur de fente $a$ qu'on a utilisé.
+
+\break
 \subsection{Etude de différents motifs de diffraction}
 Dans cette partie, nous souhaitons mettre en évidence des différences de comportement des figures de diffraction selon la forme de l'ouverture. 
 Nous reprenons alors le montage de la figure (\ref{fig:montage_simple}), mais nous remplaçons la fente par un des motifs diffractifs présents sur le jeton A3000. 
 
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{.33\textwidth}
+      \centering
+        \includegraphics[width=.7\linewidth]{img/motifs/IMG_9174 (Personnalisé).png}
+      \caption{Ouverture plus petite}
+    \end{subfigure}%
+    \begin{subfigure}{.33\textwidth}
+      \centering
+      \includegraphics[width=.7\linewidth]{img/motifs/IMG_9175 (Personnalisé).png}
+      \caption{Ouverture initiale}
+    \end{subfigure}
+    \begin{subfigure}{.33\textwidth}
+        \centering
+        \includegraphics[width=.7\linewidth]{img/motifs/IMG_9176 (Personnalisé).png}
+        \caption{Ouverture plus grande}
+    \end{subfigure}
+    \caption{Figure de diffraction pour un trou simple}
+    \label{fig:fig_trou_simple}
+\end{figure}
+
+Nous remarquons que plus le trou a un diamètre élevé, plus la tache centrale est petite, et on observe de plus en plus d'anneaux sur la figure de diffraction. La figure de diffraction
+se présente non plus comme un enchainement de frange en ligne, mais sous forme d'anneaux.
+
+Concernant le motif diffractif en carré, nous observons une figure de diffraction composée de carré, avec une taille de la tâche centrale de plus en plus petite lorsque la taille du carré diffractif augmente.
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{.5\textwidth}
+      \centering
+        \includegraphics[width=.4\linewidth]{img/motifs/IMG_9177 (Personnalisé).png}
+      \caption{Ouverture plus petite}
+    \end{subfigure}%
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[width=.4\linewidth]{img/motifs/IMG_9178 (Personnalisé).png}
+      \caption{Ouverture plus grande}
+    \end{subfigure}
+    \caption{Figure de diffraction par un carré}
+    \label{fig:fig_carre}
+\end{figure}
+
+Enfin, on s'intéresse au cas d'un rectangle comme motif diffractif. On positionne l'écran à une distance $D = 79 \pm 0.8cm$ du jeton diffractif. Nous observons que la figure de diffraction forme un rectangle
+de longueur $l = 1.3 \pm 0.1cm$ et de largeur $l' = 0.4 \pm 0.05cm$. Nous pouvons en déduire les dimensions du rectangle sur le motif diffractif d'après la formule (\ref{eqn:loi_L}), et on trouve que le motif diffractif doit avoir 
+comme dimension $65 \pm 5 \mu m$ en largeur, et $210 \pm 27 \mu m$ en longueur, et sa taille théorique est de $70\times200 \mu m$. Les dimensions théoriques sont incluses dans les bornes de nos mesures avec les incertitudes.  
 \break
 \subsection{Théorème de Babinet et taille d'un cheveu}
 Le théorème de Babinet donne que la figure de diffraction d'un objet et de son complémentaire est la même.
 Ainsi, un fil et une fente de même épaisseur $a$ forment dont une seule et même figure d'interférence ayant la même largeur de tâche centrale. Cette propriété permet la mesure de longueur très petite, que nous allons utiliser
 pour déterminer le diamètre d'un cheveu.
 
-On commence par positionner un laser de longueur d'onde $\lambda = \dots nm$ face à un écran. A l'aide du jeton A3015 que l'on place à une distance $D = \dots cm$ de
-l'écran, on mesure la largeur de la tâche centrale $L_a$ pour chaque largeur de fente $a$. Enfin, on place à cette même distance $D$ le cheveu dont on souhaite déterminer
-le diamètre et l'on mesure la largeur de la tâche centrale $L_{cheveu}$. On peut ensuite comparer $L_{cheveu}$ pour trouver une correspondance dans les différents $L_a$ précédent, et si l'on a une 
-correspondance, nous pouvons conclure que l'épaisseur $d_{cheveu} \approx a$.
+Pour illustrer le théorème, nous positionnons le jeu de fente A3015 à une distance $D = 77.4 \pm 0.5 cm$ d'un écran. 
+On éclaire une fente d'une largeur $a$ avec un laser de longueur d'onde $\lambda = 532 \pm 10nm$. On mesure la largeur de la tâche centrale, puis l'on éclaire le fil de même épaisseur $a$ en dessous de la fente précédente.
+Nous remarquons que les largeurs $L$ des tâches centrales entre la fente et le fil sont identiques à l'incertitude près.
+
+On commence par positionner un laser de longueur d'onde $\lambda = 532 \pm 10 nm$ face à un écran. A l'aide d'un support de diapositive (ayant un cheveu scotché dessus) que l'on place à une distance $D = 77.4 \pm 0.5 cm$ de
+l'écran, on mesure la largeur de la tâche centrale $L$. 
 
 \begin{figure}[!h]
     \begin{center}
-        \resizebox{0.7\textwidth}{8cm}{
+        \resizebox{0.6\textwidth}{8cm}{
         \input{img/babinet.tikz}
         }
     \end{center}
     \caption{Schéma du protocole}
 \end{figure}
 
-Cependant, il est possible que les fentes disponibles dans le jeu A3015 ne soient pas suffisantes pour avoir une valeur précise. Pour résoudre ce problème, nous pouvons
-simplement mesurer les distances $y_n$ où la figure de diffraction présente des zéros d'intensités, et d'utiliser la formule suivante donnant les $y_n$ d'intensité nulle:
+On obtient une tâche centrale $L_1 = 1.5 \pm 0.05cm$ pour un cheveu du premier expérimentateur, et $L_2 = 0.75 \pm 0.05cm$ pour le second expérimentateur, on peut donc remonter à l'épaisseur du cheveu en utilisant la formule:
 \begin{align}
-    y_n = \frac{n\lambda D}{d_{cheveu}}
+    d_{cheveu} = \frac{2 \lambda D}{L}
 \end{align}
 
-On peut donc remonter à $d_{cheveu}$ en déterminant le coefficient directeur $y(n) = \frac{D}{d_{cheveu}} n$ de nos mesures expérimentales.
-
-
+Nous obtenons alors $d_{cheveu,1} = 55 \pm 2 \mu m$ et $d_{cheveu,2} = 110 \pm 8 \mu m$. Le premier cheveu étant connu fin, et le second épais, les mesures sont en accord. De plus, les valeurs restent dans les intervalles
+fournies par la littérature, bien que étant chacune dans les extremums.
 
 \newpage
 

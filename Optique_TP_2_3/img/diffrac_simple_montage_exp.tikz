@@ -1,0 +1,81 @@
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Flowchart: Process [id:dp6086218837893427] 
+\draw   (60,140) -- (140,140) -- (140,160) -- (60,160) -- cycle ;
+%Straight Lines [id:da38385449858597576] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (140,150) -- (310,150) ;
+\draw [shift={(231,150)}, rotate = 180] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8505256469428157] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (310,150) -- (490,130) ;
+\draw [shift={(405.96,139.34)}, rotate = 173.66] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da09375676890060713] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (310,150) -- (490,170) ;
+\draw [shift={(405.96,160.66)}, rotate = 186.34] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da6004144363266697] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (310,150) -- (490,150) ;
+%Straight Lines [id:da19124540000034584] 
+\draw    (490,100) -- (490,200) ;
+%Straight Lines [id:da2398039016356004] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (310,200) -- (310,230) ;
+%Shape: Rectangle [id:dp37982021323713533] 
+\draw   (300,100) -- (320,100) -- (320,140) -- (300,140) -- cycle ;
+%Shape: Rectangle [id:dp9665691920024131] 
+\draw   (300,160) -- (320,160) -- (320,200) -- (300,200) -- cycle ;
+%Straight Lines [id:da33860911421706397] 
+\draw    (310,140) -- (310,160) ;
+%Straight Lines [id:da9593511627291105] 
+\draw    (260,210) -- (298,210) ;
+\draw [shift={(300,210)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da6509863973529162] 
+\draw    (280,230) -- (520,230) (283,226) -- (283,234)(286,226) -- (286,234)(289,226) -- (289,234)(292,226) -- (292,234)(295,226) -- (295,234)(298,226) -- (298,234)(301,226) -- (301,234)(304,226) -- (304,234)(307,226) -- (307,234)(310,226) -- (310,234)(313,226) -- (313,234)(316,226) -- (316,234)(319,226) -- (319,234)(322,226) -- (322,234)(325,226) -- (325,234)(328,226) -- (328,234)(331,226) -- (331,234)(334,226) -- (334,234)(337,226) -- (337,234)(340,226) -- (340,234)(343,226) -- (343,234)(346,226) -- (346,234)(349,226) -- (349,234)(352,226) -- (352,234)(355,226) -- (355,234)(358,226) -- (358,234)(361,226) -- (361,234)(364,226) -- (364,234)(367,226) -- (367,234)(370,226) -- (370,234)(373,226) -- (373,234)(376,226) -- (376,234)(379,226) -- (379,234)(382,226) -- (382,234)(385,226) -- (385,234)(388,226) -- (388,234)(391,226) -- (391,234)(394,226) -- (394,234)(397,226) -- (397,234)(400,226) -- (400,234)(403,226) -- (403,234)(406,226) -- (406,234)(409,226) -- (409,234)(412,226) -- (412,234)(415,226) -- (415,234)(418,226) -- (418,234)(421,226) -- (421,234)(424,226) -- (424,234)(427,226) -- (427,234)(430,226) -- (430,234)(433,226) -- (433,234)(436,226) -- (436,234)(439,226) -- (439,234)(442,226) -- (442,234)(445,226) -- (445,234)(448,226) -- (448,234)(451,226) -- (451,234)(454,226) -- (454,234)(457,226) -- (457,234)(460,226) -- (460,234)(463,226) -- (463,234)(466,226) -- (466,234)(469,226) -- (469,234)(472,226) -- (472,234)(475,226) -- (475,234)(478,226) -- (478,234)(481,226) -- (481,234)(484,226) -- (484,234)(487,226) -- (487,234)(490,226) -- (490,234)(493,226) -- (493,234)(496,226) -- (496,234)(499,226) -- (499,234)(502,226) -- (502,234)(505,226) -- (505,234)(508,226) -- (508,234)(511,226) -- (511,234)(514,226) -- (514,234)(517,226) -- (517,234) ;
+%Straight Lines [id:da49975530995593975] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (490,200) -- (490,230) ;
+%Straight Lines [id:da26109354701785903] 
+\draw    (550,210) -- (502,210) ;
+\draw [shift={(500,210)}, rotate = 360] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7931027821198187] 
+\draw    (300,90) -- (320,90) ;
+\draw [shift={(320,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+\draw [shift={(300,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+%Straight Lines [id:da5127007685927278] 
+\draw    (322,220) -- (478,220) ;
+\draw [shift={(480,220)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw [shift={(320,220)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da9902733058999353] 
+\draw    (500,132) -- (500,168) ;
+\draw [shift={(500,170)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw [shift={(500,130)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (74,140) node [anchor=north west][inner sep=0.75pt]   [align=left] {Laser $\displaystyle \lambda $};
+% Text Node
+\draw (252,22) node [anchor=north west][inner sep=0.75pt]   [align=left] {Support de fente\\avec jeton A3015};
+% Text Node
+\draw (471,62) node [anchor=north west][inner sep=0.75pt]   [align=left] {Ecran};
+% Text Node
+\draw (191,192) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{40.7pt}\setlength\topsep{0pt}
+\begin{center}
+Règle\\verticale
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (551,192) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{40.7pt}\setlength\topsep{0pt}
+\begin{center}
+Règle\\verticale
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (296,251) node [anchor=north west][inner sep=0.75pt]   [align=left] {Règle à plat sur le banc optique};
+% Text Node
+\draw (306,68.4) node [anchor=north west][inner sep=0.75pt]    {$e$};
+% Text Node
+\draw (391,192.4) node [anchor=north west][inner sep=0.75pt]    {$D$};
+% Text Node
+\draw (511,142.4) node [anchor=north west][inner sep=0.75pt]    {$L$};
+
+
+\end{tikzpicture}
