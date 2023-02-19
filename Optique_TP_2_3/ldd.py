@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from uncertainties import ufloat, unumpy
-from scipy.odr import RealData, Model, ODR
+# from scipy.odr import RealData, Model, ODR
 from typing import Callable
 
 def affine_function(beta, x: float | np.ndarray):
@@ -35,37 +35,37 @@ def exponential_decay(beta, x: float | np.ndarray) -> float | np.ndarray:
 
     return beta[0] * np.exp(- x / beta[1]) + beta[2]
 
-def odr_fit(fun: Callable, x: np.ndarray, y: np.ndarray, p0, fit_type = 0):
-    """Performs an OLS/ODR onto a dataset of given x-y coordinates.
+# def odr_fit(fun: Callable, x: np.ndarray, y: np.ndarray, p0, fit_type = 0):
+#     """Performs an OLS/ODR onto a dataset of given x-y coordinates.
 
-    Args:
-        model (Callable): Function to fit
-        x (np.ndarray): x-coordinates
-        y (np.ndarray): y-coordinates
-        p0 (_type_): _description_
-        fit_type (int, optional): 2 = least square, 0 = orthogonal direction regression. Defaults to 0.
+#     Args:
+#         model (Callable): Function to fit
+#         x (np.ndarray): x-coordinates
+#         y (np.ndarray): y-coordinates
+#         p0 (_type_): _description_
+#         fit_type (int, optional): 2 = least square, 0 = orthogonal direction regression. Defaults to 0.
 
-    Returns:
-        list[ufloat]: list of fitted parameters returned as ufloat
-    """
-    # Extracts values and uncertainties from uncertainties package or fallback on list based value and uncertainity
-    x_val = unumpy.nominal_values(x)
-    x_err = unumpy.std_devs(x)
-    y_val = unumpy.nominal_values(y)
-    y_err = unumpy.std_devs(y)
+#     Returns:
+#         list[ufloat]: list of fitted parameters returned as ufloat
+#     """
+#     # Extracts values and uncertainties from uncertainties package or fallback on list based value and uncertainity
+#     x_val = unumpy.nominal_values(x)
+#     x_err = unumpy.std_devs(x)
+#     y_val = unumpy.nominal_values(y)
+#     y_err = unumpy.std_devs(y)
     
-    # Orthogonal direction regression 
-    data = RealData(x_val, y_val, sx=x_err, sy=y_err)
-    model = Model(fcn=fun)
-    odr = ODR(data, model, beta0=p0)
-    odr.set_job(fit_type=fit_type)
-    output = odr.run()
+#     # Orthogonal direction regression 
+#     data = RealData(x_val, y_val, sx=x_err, sy=y_err)
+#     model = Model(fcn=fun)
+#     odr = ODR(data, model, beta0=p0)
+#     odr.set_job(fit_type=fit_type)
+#     output = odr.run()
     
-    out = []
-    for parameter, err in zip(output.beta, output.sd_beta):
-        out.append(ufloat(parameter, err))
+#     out = []
+#     for parameter, err in zip(output.beta, output.sd_beta):
+#         out.append(ufloat(parameter, err))
         
-    return out
+#     return out
 
 def plot_error(x, y, label="", fmt=None):
     if fmt == None:
