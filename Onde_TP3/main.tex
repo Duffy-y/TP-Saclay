@@ -1,0 +1,183 @@
+\documentclass[12pt]{article}
+\usepackage[left=2cm, top=1.5cm, right=2cm, bottom=1.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{xcolor} 
+\usepackage{mathtools}
+\usepackage{parskip}
+\usepackage{subcaption}
+\usepackage[export]{adjustbox}
+\usepackage{hyperref}
+
+\title{\vspace{-2cm}\textbf{TP 3 - Corde vibrante}}
+\author{\vspace{-0.5cm}MENARD Alexandre - VIEILLEDENT Florent}
+% \setlength{\parindent}{1cm}
+\date{\vspace{-0.7cm}}
+
+\begin{document}
+\maketitle
+
+L'étude des fréquences de résonance des matériaux, en particulier celles des cordes vibrantes en acier ici, trouve des applications dans de nombreux domaines 
+comme la RMN (Résonance Magnétique Nucléaire) faisant entrer en résonance les molécules à l'aide d'un champ magnétique issu d'une onde radio. Le signal de retour provenant
+de la molécule permet alors d'obtenir des informations sur sa composition. 
+Notre travail ici consistera alors à caractériser les cordes en vibration et leurs différents modes de vibrations. Nous identifierons les paramètres pertinents pour faire
+varier le son émis par ces dernieres. Enfin, nous étudierons la complexité des sons émis selon la source de contraintes (pincements ou bobine excitatrice).
+
+\section{Paramètres et propriétés du son émis par la corde}
+\subsection{Détermination des paramètres influençant le son émis}
+
+Dans un premier temps, on s'intéresse à déterminer quels sont les paramètres modifiant le son émis par la corde, et vérifier la conservation de la fréquence 
+de vibration le long de la corde.
+
+Pour cela, nous fixons aux deux extrémités la corde, et l'on positionne les points d'appui pour avoir la plus grande longueur possible. Nous disposons une masse de $m=250g$ sur le levier
+en s'assurant qu'il soit horizontal. Nous pincons ensuite la corde et nous écoutons le son à l'oreille.
+
+Première observation, un allongement de la corde fait baisser la fréquence du son (son de plus en plus grave). Ensuite, plus l'on pince au centre, plus le son est grave, et inversement si l'on
+pince proche d'un point d'appui de la corde.
+Seconde observation, une augmentation de la tension augmente la fréquence (son de plus en plus aigu), la tension étant dû à la masse, la distance levier-masse, et la distance
+levier-(support de la corde) comme nous le verrons dans une prochaine partie, une variation d'un de ces paramètres induit donc une variation de fréquence. Pour l'instant, 
+nous avons pu montré qu'une augmentation de la masse augmente la fréquence, mais nous ne pouvons pas prédire l'ordre de proportionnalité entre tension et fréquence.
+
+Quant au signal observé par l'oscilloscope et la bobine de détection, le signal est difficilement caractérisable car il est composé d'un grand nombre de fréquences, ce que
+l'on confirme à l'aide d'une transformée de Fourier.
+
+Enfin, nous installons une bobine émettrice à un GBF  et nous comparons le signal émis par la bobine émettrice au signal reçu par la bobine réceptrice.
+Nous remarquons que lorsque les deux bobines sont à une distance supérieure à environ $20cm$, le signal reçu n'est plus composé d'une seule fréquence, le son est complexe.
+Cependant, il est important de noter que le signal reçu est toujours composé du signal émis (on remarque que les extremas entre signal reçu et émis sont simulanées), mais une fréquence supplémentaire
+entre en compte dans le signal. 
+
+On se place alors dans le cadre d'une distance émetteur-récepteur inférieure à $20cm$ et l'on observe un signal sinusoidal reçu de même périodicité que le signal reçu. Pour comparer les fréquences,
+nous utilisons les curseurs en mesurant la fréquence maximale et minimale. On obtient alors pour la fréquence du signal émis $\nu_e = 623 \pm 10 Hz$ et pour le signal reçu $\nu_r = 629 \pm 12 Hz$. Nous pourrons alors supposer
+que la fréquence est constante le long du système.
+
+\break
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{.5\textwidth}
+      \centering
+        \includegraphics[width=.7\linewidth]{img/son_complexe.png}
+      \caption{Distance $d>20cm$}
+    \end{subfigure}%
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[width=.7\linewidth]{img/son_simple.png}
+      \caption{Distance $d<20cm$}
+    \end{subfigure}
+    \caption*{Signal reçu et émis selon la distance émetteur-récepteur}
+\end{figure}
+
+\subsection{Propriétés de la corde}
+
+\begin{figure}[!h]
+    \begin{center}
+        \resizebox{0.5\textwidth}{3cm}{
+            \input{img/thm_mom_cin.tikz}
+        }
+    \end{center}
+    \caption{Schéma du montage pour l'application du théorème du moment cinétique}
+    \label{fig:montage_simple}
+\end{figure}
+
+Le montage dispose de différents paramètres modifiables et non modifiables, à savoir la distance $d=OC$ que l'on mesure du centre de la charnière à la corde, la distance $l=OP$ que l'on mesure
+du centre de la charnière au crochet tenant les poids. Le poids $m$ en bout de levier que l'on mesure à l'aide d'une balance. Enfin, on notera $L$ la longueur de la corde d'un point d'appui à l'autre que
+l'on mesure à l'aide de la règle présente sur le sonomètre.
+
+Le système étant à l'équilibre, on a directement:
+\begin{align*}
+    \frac{d \vec{L_0}}{dt} = \vec{0} & \Rightarrow \vec{OC} \wedge \vec{T} + \vec{OP} \wedge \vec{P} = \vec{0} \\
+    & \Rightarrow dT = mlg \\
+    & \Rightarrow T = \frac{mlg}{d}
+\end{align*}
+
+Il est important de noter que le levier porte-masse doit être à l'horizontal car dans le cas contraire, pour compenser le moment du poids, la tension ne sera plus
+uniquement selon l'axe de la corde, or c'est exactement l'hypothèse de la résolution de l'équation de propagation des ondes. 
+
+\break
+\section{Oscillations libres et forcées}
+\subsection{Théorie}
+\begin{figure}[!h]
+    \begin{center}
+        \resizebox{0.8\textwidth}{3.2cm}{
+            \input{img/mode_fonda.tikz}
+        }
+    \end{center}
+    \caption{Allure de la corde du mode fondamentale à la seconde harmonique ($n=3$)}
+    \label{fig:mode_fonda}
+\end{figure}
+
+Notons $L$ la longueur de la corde, on remarque facilement qu'il existe une relation entre $L$ et la longueur d'onde $\lambda$.
+\begin{equation}
+    2L = n\lambda \Rightarrow \nu_n = \frac{nc}{2L} = \nu_n = \frac{n}{2L}\sqrt{\frac{T}{\mu}}
+\end{equation}
+
+Pour une masse de $m=350 \pm 0.1g$ et une longueur de corde de $L=60 \pm 0.2cm$, on s'attend alors à une fréquence fondamentale $\nu_f = 90 \pm 5 Hz$.
+
+\subsection{Oscillations libres}
+Dans cette expérience, nous allons pincer la corde et mesurer par transformée de fourier les écarts entre deux pics de fréquence ayant une haute amplitude.
+En pincant la corde, nous observons un ventre au centre de la corde, avec une forme proche d'un mode fondamentale. Cependant, en effectuant une FFT sur le signal reçu,
+nous sommes dans l'incapacité d'observer des pics distincts, le signal est composé d'une multitude de fréquences.
+
+Pour s'affranchir du problème, nous allons générer une contrainte sur la corde à l'aide du GBF en positionnant la fréquence émise à $\nu_e = 583.9 Hz$ et on observe
+les pics de fréquence obtenus. A l'aide des curseurs, nous mesurons l'écart maximal et minimal entre deux pics successifs et l'on effectue la moyenne. On obtient alors:
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{||c c c c c||} 
+		\hline
+		Pics & 1-2 & 2-3 & 3-4 & 4-5 \\
+		\hline
+        $\Delta \nu$ en Hz & $580 \pm 40$ & $606 \pm 40$ & $574 \pm 40$ & $580 \pm 40$ \\
+		\hline
+	\end{tabular}
+	\caption{Ecarts de fréquence entre deux pics successifs}
+	\label{table:1}
+\end{table}
+
+Nous remarquons bien que la fréquence $\nu_e$ imposée est comprise dans les différences de fréquence entre deux pics successifs, ce qui est en accord avec la théorie qui prédit 
+un écart constant entre deux harmoniques.
+
+\break
+\subsection{Oscillations forcées}
+Prenons le montage avec $m=350 \pm 0.1g$ et $L=40 \pm 0.2cm$. Nous allons faire vibrer la corde avec le GBF et relever les fréquences où la vibration montre une amplitude
+maximale, et on notera les noeuds et ventres de vibration.
+
+Nous partons d'une fréquence nulle et l'on augmente progressivement en sachant que la fréquence théorique fondamentale est de $\nu_f = 114 \pm 6 Hz$.
+Nous observons un premier état de forte vibration avec un seul ventre au centre semblable à un mode fondamental à $\nu_1 = 27.3 \pm 3 Hz$ puis un second état 
+de vibration avec un noeud central et 2 ventres à $\nu_2 = 55 \pm 3 Hz$ puis un troisième à $\nu_3 = 106.2 \pm 5Hz$ avec un noeud central et 2 ventres, ce qui est équivalent à la vibration
+précédent. Nous retrouvons la fréquence prédite par la théorie cependant la fréquence initiale est divisée par 4. Jusque là, nous ne sommes pas en mesure de proposer une explication
+satisfaisante à cette anomalie.
+
+Nous répétons l'opération pour différentes longueurs $L$ et l'on obtient alors:
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{||c c c c c c c c||} 
+		\hline
+		$L$ en cm & 60 & 50 & 40 & 30 & 20 & 15 & 10 \\
+		\hline
+        $\nu_{exp}$ en Hz & $70 \pm 7$ & $84.9 \pm 7$ & $106.2 \pm 7$ & $140 \pm 7$ & $205 \pm 10$ & $295 \pm 10$ & $426 \pm 10$ \\
+        $\nu_{th}$ en Hz & $76 \pm 4$ & $91 \pm 5$ & $114 \pm 6$ & $152 \pm 8$ & $228 \pm 12$ & $304 \pm 16$ & $457 \pm 25$ \\
+		\hline
+	\end{tabular}
+	\caption{Fréquence de résonance pour différentes longueurs de corde $L$}
+	\label{table:2}
+\end{table}
+
+\textbf{Remarque:} Il est important de retenir que nous observons le même problème que dans l'expérience précédente, pour chaque longueur on observe un effet de résonance sur la corde
+pour des fréquences $\nu/4$ et $\nu / 2$. Les fréquences dans le tableau ne sont donc pas les fréquences fondamentales.
+
+Nous retrouvons bien des modes propres à la fréquence prédite $\nu_{th}$ par la théorie, cependant, $\nu_{th}$ est un multiple d'une fréquence fondamentale plus basse avec $\nu_{th} = 4 \nu_{f,exp}$.
+On remarque que l'erreur est présente sur l'ensemble des groupes de travail, et qu'elle se propage sur chaque expérience, l'erreur est donc systématique. Cependant, les valeurs expérimentales restent prochent
+de la théorie.
+
+Malheureusement, nous ne sommes pas en capacité de produire une explication satisfaisante à un tel écart à la théorie, l'écart ne pouvant pas être attribué à des incertitudes. Il semble très peu probable
+que l'erreur soit dû au protocole car l'erreur n'était pas présente sur les groupes précédents, en admettant que le problème aurait été soulevé par les anciens étudiants si l'erreur avait lieu.
+
+
+\end{document}
