@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 \usepackage[left=2cm, top=1.5cm, right=2cm, bottom=1.5cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -174,16 +174,20 @@ Nous répétons l'opération pour différentes longueurs $L$ et l'on obtient alo
 \textbf{Remarque:} Il est important de retenir que nous observons le même problème que dans l'expérience précédente, pour chaque longueur on observe un effet de résonance sur la corde
 pour des fréquences $f_0/4$ et $f_0 / 2$. Les fréquences dans le tableau ne sont donc pas les fréquences fondamentales.
 
+On trace $f_0$ en fonction de $1/L$ (figure (\ref{img:Courbe_derniere_expérience})). 
+La valeur expérimental pour la pente de la droite $a_{exp}=43 \pm 2 \ Hz.m$ est en accord avec la pente théorique $a_{th}=40 \pm 10 \ Hz.m$.
+
 Nous retrouvons bien des modes propres à la fréquence prédite $f_{0th}$ par la théorie, cependant, $f_{0th}$ est un multiple d'une fréquence fondamentale plus basse avec $\nu_{th} = 4 \nu_{f,exp}$.
 On remarque que l'erreur est présente sur l'ensemble des groupes de travail, et qu'elle se propage sur chaque expérience, l'erreur est donc systématique. Cependant, les valeurs expérimentales restent prochent
-de la théorie.
-
+de la théorie. Les observations doivent donc avoir un sens physique.
 Malheureusement, nous ne sommes pas en capacité de produire une explication satisfaisante à un tel écart à la théorie, l'écart ne pouvant pas être attribué à des incertitudes. Il semble très peu probable
 que l'erreur soit dû au protocole car l'erreur n'était pas présente sur les groupes précédents, en admettant que le problème aurait été soulevé par les anciens étudiants si l'erreur avait lieu.
 
 En conclusion, nous avons montré que le son émis dépendait de la tension de la corde et de sa longueur expérimentalement (elle dépend aussi de sa masse linéique). Nous avons prouvé la conservation de la fréquence dans le système.
 Enfin, nous avons réussi à observer les différents modes propres de vibration que la théorie prédit avec les ventres et noeuds de vibration. Cependant, nous sommes arrivés à des résultats en désaccord avec la théorie
-sans pouvoir fournir d'explications bien que les valeurs semblent suivent une logique avec des fréquences de résonance qui ne sont que des multiples paires d'une sous-fréquence à celle prédite par la théorie.
+sans pouvoir fournir d'explications bien que les valeurs semblent suivent une logique avec des fréquences de résonance qui ne sont que des multiples paires d'une sous-fréquence à celle prédite par la théorie. 
+Pour améliorer notre protocole on peut commencer par utiliser une corde dont on connait la masse linéique pour améliorer nos calculs. 
+On peut répéter notre protocole avec différents émetteurs et cordes pour voir si l'observation de sous-fréquence est reproductible.
 
 \newpage
 
@@ -192,15 +196,15 @@ sans pouvoir fournir d'explications bien que les valeurs semblent suivent une lo
 \begin{figure}[h!]
     \begin{center}
         \includegraphics*[angle=90,scale=0.4]{img/Courbes_TP3_ondes}
-        \label{img:Courbe_dernière_expérience}
         \caption{Courbe de $f_0$ en fonction de $1/L$. Les incertitudes sur $1/L$ sont trop petites pour être visibles}
+        \label{img:Courbe_derniere_expérience}
     \end{center}
 \end{figure}
 
 On calcule la pente et son incertitude avec la méthode des pentes extrêmes (on néglige les incertides sur L, celles ci étant faibles devant celles sur $\nu$). 
 \begin{align*}
     a_{max} &=\frac{426+10-(70-7)}{10-1.7} & a_{min} &=\frac{426-10-(70+7)}{10-1.7} \\
-    a_{max} &=44.9 Hz.m & a_{min} &= 40.8 Hz.m
+    a_{max} &=44.9 \ Hz.m & a_{min} &= 40.8 \ Hz.m
 \end{align*}
 
 \begin{align*}
@@ -209,8 +213,9 @@ On calcule la pente et son incertitude avec la méthode des pentes extrêmes (on
     a&= 42.9 \ Hz.m &\delta a &= 2.0 \ Hz.m
 \end{align*}
 
-On a donc $a=42.9 \pm 2 \ Hz.m$. On note tout de fois que notre droite ne passe pas par toutes les incertitudes, on a sûrement sous estimé les incertitudes sur $f_0$.
+On a donc $a=43 \pm 2 \ Hz.m$. On note tout de fois que notre droite ne passe pas par toutes les incertitudes, on a sûrement sous estimé les incertitudes sur $f_0$.
 
+\newpage
 On calcule la valeur théorique:
 
 \begin{align*}
@@ -219,5 +224,14 @@ On calcule la valeur théorique:
     a_{th}&=\frac{1}{2} \sqrt{\frac{0.250 \times 9.6 \times 9.81}{2.3 \times 7.8 \times 10^{3} \times \pi (0.25 \times 10^{-3})^2}} \\
     a_{th}&= 40.8 \ Hz.m
 \end{align*}
+
+On calcule l'incertitude associée:
+\begin{align*}
+    \delta a_{th} &= a_{th} \times [\frac{\delta r}{r}+\frac{1}{2}\left(\frac{\delta l}{l}+ \frac{\delta d}{d}\right)] \\
+    \delta a_{th} &= 40.8 \times [0.2 + \frac{1}{2}\left(0.021+0.087\right)] \\
+    \delta a_{th} &= 10 Hz.m
+\end{align*}
+
+On a donc $a_{th}=40\pm 10 \ Hz.m$. L'incertitude relative est importante car le mesure sur $r$ est peu précise. 
 
 \end{document}
