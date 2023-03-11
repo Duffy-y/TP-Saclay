@@ -1,0 +1,42 @@
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da16292622750860142] 
+\draw    (140,140) -- (72,140) ;
+\draw [shift={(70,140)}, rotate = 360] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Spring [id:dp12760656496651346] 
+\draw   (140,140) .. controls (140.75,135) and (143.75,130) .. (149.75,130) .. controls (161.75,130) and (161.75,150) .. (155.75,150) .. controls (149.75,150) and (149.75,130) .. (161.75,130) .. controls (173.75,130) and (173.75,150) .. (167.75,150) .. controls (161.75,150) and (161.75,130) .. (173.75,130) .. controls (185.75,130) and (185.75,150) .. (179.75,150) .. controls (173.75,150) and (173.75,130) .. (185.75,130) .. controls (197.75,130) and (197.75,150) .. (191.75,150) .. controls (185.75,150) and (185.75,130) .. (197.75,130) .. controls (209.75,130) and (209.75,150) .. (203.75,150) .. controls (197.75,150) and (197.75,130) .. (209.75,130) .. controls (221.75,130) and (221.75,150) .. (215.75,150) .. controls (209.75,150) and (209.75,130) .. (221.75,130) .. controls (233.75,130) and (233.75,150) .. (227.75,150) .. controls (221.75,150) and (221.75,130) .. (233.75,130) .. controls (236.39,130) and (238.46,130.97) .. (240,132.49) ;
+%Straight Lines [id:da4294419662187403] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (140,110) -- (208,110) ;
+\draw [shift={(210,110)}, rotate = 180] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da9928409816186436] 
+\draw    (370,140) -- (302,140) ;
+\draw [shift={(300,140)}, rotate = 360] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Spring [id:dp196556047968647] 
+\draw   (370.22,140.04) .. controls (366.95,136.24) and (365,131.11) .. (368.19,127.93) .. controls (374.55,121.57) and (388.69,135.71) .. (384.45,139.95) .. controls (380.21,144.19) and (366.06,130.05) .. (372.43,123.69) .. controls (378.79,117.32) and (392.93,131.47) .. (388.69,135.71) .. controls (384.45,139.95) and (370.31,125.81) .. (376.67,119.45) .. controls (383.03,113.08) and (397.18,127.22) .. (392.93,131.47) .. controls (388.69,135.71) and (374.55,121.57) .. (380.91,115.2) .. controls (387.28,108.84) and (401.42,122.98) .. (397.18,127.22) .. controls (392.93,131.47) and (378.79,117.32) .. (385.16,110.96) .. controls (391.52,104.6) and (405.66,118.74) .. (401.42,122.98) .. controls (397.18,127.22) and (383.03,113.08) .. (389.4,106.72) .. controls (395.76,100.35) and (409.9,114.5) .. (405.66,118.74) .. controls (401.42,122.98) and (387.28,108.84) .. (393.64,102.47) .. controls (400.01,96.11) and (414.15,110.25) .. (409.9,114.5) .. controls (405.66,118.74) and (391.52,104.6) .. (397.88,98.23) .. controls (404.25,91.87) and (418.39,106.01) .. (414.15,110.25) .. controls (409.9,114.5) and (395.76,100.35) .. (402.13,93.99) .. controls (408.49,87.63) and (422.63,101.77) .. (418.39,106.01) .. controls (414.15,110.25) and (400.01,96.11) .. (406.37,89.75) .. controls (412.73,83.38) and (426.88,97.52) .. (422.63,101.77) .. controls (418.39,106.01) and (404.25,91.87) .. (410.61,85.5) .. controls (416.98,79.14) and (431.12,93.28) .. (426.88,97.52) .. controls (422.63,101.77) and (408.49,87.63) .. (414.85,81.26) .. controls (421.22,74.9) and (435.36,89.04) .. (431.12,93.28) .. controls (426.88,97.52) and (412.73,83.38) .. (419.1,77.02) .. controls (425.46,70.65) and (439.6,84.8) .. (435.36,89.04) .. controls (431.12,93.28) and (416.98,79.14) .. (423.34,72.78) .. controls (429.7,66.41) and (443.85,80.55) .. (439.6,84.8) .. controls (435.36,89.04) and (421.22,74.9) .. (427.58,68.53) .. controls (433.95,62.17) and (448.09,76.31) .. (443.85,80.55) .. controls (439.6,84.8) and (425.46,70.65) .. (431.82,64.29) .. controls (432.59,63.52) and (433.48,63.05) .. (434.43,62.83) ;
+%Straight Lines [id:da8495881655350583] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (370,140) -- (439.23,66.46) ;
+\draw [shift={(440.6,65)}, rotate = 133.27] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da9352078250890943] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (440.6,65) -- (440,140) ;
+%Straight Lines [id:da8571463134658666] 
+\draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ]   (370,140) -- (438,140) ;
+\draw [shift={(440,140)}, rotate = 180] [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (97,112.4) node [anchor=north west][inner sep=0.75pt]    {$\vec{F}$};
+% Text Node
+\draw (159,72.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ]  {$\overrightarrow{F_{dyn}}$};
+% Text Node
+\draw (327,112.4) node [anchor=north west][inner sep=0.75pt]    {$\vec{F}$};
+% Text Node
+\draw (441,42.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ]  {$\overrightarrow{F'_{dyn}}$};
+% Text Node
+\draw (381,144.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,opacity=1 ]  {$\overrightarrow{F'_{dyn,\theta }}$};
+
+
+\end{tikzpicture}
