@@ -39,34 +39,33 @@ On définit un répère polaire de centre $O$ confondu avec l'axe, et on note $\
 de la mesure en $M$, tel que $\vec{OM} = r\ur$. En admettant que la force de rappel
 s'applique orthoradialement avec $\vec{F} = F(r) \ut$, on exprime alors le moment $\vec{M}$ de $\vec{F}$:
 
-\begin{align*}
+\begin{align}
     \vec{M} & = \vec{OM} \wedge \vec{F} & \vec{M} \cdot \uz = -D\theta \\
-            & = -rF(r) \uz
-\end{align*}
+            & = -rF(r) \uz \nonumber
+    \label{eqn:moment_ressort}
+\end{align}
 
 A priori, la formule précédente laisse sugérer que le couple est dépendant de $r$, mais la seconde dépendant de $\theta$
-s'oppose à cette dépendance ($D$ étant constant en $kg.m^2.s^{-2}$). Nous vérifierons alors que le produit $rF(r)$ donne toujours la même valeur à $\theta$ fixe.
+s'oppose à cette dépendance ($D$ étant constant en $kg.m^2.s^{-2}$). Nous vérifierons alors que le produit $rF(r)$ donne toujours la même valeur à $\theta$ fixe (voir partie (\ref{couple_constant})).
 Enfin, à l'aide du théorème du moment cinétique, on obtient:
 \begin{equation}
+    \label{eqn:equa_diff}
     \ddot \theta + \frac{D}{I}\theta = 0
 \end{equation}
 
 On en déduit alors la période en posant $\omega^2 = \frac{D}{I}$:
 \begin{equation}
     T = \frac{2\pi}{\omega} = 2\pi \sqrt{\frac{I}{D}}
+    \label{eqn:periode}
 \end{equation}
-
 
 \subsection{Mesure du couple}
-Pour mesurer le couple, nous fixons le centre d'une barre sur l'axe, puis l'on fixe le dynamomètre à une distance $r$
-de l'axe de rotation. On tire le dynamomètre pour modifier l'angle $\theta$ et obtenir une mesure de la force de rappel $\vec{F}$.
-On s'assure également que le dynamomètre est horizontal et perpendiculaire à la barre, car dans le cas contraire, le ressort du dynamomètre
-devra produire une force plus grande que nécessaire pour compenser la composante orthoradiale de $\vec{F}$.
+\label{couple_constant}
 
-En sachant que $\vec{F_{dyn}}$ et $\vec{F'_{dyn}}$ sont les forces mesurées par le dynamomètre (respectivement à l'horizontal et incliné), on a entre les deux cas:
-\begin{equation}
-    \left\lVert \vec{F} \right\rVert = \left\lVert \vec{F_{dyn}} \right\rVert < \left\lVert \vec{F'_{dyn}} \right\rVert \Rightarrow \text{La mesure inclinée est incorrecte}
-\end{equation}
+Pour mesurer le couple à un angle $\theta$ fixe, on pose une potence à environ $\theta \approx 90^{\circ}$ de la position d'équilibre pour maintenir un angle
+quasi constant entre les mesures sur des $r$ différents. On fixe le dynamomètre à distance $r$ sur la barre puis l'on tire jusqu'à ce que la barre heurte la potence.
+On relâche progressivement le dynamomètre afin d'obtenir la force minimale pour toucher la potence (car si l'on tire trop, on mesurera la force de réaction de la potence en plus de celle du ressort).
+On relève alors une plage de force où la barre commence à se décoller ce qui nous donnera une valeur moyenne et une incertitude sur notre mesure. On relève la force en $r=5, 10, 15, 20, 25cm$.
 
 \begin{figure}[!h]
     \begin{center}
@@ -78,34 +77,86 @@ En sachant que $\vec{F_{dyn}}$ et $\vec{F'_{dyn}}$ sont les forces mesurées par
     \label{fig:horizontal}
 \end{figure}
 
-On souhaite vérifier que $\left\lVert \vec{M} \right\rVert$ ne dépend pas de $r$. On se fixe une position $\theta = \dots$ puis l'on mesure la force de rappel pour différentes
-valeurs de $r$. Nous obtenons alors
+Lors de la mesure, on s'assure également que le dynamomètre est horizontal et perpendiculaire à la barre, car dans le cas contraire, le ressort du dynamomètre
+devra produire une force plus grande que nécessaire pour compenser la composante orthoradiale de $\vec{F}$ (voir figure \ref{fig:horizontal}).
 
-Nous pouvons alors en conclure que le couple (et donc $rF(r)$) est indépendant de $r$.
+En sachant que $\vec{F_{dyn}}$ et $\vec{F'_{dyn}}$ sont les forces mesurées par le dynamomètre (respectivement à l'horizontal et incliné), on a entre les deux cas:
+\begin{equation}
+    \left\lVert \vec{F} \right\rVert = \left\lVert \vec{F_{dyn}} \right\rVert < \left\lVert \vec{F'_{dyn}} \right\rVert \Rightarrow \text{La mesure inclinée est incorrecte}
+\end{equation}
+
+On résume l'ensemble des mesures expérimentales et des valeurs déduites dans le tableau (\ref{table:couple_r_variable}) suivant:
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{||c | c c c c c||} 
+		\hline
+		$r \pm 0.2$ (en cm) & $5$ & $10$ & $15$ & $20$ & $25$ \\
+		\hline
+        $F \pm 0.03$ (en N) & $0.89$ & $0.45$ & $0.33$ & $0.25$ & $0.20$ \\
+		\hline
+        $|| \vec{M} ||$ (en mN.m) & $46 \pm 3$ & $45 \pm 4$ & $50 \pm 5$ & $50 \pm 7$ & $50 \pm 8$ \\
+        \hline
+    \end{tabular}
+	\caption{Couple du ressort pour différents rayons $r$}
+	\label{table:couple_r_variable}
+\end{table}
+
+Nous pouvons conclure que à l'incertitude près, l'ensemble des couples obtenus se situent dans un même intervalle. Le couple $M = rF(r)$ 
+est donc constant selon $r$ pour $\theta$ fixe. Cependant, il est important de noter que les mesures présentent un manque de précision majeur,
+il faudrait que la barre présente des crans à des rayons $r$ précis afin de maintenir la position du crochet du dynamomètre. Nous n'avions d'ailleurs
+aucun moyen d'assurer l'horizontalité et la perpendicularité avec la barre du dynamomètre à part le jugement de l'expérimentateur.
 
 \subsection{Mesure de $D$ par méthode statique}
+\label{D_statique}
 
 On souhaite mesurer la constante de torsion $D$ en mesurant la norme de la force exercée sur le dynamomètre 
-pour une plage de valeurs de $\theta$ à une distance $r$.
+pour une plage de valeurs de $\theta$ à une distance $r=5 \pm 0.2cm$ qu'on conservera constante entre différents 
+angles $\theta$ en marquant un repère avec un feutre sur la barre. Pour la mesure, un expérimentateur positionne un
+rapporteur au dessus de la barre à l'équilibre, et le second tire ensuite la barre avec le dynamomètre jusqu'à un angle $\theta$. 
+Nous estimons l'incertitude sur $\theta$ à environ $\delta \theta = 3^{\circ} = 0.5.10^{-2}$rad de part la lecture approximative et la position
+du rapporteur qui peut légèrement varier.
 
 \begin{equation}
     D = \frac{rF}{\theta}
 \end{equation}
 
-Pour vérifier cette loi, nous traçons alors le produit $rF(r)$ en fonction de $1/\theta$, et l'on doit obtenir une valeur constante. Pour déterminer $D$,
-nous effectuons simplement le calcul sur chaque mesure, et l'on effectue la moyenne de l'ensemble des valeurs de $D$.
+\textbf{Remarque:} Les calculs seront \textbf{toujours} effectués en radians, bien que le tableau (\ref{table:mesure_D_statique}) indique
+les angles en degrés pour faciliter la compréhension de notre démarche.
 
-Nous constatons bien une valeur constante et l'on obtient finalement $D = \dots$.
+\break
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{||c | c c c c c c c c||} 
+		\hline
+		$\theta \pm 3$ (en $^\circ$) & $10$ & $30$ & $60$ & $90$ & $120$ & $150$ & $180$ & $210$ \\
+		\hline
+        $F \pm 0.03$ (en N) & $0.08$ & $0.26$ & $0.58$ & $0.86$ & $1.08$ & $1.30$ & $1.62$ & $1.88$\\
+		\hline
+        $D$ (en mN.m) & $23 \pm 16$ & $27 \pm 7$ & $28 \pm 4$ & $27 \pm 3$ & $26 \pm 2$ & $25 \pm 2$ & $26 \pm 2$ & $26 \pm 2$\\
+        \hline
+    \end{tabular}
+	\caption{Constante de torsion $D$ selon l'angle $\theta$}
+	\label{table:mesure_D_statique}
+\end{table}
+
+Malgré le manque de précision dû au matériel présent, nous pouvons conclure que $D$ est bien indépendant de $\theta$ et du couple avec $D=26 \pm 2 \text{ mN.m}$. 
+Les mêmes améliorations que pour l'expérience précédente permettrait d'obtenir une meilleure précision. 
+On ajoute que la présence d'une platine indiquant les angles sous la barre permettrait une meilleure
+lecture de l'angle, et donc une valeur de $D$ avec des incertitudes plus petites.
 
 
 \subsection{Mesure de $D$ par méthode dynamique}
-On propose ensuite de mesurer le moment d'inertie $I_b$ de la barre ainsi que la constante de torsion $D$. 
-On place alors deux masses de masse $m$ chacune de manière symétrique par rapport à l'axe de rotation que l'on assimile à des points matériels. On a:
+On propose ensuite de mesurer le moment d'inertie $I_b$ de la barre ainsi que la constante de torsion $D$ à l'aide de la période $T$
+de la barre avec deux masses $m$ se situant symétriquement par rapport à l'axe de rotation sur la barre à une distance $r_{masse}$ variables de l'axe au centre de masse de ces dernières, on prendra le centre géométrique des cylindres
+comme centre de masse. Il nous faut alors exprimer $T$ comme une fonction de $r_{masse}$ pour obtenir 
+$I_b$ et $D$. On commence par exprimer le moment d'inertie total $I_{tot}$ du système:
 \begin{equation}
     I_{tot} = I_{masse} + I_b = 2mr_{masse}^2 + I_b
 \end{equation}
 
-Avec la formule de la période, on a:
+Avec la formule de la période (\ref{eqn:periode}), on en déduit:
 \begin{align*}
     \frac{T^2}{4\pi^2} = \frac{I_{tot}}{D} = ar_{masse}^2 + b, \quad \quad a = \frac{2m}{D}, b=\frac{I_b}{D}
 \end{align*}
@@ -115,23 +166,32 @@ Par régression linéaire, on obtient $a$ et $b$, ce qui nous permet de remonter
     D = \frac{2m}{a} \quad I_b = \frac{2mb}{a}
 \end{equation}
 
-Pour mesurer la période, on fait faire un demi-tour à la barre puis on la lâche. Avec un chronomètre, 
-on mesure le temps nécessaire pour qu'elle revienne à son point de départ à l'aide d'un chronomètre. On répète la mesure plusieurs fois
-afin d'obtenir une valeur moyenne de $T$ avec une incertitude.
+On installe les deux masses de masse $m = 212 \pm 0.1g$ (obtenue sur une balance) en $r_{masse}$ avec une incertitude $\delta r = 0.2cm$ donnée par la règle et sa légère instabilité.
+Pour mesurer la période, le même expérimentateur fait faire un demi-tour approximatif\footnote{L'angle de départ n'influence pas la période, à la manière d'un pendule simple} à la barre,
+puis lâche cette dernière en démarrant le chronomètre pour limiter les temps de réaction. Enfin, il coupe le chronomètre lorsque la barre revient à un angle maximal du même côté que son point de
+départ\footnote{La présence de frottements impose une diminution de l'amplitude, il est donc normal qu'on n'observe pas un retour au point de départ, cependant, 
+la période ne varie pas comme on le montre dans la partie \ref{section:periode}}. 
+On répète 10 fois la mesure de la période en relançant la barre pour chaque distance $r_{masse}$ 
+afin d'obtenir une valeur moyenne et une incertitude statistique. On reporte les périodes moyennes pour 
+chaque $r_{masse}$ dans le graphique (\ref{fig:graphe_T}) et le tableau (\ref{table:mesure_D_dynamique}) ainsi que les détails de calcul en 
+partie (\ref{section:D_dynamique}).
+
+En conclusion, nous obtenons $D = 24.7 \pm 0.2 mN.m$, qui conserve l'ordre de grandeur trouvé en partie (\ref{D_statique}), cependant, la méthode
+dynamique utilisant la période est bien plus précise car elle nous permet d'obtenir une valeur de $D$ précise au dixième contre une précision
+à l'unité pour la méthode statique. De plus, elle nous permet de trouver le moment d'inertie de la barre de $I_b = 3.93 \pm 0.09g.m^2$. Notre mesure pourrait
+encore gagner en précision en utilisant une caméra ou une porte optique pour mesurer plus précisement la période.
 
 \break
 
-[GRAPHIQUE]
 
-[ANALYSE DU GRAPHIQUE + VALEUR SUR $D$ et $I_b$ + COMPARAISON METHODE STATIQUE VS DYNAMIQUE]
 
 \section{Moment d'inertie de plusieurs solides}
 Dans cette dernière partie, on se propose de déterminer le moment d'inertie de différents solides via la période
 de rotation, puis de comparer les valeurs à la théorie. Pour cela, nous avons besoin des expressions des différents moments d'inerties que l'on peut trouver à la fin de l'énoncé
 du TP. Nous donnons ici un exemple de calcul du moment d'inertie théorique pour une boule de rayon $R$ et de masse volumique $\rho$ uniforme.
 \begin{align}
-    I_{boule}   & = \frac{2}{3} \int_{r=0}^{R}\int_{\theta=0}^{2\pi}\int_{\phi=0}^{\pi} \rho(r,\theta,\phi) r^4 \sin(\theta) dr d\theta d\phi \\
-                & = \frac{4 \times 2\pi \rho(r,\theta,\phi) R^5}{5 \times 3} \\
+    I_{boule}   & = \frac{2}{3} \int_{r=0}^{R}\int_{\theta=0}^{2\pi}\int_{\phi=0}^{\pi} \rho r^4 \sin(\theta) dr d\theta d\phi \\
+                & = \frac{4 \times 2\pi \rho R^5}{5 \times 3} \\
                 & = \frac{2mR^2}{5}
 \end{align}
 
@@ -167,5 +227,78 @@ On synthétise l'ensemble des mesures et des valeurs déduites dans le tableau s
 
 [CONCLUSION TP FINALE]
 
+\break
+\section{Annexes}
+\subsection{Mesure de $D$ par méthode dynamique, résultats et graphiques}
+\label{section:D_dynamique}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{||c | c c c c c||} 
+		\hline
+		$r_{masse} \pm 0.2$ (en cm) & $7$ & $12$ & $17$ & $22$ & $27$ \\
+		\hline
+        $T_{moyenne}$ (en S) & $3.09 \pm 0.02$ & $4.02 \pm 0.02$ & $5.07 \pm 0.02$ & $6.29 \pm 0.02$ & $7.42 \pm 0.02$\\
+        \hline
+    \end{tabular}
+	\caption{Période moyenne $T_{moyenne}$ sur 10 mesures par distance $r_{masse}$}
+	\label{table:mesure_D_dynamique}
+\end{table}
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics*[scale=1]{img/D_dynamique.png}
+    \end{center}
+    \caption{$\frac{T^2}{4\pi^2}$ en fonction de $r^2$}
+    \label{fig:graphe_T}
+\end{figure}
+
+La régression linéaire nous donne les coefficients $a$ et $b$:
+\begin{equation}
+    a = 17.1 \pm 0.2 s^2.m^{-2} \quad \quad \quad b = 0.159 \pm 0.004 s^2
+\end{equation}
+
+On en déduit alors les valeurs de $D$ et $I_b$:
+\begin{align*}
+    D = \frac{2m}{a} & = 24.7 \pm 0.2 mN.m \\
+    I_b = \frac{2mb}{a} & = 3.93 \pm 0.09 g.m^2 % 0.00393 \pm 0.00009 kg.m^2 
+\end{align*}
+
+
+\break
+\subsection{Période et frottements de l'air}
+\label{section:periode}
+Reprenons l'équation différentielle (\ref{eqn:equa_diff}):
+\begin{equation}
+    \ddot \theta + \frac{D}{I}\theta = 0 \Rightarrow \ddot \theta + \omega_0^2 \theta = 0, \quad \omega_0^2 = \frac{D}{I}
+    \label{eqn:sans_frottements}
+\end{equation}
+
+
+En présence de frottements $\vec{f} = -k \vec{v}$, cette même équation prend la forme suivante:
+\begin{equation}
+    \ddot \theta + \frac{k r^2}{I} \dot \theta + \frac{D}{I}\theta = 0
+\end{equation}
+
+En effet, on a:
+\begin{align}
+    \vec{M}(\vec{f}) = \vec{OM} \wedge \vec{f} = r\ur \wedge -k r \dot \theta \ut = -k r^2 \dot \theta \uz
+\end{align}
+
+Pour simplifier, posons simplement que la force s'applique en bout de la barre, et on supposera donc un coefficient 
+$\alpha = k R^2$, avec $R$ la demi-longueur de la barre.
+
+On se place dans le cas d'une oscillation pseudo-période, donc $\lambda < \omega_0$. Nous avons alors:
+\begin{equation}
+    \ddot \theta + \frac{\alpha}{I} \dot \theta + \frac{D}{I}\theta = 0 \Rightarrow \ddot \theta + 2\lambda \dot \theta + \omega_0^2\theta = 0, \quad 2\lambda = \frac{\alpha}{I}, \omega = \sqrt{\omega_0^2 - \lambda^2} 
+    \label{eqn:avec_frottements}
+\end{equation}
+
+Il vient alors que les solutions de ces équations sont:
+\begin{align}
+    \theta(t) = \theta_0 \cos(\omega_0 t), \quad \theta(0) = \theta_0 \text{ et } \dot \theta(0) = 0 \\
+    \theta(t) = \theta_0 \cos(\omega t) \exp(-\lambda t), \quad \theta(0) = \theta_0 \text{ et } \dot \theta(0) = 0
+\end{align}
+
+On remarque qu'entre les deux expressions, seul un terme de décroissance exponentielle intervient pour rendre compte des frottements.
+Ainsi, seul l'amplitude se voit décroître, mais la période reste inchangée.
 
 \end{document}
