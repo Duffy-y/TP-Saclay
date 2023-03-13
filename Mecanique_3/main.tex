@@ -149,7 +149,7 @@ lecture de l'angle, et donc une valeur de $D$ avec des incertitudes plus petites
 
 \subsection{Mesure de $D$ par méthode dynamique}
 On propose ensuite de mesurer le moment d'inertie $I_b$ de la barre ainsi que la constante de torsion $D$ à l'aide de la période $T$
-de la barre avec deux masses $m$ se situant symétriquement par rapport à l'axe de rotation sur la barre à une distance $r_{masse}$ variables de l'axe au centre de masse de ces dernières, on prendra le centre géométrique des cylindres
+de la barre avec deux masses $m$ se situant symétriquement par rapport à l'axe de rotation sur la barre à une distance $r_{masse}$ variable de l'axe au centre de masse de ces dernières, on prendra le centre géométrique des cylindres
 comme centre de masse. Il nous faut alors exprimer $T$ comme une fonction de $r_{masse}$ pour obtenir 
 $I_b$ et $D$. On commence par exprimer le moment d'inertie total $I_{tot}$ du système:
 \begin{equation}
@@ -167,16 +167,16 @@ Par régression linéaire, on obtient $a$ et $b$, ce qui nous permet de remonter
 \end{equation}
 
 On installe les deux masses de masse $m = 212 \pm 0.1g$ (obtenue sur une balance) en $r_{masse}$ avec une incertitude $\delta r = 0.2cm$ donnée par la règle et sa légère instabilité.
-Pour mesurer la période, le même expérimentateur fait faire un demi-tour approximatif\footnote{L'angle de départ n'influence pas la période, à la manière d'un pendule simple} à la barre,
+Pour mesurer la période, le même expérimentateur fait faire un demi-tour approximatif\footnote{L'angle de départ n'influence pas la période, voire partie (\ref{section:periode})} à la barre,
 puis lâche cette dernière en démarrant le chronomètre pour limiter les temps de réaction. Enfin, il coupe le chronomètre lorsque la barre revient à un angle maximal du même côté que son point de
 départ\footnote{La présence de frottements impose une diminution de l'amplitude, il est donc normal qu'on n'observe pas un retour au point de départ, cependant, 
-la période ne varie pas comme on le montre dans la partie \ref{section:periode}}. 
+la période ne varie pas comme on le montre dans la partie (\ref{section:periode})}. 
 On répète 10 fois la mesure de la période en relançant la barre pour chaque distance $r_{masse}$ 
 afin d'obtenir une valeur moyenne et une incertitude statistique. On reporte les périodes moyennes pour 
 chaque $r_{masse}$ dans le graphique (\ref{fig:graphe_T}) et le tableau (\ref{table:mesure_D_dynamique}) ainsi que les détails de calcul en 
 partie (\ref{section:D_dynamique}).
 
-En conclusion, nous obtenons $D = 24.7 \pm 0.2 mN.m$, qui conserve l'ordre de grandeur trouvé en partie (\ref{D_statique}), cependant, la méthode
+En conclusion, nous obtenons bien une droite comme prédit par la théorie, avec $D = 24.7 \pm 0.2 mN.m$, qui conserve l'ordre de grandeur trouvé en partie (\ref{D_statique}), cependant, la méthode
 dynamique utilisant la période est bien plus précise car elle nous permet d'obtenir une valeur de $D$ précise au dixième contre une précision
 à l'unité pour la méthode statique. De plus, elle nous permet de trouver le moment d'inertie de la barre de $I_b = 3.93 \pm 0.09g.m^2$. Notre mesure pourrait
 encore gagner en précision en utilisant une caméra ou une porte optique pour mesurer plus précisement la période.
@@ -188,23 +188,18 @@ encore gagner en précision en utilisant une caméra ou une porte optique pour m
 \section{Moment d'inertie de plusieurs solides}
 Dans cette dernière partie, on se propose de déterminer le moment d'inertie de différents solides via la période
 de rotation, puis de comparer les valeurs à la théorie. Pour cela, nous avons besoin des expressions des différents moments d'inerties que l'on peut trouver à la fin de l'énoncé
-du TP. Nous donnons ici un exemple de calcul du moment d'inertie théorique pour une boule de rayon $R$ et de masse volumique $\rho$ uniforme.
-\begin{align}
-    I_{boule}   & = \frac{2}{3} \int_{r=0}^{R}\int_{\theta=0}^{2\pi}\int_{\phi=0}^{\pi} \rho r^4 \sin(\theta) dr d\theta d\phi \\
-                & = \frac{4 \times 2\pi \rho R^5}{5 \times 3} \\
-                & = \frac{2mR^2}{5}
-\end{align}
+du TP. Nous donnons un exemple de calcul pour une boule dans la partie (\ref{boule})
 
-On commence par lister la masse et les dimensions de chacun des solides à l'aide d'une balance imposant une incertitude $\delta m = 0.1g$
-et une règle pour les rayons du cylindre creux donnant une incertitude $\delta r = 0.1cm$. Pour déterminer le moment d'inertie, nous plaçons le solide à étudier sur l'axe, et lui fait faire un demi-tour puis on le lâche. A l'aide d'une porte optique,
-nous mesurons la période de rotation. \\ 
-Pour la constante de torsion $D$ et le moment d'inertie de la barre, nous utiliserons les valeurs déterminées par la méthode dynamique car plus précise que la méthode
-statique.
+On commence par lister la masse et les dimensions de chacun des solides à l'aide d'une balance imposant une incertitude $\delta m = 0.1g$.
+On mesure les différents rayons $r$ des solides avec une règle, on impose alors une incertitude sur les rayons de $\delta r = 0.2cm$. Cependant, pour la boule nous conserverons
+la même incertitude mais nous utiliserons le rayon fourni car il aurait fallu un fil pour mesurer la circonférence de la boule.
 
-Grâce à la formule de la période, on a:
-\begin{equation}
-    I_{solide} = I_{tot} - I_b \Rightarrow I_{solide} = \frac{DT^2}{4\pi^2} - I_b
-\end{equation}
+Chaque solide présente un trait noir, que nous utiliserons comme repère pour mesurer plus facilement la période. Pour la mesurer,
+un même expérimentateur fait tourner le solide d'un demi-tour, puis libère le solide et démarre le chronomètre en simultanée. 
+Une fois que le repère effectue un aller-retour, l'expérimentateur arrête le chronomètre lorsque 
+le repère atteint un angle maximal \footnote{Même remarque concernant l'angle que dans la partie précédente, voir partie (\ref{section:periode})}.
+On répète la mesure de la période 10 fois par solide pour obtenir une valeur moyenen ainsi qu'une incertitude tenant compte du temps de réaction
+de l'expérimentateur.
 
 On synthétise l'ensemble des mesures et des valeurs déduites dans le tableau suivant:
 
@@ -212,14 +207,14 @@ On synthétise l'ensemble des mesures et des valeurs déduites dans le tableau s
 	\centering
 	\begin{tabular}{||c c c c c c||} 
 		\hline
-		Solide          & Masse $m$  & Rayon $r$  & Période & $I_{solide,exp}$ & $I_{solide,th}$    \\
+		Solide          & $m \pm 0.1$ (g)  & $r \pm 0.2$ (cm)  & Période (s) & $I_{exp}$ ($g.m^2$)& $I_{th}$ ($g.m^2$)    \\
 		\hline
-        Sphère          &            &          &           &                  &                    \\
-        Cylindre creux  &            &          &           &                  &                    \\
-        Cylindre plein  &            &          &           &                  &                    \\
+        Sphère          & $644.9$ & $7.0$ & $1.34 \pm 0.01$ & $1.12 \pm 0.03$ & $1.26 \pm 0.07$ \\
+        Cylindre creux  & $347.3$ & $\frac{r_e}{r_i} = \frac{5}{4.6}$ & $1.075 \pm 0.008$ & $0.72 \pm 0.02$ & $0.8 \pm 0.1$ \\
+        Cylindre plein  & $386.1$ & $4.9$ & $0.81 \pm 0.01$ & $0.41 \pm 0.02$ & $0.46 \pm 0.04$ \\
 		\hline
 	\end{tabular}
-	\caption{Caractéristiques des solides à étudier}
+	\caption{Caractéristiques des solides et résultats expérimentaux}
 	\label{table:1}
 \end{table}
 
@@ -240,7 +235,7 @@ On synthétise l'ensemble des mesures et des valeurs déduites dans le tableau s
         $T_{moyenne}$ (en S) & $3.09 \pm 0.02$ & $4.02 \pm 0.02$ & $5.07 \pm 0.02$ & $6.29 \pm 0.02$ & $7.42 \pm 0.02$\\
         \hline
     \end{tabular}
-	\caption{Période moyenne $T_{moyenne}$ sur 10 mesures par distance $r_{masse}$}
+	\caption{Période moyenne $T_{moyenne}$ sur 10 mesures pour chaque distance $r_{masse}$}
 	\label{table:mesure_D_dynamique}
 \end{table}
 \begin{figure}[h!]
@@ -300,5 +295,30 @@ Il vient alors que les solutions de ces équations sont:
 
 On remarque qu'entre les deux expressions, seul un terme de décroissance exponentielle intervient pour rendre compte des frottements.
 Ainsi, seul l'amplitude se voit décroître, mais la période reste inchangée.
+On remarque également que l'angle de départ n'influence pas la période, mais que l'amplitude d'oscillation.
 
+\subsection{Moment d'inertie d'une boule}
+\label{boule}
+Soit  boule de rayon $R$ et de masse volumique $\rho$ uniforme. On a:
+\begin{align}
+    I_{boule} = \int_{r=0}^{R}\int_{\theta=0}^{2\pi}\int_{\phi=0}^{\pi} \rho (x^2 + y^2) dxdy
+\end{align}
+On passe en coordonnées sphériques:
+\begin{align*}
+    x &= r \sin \theta \cos \phi \\
+    y &= r \sin \theta \sin \phi \\
+    z &= r \cos \theta \\
+    dV &= r^2 sin \theta dr d\theta d\phi
+\end{align*}
+
+\break
+Il vient alors que:
+\begin{align*}
+    I_{boule} & = \int_{r=0}^{R}\int_{\phi=0}^{2\pi}\int_{\theta=0}^{\pi} \rho (x^2 + y^2) dxdy \\
+    & = \rho \int_{r=0}^{R}\int_{\phi=0}^{2\pi}\int_{\theta=0}^{\pi} r^4 \sin^3 \theta dr d\theta d\theta \\
+    & = \rho \int_{r=0}^{R} r^4 dr \int_{\phi=0}^{2\pi} d\phi \int_{\theta=0}^{\pi} \sin^3 \theta d\theta \\
+    & = 2\pi \rho \left[ \frac{r^5}{5} \right]_0^R \int_{\theta=0}^{\pi} \sin^3 \theta d\theta \\
+    & = \frac{4 \times 2 \pi \rho R^5}{3 \times 5 } \\
+    & = \frac{2 m R^3}{5}
+\end{align*}
 \end{document}
