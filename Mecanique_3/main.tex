@@ -36,11 +36,11 @@ nous mesurerons le couple généré par le ressort ainsi que la constante de tor
 \subsection{Théorie}
 On définit un répère polaire de centre $O$ confondu avec l'axe, et on note $\theta=0 \text{ rad}$ la position d'équilibre. On repère le point
 de la mesure en $M$, tel que $\vec{OM} = r\ur$. En admettant que la force de rappel
-s'applique orthoradialement avec $\vec{F} = F(r) \ut$, on exprime alors le moment $\vec{M}$ de $\vec{F}$:
+s'applique orthoradialement avec $\vec{F} = -F(r, \theta) \ut$, on exprime alors le moment $\vec{M}$ de $\vec{F}$:
 
 \begin{align}
     \vec{M} & = \vec{OM} \wedge \vec{F} & \vec{M} \cdot \uz = -D\theta \\
-            & = -rF(r) \uz \nonumber
+            & = -rF(r, \theta) \uz \nonumber
     \label{eqn:moment_ressort}
 \end{align}
 
@@ -208,23 +208,29 @@ On synthétise l'ensemble des mesures et des valeurs déduites dans le tableau s
 
 \begin{table}[h!]
 	\centering
-	\begin{tabular}{||c c c c c c||} 
+	\begin{tabular}{||c c c c c c c||} 
 		\hline
-		Solide          & $m \pm 0.1$ (g)  & $r \pm 0.2$ (cm)  & Période (s) & $I_{exp}$ ($g.m^2$)& $I_{th}$ ($g.m^2$)\\
+		Solide          & $m \pm 0.1$ (g)  & $r \pm 0.2$ (cm)  & Période (s) & $I_{exp}$ ($g.m^2$)& $I_{th}$ ($g.m^2$) & $\gamma$ (\%)\\
 		\hline
-        Sphère          & $644.9$ & $7.0$ & $1.34 \pm 0.01$ & $1.12 \pm 0.03$ & $1.26 \pm 0.07$\\
-        Cylindre creux  & $347.3$ & $\frac{r_e}{r_i} = \frac{5}{4.6}$ & $1.075 \pm 0.008$ & $0.72 \pm 0.02$ & $0.8 \pm 0.1$ \\
-        Cylindre plein  & $386.1$ & $4.9$ & $0.81 \pm 0.01$ & $0.41 \pm 0.02$ & $0.46 \pm 0.04$\\
+        Sphère          & $644.9$ & $7.0$ & $1.34 \pm 0.02$ & $1.12 \pm 0.03$ & $1.26 \pm 0.07$ & $0\%$ \\
+        Cylindre creux  & $347.3$ & $\frac{r_e}{r_i} = \frac{5}{4.6}$ & $1.08 \pm 0.02$ & $0.72 \pm 0.03$ & $0.8 \pm 0.1$ & $71\%$ \\
+        Cylindre plein  & $386.1$ & $4.9$ & $0.81 \pm 0.02$ & $0.41 \pm 0.02$ & $0.46 \pm 0.04$ & $40\%$ \\
 		\hline
 	\end{tabular}
 	\caption{Caractéristiques des solides et résultats expérimentaux}
 	\label{table:1}
 \end{table}
 
-En conclusion, nous pouvons voir que pour les deux cylindres, les valeurs expérimentales et théoriques sont en accord, et incluses l'une dans l'autre. Cependant, pour la sphère, les deux valeurs
-ne se croisent pas, donc on ne retrouve pas la valeur théorique par l'expérience. Il est important de noter que même si les valeurs se croisent pour les 2 cylindres, on observe
-que la valeur expérimentale du cylindre creux croise seulement $20\%$ de la valeur théorique, et $12.5\%$ de la valeur 
-[CONCLUSION TP FINALE]
+En conclusion, nous pouvons voir que pour les deux cylindres, les valeurs expérimentales et théoriques sont en accord, et les recouvrements $\gamma$
+nous permettent de conclure que la théorie prédit de façon satisfaisante pour le cylindre creux et avec une précision plus faible pour le cylindre plein.
+Cependant, pour la sphère, les deux valeurs ne se croisent pas avec $\gamma = 0\%$, donc on ne retrouve pas la valeur théorique par l'expérience.
+
+Les écarts à la théorie pourraient être dû à la présence de frottements mécaniques (roulements) peuvent réduire la période. L'incertitude sur la période est cohérente car de l'ordre 
+du temps de réaction humain, mais il reste l'incertitude sur le moment où l'expérimentateur estime que le solide atteint l'angle maximal. Pour résoudre ce dernier problème,
+l'usage d'une caméra pourrait résoudre ce problème en suivant un repère comme nous l'avons fait à l'oeil. On obtiendrai alors une incertitude plus petite, et une
+valeur de la période plus précise. Pour la valeur théorique, l'usage de balance plus précise ainsi que des rayons avec une incertitude plus faible serait intéressant.
+
+\section{Conclusion}
 
 \break
 \section{Annexes}
@@ -349,7 +355,7 @@ l'incertitude de confiance de $68\%$ à $80\%$ pour être plus représentatif de
 Enfin, pour comparer les intervalles de confiance entre la valeur théorique $x_{th}$ et la valeur expérimentale $x_{exp}$, on notera $\gamma$ le pourcentage
 d'intervalle de $x_{exp}$ coupé par l'intervalle de $x_{th}$. On a alors:
 \begin{equation}
-    \gamma = \frac{\text{Largeur intervalle expérimental coupé par }x_{th}}{2\delta x_{exp}} \times 100
+    \gamma = \frac{\text{Largeur intervalle expérimental coupé par }x_{th}}{2\delta x_{exp} + 1} \times 100
 \end{equation}
 
 
