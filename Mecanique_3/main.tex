@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 \usepackage[left=2cm, top=1.5cm, right=2cm, bottom=1.5cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -123,8 +123,6 @@ du rapporteur qui peut légèrement varier.
 \textbf{Remarque:} Les calculs seront \textbf{toujours} effectués en radians, bien que le tableau (\ref{table:mesure_D_statique}) indique
 les angles en degrés pour faciliter la compréhension de notre démarche.
 
-\break
-
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{||c | c c c c c c c c||} 
@@ -178,11 +176,7 @@ partie (\ref{section:D_dynamique}).
 En conclusion, nous obtenons bien une droite comme prédit par la théorie, avec $D = 24.7 \pm 0.2 mN.m$, qui conserve l'ordre de grandeur trouvé en partie (\ref{D_statique}), cependant, la méthode
 dynamique utilisant la période est bien plus précise car elle nous permet d'obtenir une valeur de $D$ précise au dixième contre une précision
 à l'unité pour la méthode statique. De plus, elle nous permet de trouver le moment d'inertie de la barre de $I_b = 3.93 \pm 0.09g.m^2$. Notre mesure pourrait
-encore gagner en précision en utilisant une caméra ou une porte optique pour mesurer plus précisement la période.
-
-\break
-
-
+encore gagner en précision en utilisant une caméra.
 
 \section{Moment d'inertie de plusieurs solides}
 Dans cette dernière partie, on se propose de déterminer le moment d'inertie de différents solides via la période
@@ -208,29 +202,38 @@ On synthétise l'ensemble des mesures et des valeurs déduites dans le tableau s
 
 \begin{table}[h!]
 	\centering
-	\begin{tabular}{||c c c c c c c||} 
+	\begin{tabular}{||c c c c c c||} 
 		\hline
-		Solide          & $m \pm 0.1$ (g)  & $r \pm 0.2$ (cm)  & Période (s) & $I_{exp}$ ($g.m^2$)& $I_{th}$ ($g.m^2$) & $\gamma$ (\%)\\
+		Solide          & $m \pm 0.1$ (g)  & $r \pm 0.2$ (cm)  & Période (s) & $I_{exp}$ ($g.m^2$)& $I_{th}$ ($g.m^2$)\\
 		\hline
-        Sphère          & $644.9$ & $7.0$ & $1.34 \pm 0.02$ & $1.12 \pm 0.03$ & $1.26 \pm 0.07$ & $0\%$ \\
-        Cylindre creux  & $347.3$ & $\frac{r_e}{r_i} = \frac{5}{4.6}$ & $1.08 \pm 0.02$ & $0.72 \pm 0.03$ & $0.8 \pm 0.1$ & $71\%$ \\
-        Cylindre plein  & $386.1$ & $4.9$ & $0.81 \pm 0.02$ & $0.41 \pm 0.02$ & $0.46 \pm 0.04$ & $40\%$ \\
+        Sphère          & $644.9$ & $7.0$ & $1.34 \pm 0.02$ & $1.12 \pm 0.03$ & $1.26 \pm 0.07$ \\
+        Cylindre creux  & $347.3$ & $\frac{r_e}{r_i} = \frac{5}{4.6}$ & $1.08 \pm 0.02$ & $0.72 \pm 0.03$ & $0.8 \pm 0.1$ \\
+        Cylindre plein  & $386.1$ & $4.9$ & $0.81 \pm 0.02$ & $0.41 \pm 0.02$ & $0.46 \pm 0.04$ \\
 		\hline
 	\end{tabular}
 	\caption{Caractéristiques des solides et résultats expérimentaux}
 	\label{table:1}
 \end{table}
 
-En conclusion, nous pouvons voir que pour les deux cylindres, les valeurs expérimentales et théoriques sont en accord, et les recouvrements $\gamma$
-nous permettent de conclure que la théorie prédit de façon satisfaisante pour le cylindre creux et avec une précision plus faible pour le cylindre plein.
-Cependant, pour la sphère, les deux valeurs ne se croisent pas avec $\gamma = 0\%$, donc on ne retrouve pas la valeur théorique par l'expérience.
+En conclusion, nous pouvons voir que pour les deux cylindres, les valeurs expérimentales et théoriques sont en accord, nous pouvons donc conclure qu'ici, la théorie prédit correctement
+les valeurs expérimentales.
+Cependant, pour la sphère, les deux valeurs ne se croisent pas donc on ne retrouve pas la valeur théorique par l'expérience.
 
-Les écarts à la théorie pourraient être dû à la présence de frottements mécaniques (roulements) peuvent réduire la période. L'incertitude sur la période est cohérente car de l'ordre 
+Les légers écarts à la théorie pourraient être dû à la présence de frottements mécaniques (roulements) peuvent réduire la période. L'incertitude sur la période est cohérente car de l'ordre 
 du temps de réaction humain, mais il reste l'incertitude sur le moment où l'expérimentateur estime que le solide atteint l'angle maximal. Pour résoudre ce dernier problème,
 l'usage d'une caméra pourrait résoudre ce problème en suivant un repère comme nous l'avons fait à l'oeil. On obtiendrai alors une incertitude plus petite, et une
 valeur de la période plus précise. Pour la valeur théorique, l'usage de balance plus précise ainsi que des rayons avec une incertitude plus faible serait intéressant.
 
 \section{Conclusion}
+Finalement, nous avons réussi à valider les hypothèses expérimentales à savoir que le couple ne dépendait pas de $r$ pour un angle $\theta$ constant. Nous avons
+ensuite réussi à déterminer la constante de torsion du ressort $D$ avec une méthode dite statique impliquant la mesure de l'angle et du couple, mais aussi avec une méthode dite dynamique utilisant
+pour seule mesure la période de rotation, ce qui nous permet d'en déduire $D$ et le moment d'inertie $I_b$ de notre barre. Les deux méthodes confirment que $D$ est constant, mais
+la méthode dynamique reste à priviliger de part la précision obtenue au dixième près (contre une précision à l'unité pour la méthode statique). 
+Enfin, grâce à ces mesures préalables, nous avons pu déduire par cette même méthode dynamique le moment d'une sphère et de deux cylindres.
+Dans l'ensemble, la théorie prédit correctement qualitativement et quantitativement, cependant, l'ensemble des expériences gagneraient en précision 
+en introduisant des appareils tel qu'une caméra et une platine de mesure d'angle juste sous la barre. Enfin, on pourrait envisager de mesurer
+de ne plus mesurer des groupes de $10$ périodes, mais d'un plus grand nombre, et de répéter ce groupe de mesures quelque fois afin de vérifier
+la dispersion de la période entre des expériences équivalentes pour juger de la qualité de la mesure.
 
 \break
 \section{Annexes}
@@ -352,11 +355,6 @@ Soit $T_i$, la i-ème mesure sur les 10 mesures effectuées par solide, on calcu
 De part l'incertitude sur le temps de réaction de l'expérimentateur, on multipliera $\delta T$ par un facteur $t = 1.38$ selon la loi de Student pour monter
 l'incertitude de confiance de $68\%$ à $80\%$ pour être plus représentatif de la présence d'un temps de réaction de l'expérimentateur.
 
-Enfin, pour comparer les intervalles de confiance entre la valeur théorique $x_{th}$ et la valeur expérimentale $x_{exp}$, on notera $\gamma$ le pourcentage
-d'intervalle de $x_{exp}$ coupé par l'intervalle de $x_{th}$. On a alors:
-\begin{equation}
-    \gamma = \frac{\text{Largeur intervalle expérimental coupé par }x_{th}}{2\delta x_{exp} + 1} \times 100
-\end{equation}
 
 
 \end{document}
