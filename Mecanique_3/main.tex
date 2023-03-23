@@ -176,21 +176,21 @@ partie (\ref{section:D_dynamique}).
 En conclusion, nous obtenons bien une droite comme prédit par la théorie, avec $D = 24.7 \pm 0.2 mN.m$, qui conserve l'ordre de grandeur trouvé en partie (\ref{D_statique}), cependant, la méthode
 dynamique utilisant la période est bien plus précise car elle nous permet d'obtenir une valeur de $D$ précise au dixième contre une précision
 à l'unité pour la méthode statique. De plus, elle nous permet de trouver le moment d'inertie de la barre de $I_b = 3.93 \pm 0.09g.m^2$. Notre mesure pourrait
-encore gagner en précision en utilisant une caméra.
+encore gagner en précision en utilisant une caméra pour mesurer la période $T$.
 
 \section{Moment d'inertie de plusieurs solides}
 Dans cette dernière partie, on se propose de déterminer le moment d'inertie de différents solides via la période
 de rotation, puis de comparer les valeurs à la théorie. Pour cela, nous avons besoin des expressions des différents moments d'inerties que l'on peut trouver à la fin de l'énoncé
-du TP. Nous donnons un exemple de calcul pour une boule dans la partie (\ref{boule})
+du TP. Nous donnons un exemple de calcul pour une boule dans la partie (\ref{boule}).
 
 On commence par lister la masse et les dimensions de chacun des solides à l'aide d'une balance imposant une incertitude $\delta m = 0.1g$.
 On mesure les différents rayons $r$ des solides avec une règle, on impose alors une incertitude sur les rayons de $\delta r = 0.2cm$. Cependant, pour la boule nous conserverons
 la même incertitude mais nous utiliserons le rayon fourni car il aurait fallu un fil pour mesurer la circonférence de la boule.
 
 Chaque solide présente un trait noir, que nous utiliserons comme repère pour mesurer plus facilement la période. Pour la mesurer,
-un même expérimentateur fait tourner le solide d'un demi-tour, puis libère le solide et démarre le chronomètre en simultanée. 
+un même expérimentateur fait tourner le solide d'un demi-tour, puis libère le solide et démarre le chronomètre en même temps. 
 Une fois que le repère effectue un aller-retour, l'expérimentateur arrête le chronomètre lorsque 
-le repère atteint un angle maximal \footnote{Même remarque concernant l'angle que dans la partie précédente, voir partie (\ref{section:periode})}.
+le repère atteint un angle maximal \footnote{Même remarque concernant l'angle maximal, la période et les frottements que dans la partie précédente, voir partie (\ref{section:periode})}.
 On répète la mesure de la période 10 fois par solide pour obtenir une valeur moyenne ainsi qu'une incertitude tenant compte du temps de réaction
 de l'expérimentateur. On obtient la valeur de $I_{th}$ par la formule présente dans la table Méca 3.1 du poly et $I_{exp}$ issu de la formule (\ref{eqn:periode}) avec:
 
@@ -228,11 +228,11 @@ valeur de la période plus précise. Pour la valeur théorique, l'usage de balan
 Finalement, nous avons réussi à valider les hypothèses expérimentales à savoir que le couple ne dépendait pas de $r$ pour un angle $\theta$ constant. Nous avons
 ensuite réussi à déterminer la constante de torsion du ressort $D$ avec une méthode dite statique impliquant la mesure de l'angle et du couple, mais aussi avec une méthode dite dynamique utilisant
 pour seule mesure la période de rotation, ce qui nous permet d'en déduire $D$ et le moment d'inertie $I_b$ de notre barre. Les deux méthodes confirment que $D$ est constant, mais
-la méthode dynamique reste à priviliger de part la précision obtenue au dixième près (contre une précision à l'unité pour la méthode statique). 
+la méthode dynamique reste à privilégier de part la précision obtenue au dixième près, contre une précision à l'unité pour la méthode statique. 
 Enfin, grâce à ces mesures préalables, nous avons pu déduire par cette même méthode dynamique le moment d'une sphère et de deux cylindres.
-Dans l'ensemble, la théorie prédit correctement qualitativement et quantitativement, cependant, l'ensemble des expériences gagneraient en précision 
-en introduisant des appareils tel qu'une caméra et une platine de mesure d'angle juste sous la barre. Enfin, on pourrait envisager de mesurer
-de ne plus mesurer des groupes de $10$ périodes, mais d'un plus grand nombre, et de répéter ce groupe de mesures quelque fois afin de vérifier
+Pour 2 solides sur les 3, la théorie prédit correctement l'aspect qualitatif et quantitatif, sauf pour la sphère. Les pistes d'améliorations que nous avons proposé 
+le long de ce compte rendu permettrait de refaire les expériences et donc d'avoir une conclusion plus claire sur la valeur du moment d'inertie d'une sphère entre valeur théorique et expérimentale. L'ensemble des expériences gagneraient en précision 
+en introduisant des appareils tel qu'une caméra et une platine de mesure d'angle juste sous la barre. Enfin, on pourrait envisager de ne plus mesurer des groupes de $10$ périodes, mais d'un plus grand nombre, et de répéter ce groupe de mesures quelque fois afin de vérifier
 la dispersion de la période entre des expériences équivalentes pour juger de la qualité de la mesure.
 
 \break
@@ -300,7 +300,7 @@ En effet, on a:
 Pour simplifier, posons simplement que la force s'applique en bout de la barre, et on supposera donc un coefficient 
 $\alpha = k R^2$, avec $R$ la demi-longueur de la barre.
 
-On se place dans le cas d'une oscillation pseudo-période, donc $\lambda < \omega_0$. Nous avons alors:
+On se place dans le cas d'une oscillation pseudo-périodique, donc $\lambda < \omega_0$. Nous avons alors:
 \begin{equation}
     \ddot \theta + \frac{\alpha}{I} \dot \theta + \frac{D}{I}\theta = 0 \Rightarrow \ddot \theta + 2\lambda \dot \theta + \omega_0^2\theta = 0, \quad 2\lambda = \frac{\alpha}{I}, \omega = \sqrt{\omega_0^2 - \lambda^2} 
     \label{eqn:avec_frottements}
