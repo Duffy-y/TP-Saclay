@@ -67,11 +67,11 @@ def odr_fit(model: Callable, x: np.ndarray, y: np.ndarray, p0, fit_type = 0):
         
     return out
 
-def plot_error(x, y, label="", fmt=None):
+def plot_error(x, y, label="", fmt=None,color='b'):
     if fmt == None:
-        courbe = plt.errorbar(x=unumpy.nominal_values(x), y=unumpy.nominal_values(y), xerr=unumpy.std_devs(x), yerr=unumpy.std_devs(y), label=label)
+        courbe = plt.errorbar(x=unumpy.nominal_values(x), y=unumpy.nominal_values(y), xerr=unumpy.std_devs(x), yerr=unumpy.std_devs(y), label=label,ecolor=color)
     else:
-        courbe = plt.errorbar(x=unumpy.nominal_values(x), y=unumpy.nominal_values(y), xerr=unumpy.std_devs(x), yerr=unumpy.std_devs(y), label=label, fmt=fmt)
+        courbe = plt.errorbar(x=unumpy.nominal_values(x), y=unumpy.nominal_values(y), xerr=unumpy.std_devs(x), yerr=unumpy.std_devs(y), label=label, fmt=fmt,ecolor=color)
         
 def plot(x, y, label="", fmt=None):
     if fmt == None:
