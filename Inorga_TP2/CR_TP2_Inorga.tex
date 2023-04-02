@@ -1,0 +1,139 @@
+\documentclass[12pt]{article}
+\usepackage[left=3cm, top=1cm, right=3cm, bottom=3cm]{geometry}
+\usepackage[utf8]{inputenc}      % accents dans le source
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{xcolor} 
+\usepackage{mathtools}
+\usepackage{parskip}
+\usepackage{subcaption}
+\usepackage[export]{adjustbox}
+\usepackage{chemist}
+\usepackage{rotating}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue}
+
+\title{\textbf{TP2 Chimie Inorganique} \\ Complexes Thermochromes}
+\author{MENARD Alexandre \\ VIEILLEDENT Florent}
+
+\begin{document}
+\maketitle
+
+\section{But}
+Dans ce travail pratique nous synthétisons et étudions les prorpiétés de deux complexes thermochromes : le tétrachloronickelate de bis(diéthylammonium) $((C_2H_5)_2NH_2)_2[NiCl_4]$ et le tétrachlorocupratede bis(diéthylammonium) $((C_2H_5)_2NH_2)_2[CuCl_4]$.
+
+\section{Principe}
+La géométrie d'un complexe peut dépendre de la température. 
+Dans notre cas, les ligands chloro induisent une forte répulsion électronique entre ligands ce qui favorise une géométrie tétraédrique en absence de tout effet de l'environnement.
+Le contre ion $(C_2H_5)_2NH_2$ peut cependant former des liaisons hydrogènes avec les ligands chloro, ce qui favorise d'autre géométrie que celle tétraédrique.
+Ces liaisons hydrogènes n'étant possible qu'à basse température, la géométrie de nos complexes changent donc lorqu'on augmente la tempérautre.
+
+Ce changement de géométrie modifie l'énergie de transition, notamment celles des transitions d-d responsables de la couleur des complexes.
+Les longueurs d'ondes absorbées, et donc les couleurs des complexes, ne sont alors pas les mêmes selon la température.
+
+\newpage
+
+\section{Complexe  de$((C_2H_5)_2NH_2)_2[NiCl_4]$}
+\subsection{Synthèse}
+On synthétise le complexe avec la réaction suivante :
+\begin{align}
+    2((C_2H_5)_2NH_2)Cl_{(s)} + NiCl_{2(s)} \longrightarrow ((C_2H_5)_2NH_2)_2[NiCl_4]_{(s)}
+\label{eq1:Premiere synthese}
+\end{align}
+
+On pèse les masses suivantes de réactifs :
+\begin{table}[h!]
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            Nom & Masse (en g) & Masse molaire & Nombre de moles \\
+            \hline
+            $((C_2H_5)_2NH_2)Cl$ & 1.10 & 10.,5 & $1.0\times 10^{-2}$ \\
+            \hline
+            $NiCl_2$ & 0.65 & 129.6 & $5.0 \times 10^{-2}$ \\
+            \hline
+        \end{tabular}
+    \end{center}
+    \caption{Table des masses de réactifs pour la première expérience}
+    \label{tab1:masse1}
+\end{table}
+
+Les réactifs sont donc ajoutés en proportion steochiométrique dans cette expérience d'après l'équation (\ref{eq1:Premiere synthese}) et le tableau (\ref{tab1:masse1}).
+
+1.10 g de $((C_2H_5)_2NH_2)Cl$ et 0.65 g de $NiCl_2$ ont été mélangé dans un mortier pendant 10 minutes. 
+$((C_2H_5)_2NH_2)Cl$ était sous la forme d'une poudre blanche et $NiCl_2$ une poudre orange.
+La poudre orange obtenue est séchée pendant 1 heure dans une étude à $50^\circ C$.
+Le solide est refroidi dans un dessicateur pendant 10 minutes. La pourdre était alors jaune clair.
+
+\subsection{Propriétés thermochromes}
+Notre complexe a été placé sur un bance Kofler préalablement étalonné. 
+Il a été déplacé jusqu'à l'observation d'un changment de couleur à une température $T_1=66\pm 1^\circ C$.
+Le solide est alors passé du jaune clair à un bleu foncé.
+
+À basse température, on a présence de liaisons hydrogènes entre $(C_2H_5)_2NH_2$ et les ligands chloro, ce qui favorise une géométrie octaédrique avec des chloro pontants.
+La couleur observée est alors jaune claire, la couleur absorbée est alors la couleur complémentaire, le violet.
+Cela correspond à une longueur d'onde absorbée $\lambda_1\approx 420 \ nm$. 
+On peut calculer l'énergie de transition $\Delta E_1 =\frac{hc}{\lambda_1}=\frac{1237.8}{420}=2.95 \ eV$.
+
+À haute température, on n'a plus de liaisons hydrogènes.
+La géométrie favorisée est la géométrie tétraédrique qui limite la répulsion électronique entre les ligands chloro.
+Le solide est alors bleu foncé, ce qui correspond à une couleur absorbée orange.
+La longueur d'onde absorbée est alors $\lambda_2\approx 580 \ nm$, on a alors $\Delta E_2=2.13 eV$.
+
+On a la relation $\Delta_t=\frac{4}{9}\Delta_O$, avec $\Delta_t$ la différence d'énergie entre les orbitales d dans un complexe tétraédrique et $\Delta_0$ la différence d'énergie dans un complexe octaédrique.
+On s'attend donc à une diminution des énergies de transition lorsqu'on passe d'une géométrie octaédrique à une géométrie tétraédrique.
+Nos résultats expérimentaux sont en accords avec les prédictions théoriques, on a $\Delta E_2 <  \Delta E_1$.
+
+\section{Complexe  de$((C_2H_5)_2NH_2)_2[CuCl_4]$}
+\subsection{Synthèse}
+On synthétise le complexe avec la réaction suivante :
+\begin{align}
+    2((C_2H_5)_2NH_2)Cl_{(aq)} +  CuCl_{2(aq)} \longrightarrow ((C_2H_5)_2NH_2)_2[CuCl_4]_{(aq)}
+\label{deuxiemesynthese}
+\end{align}
+
+On pèse nos réactifs :
+\begin{table}[h!]
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            Nom & Masse (en g) & Masse molaire & Nombre de moles \\
+            \hline
+            $((C_2H_5)_2NH_2)Cl$ & 1.10 & 10.,5 & $1.0\times 10^{-2}$ \\
+            \hline
+            $CuCl_2$ & 0.70 & 134.5 & $5.2 \times 10^{-2}$ \\
+            \hline
+        \end{tabular}
+    \end{center}
+    \caption{Table des masses de réactifs pour la deucxième expérience}
+    \label{tab2:masse2}
+\end{table}
+
+D'après l'équation (\ref{deuxiemesynthese}) et le tableau (\ref{tab2:masse2}) on remarque que $((C_2H_5)_2NH_2)Cl$ est le réactif limitant.
+
+Une première solution est préparée dans un bécher en ajoutant 1.10 g de chlorure de diéthylammonium $((C_2H_5)_2NH_2)Cl$ solide et 8 mL d'isopropanol.
+0.70 g de chlorure de cuivre anhydre $CuCl_2$ et 2 mL d'éthanol absolue sont ajoutés dans un autre bécher. La solution de chlorure de diéthylammonium est incolore et celle de chlorure de cuivre anhydre est verte foncée.
+Les deux solutions sont chauffées à environ $40 ^\circ C$ dans un bain d'eau jusqu'à dissolution des solides.
+La première solution est alors ajoutée dans le second bécher et la nouvelle solution est agité à chaud pendant quelques minutes.
+La solution est refroidi à température ambiante quelques minutes puis est placé dans un bain de glace.
+Le complexe est précipité en frottant les parois du bécher avec un bagette de verre.
+Le précipité vert clair est filtré sous vide avec un fritté puis lavé avec de l'isopropanol froid et de l'éther diéthylique froid.
+Le résidu obtenu est alors séché quelques minutes à l'air libre. 
+
+On obtient une masse de complexe $m_{exp}=0.87 \pm 0.05\ g$, l'incertitude prenant en compte que le solide est hygroscopique, ce qui limite le temps de filtration et de séchage du solide.
+Cela correspond à un nombre de mol $n_{exp}=\frac{m_{exp}}{M_{complexe}}=\frac{0.87}{353.5}= 2.5 \ mmol$. 
+Le nombre maximale de moles est $n_{theo}=\frac{n_{((C_2H_5)_2NH_2)Cl}}{\nu_{((C_2H_5)_2NH_2)Cl}}=5.0 \ mmol$ car le chlorure de diéthylammonium est le réactif limitant, avec $\nu_{((C_2H_5)_2NH_2)Cl}$ le coefficient steochiométrique.
+
+Le rendement est donc $r=\frac{n_{exp}}{n_{theo}}=\frac{2.5}{5.0}=50 \%$. 
+CALCUL INCERTITUDE ASSOCIE ET DISCUSSION DU RENDEMENT
+
+\subsection{Propriétés thermochromes}
+
+
+\section{Conclusion}
+
+\end{document}
